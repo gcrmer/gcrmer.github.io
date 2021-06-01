@@ -22,7 +22,14 @@
 <meta name="keywords" content="" />
 
 
-<meta name="description" content="" />
+<meta name="description" content="**a 标签的用法 **
+作用： 标签主要做超链接，可以跳转外部页面、内部锚点、邮箱以及电话
+它有以下几种属性
+
+
+href 写一个网址进行引用
+target 确定在哪个窗口打开超链接
+down..." />
 
 
 <meta name="robots" content="all" />
@@ -32,6 +39,8 @@
     <!--Title-->
 
 <title>
+    
+    HTML常用标签 |
     
     Amazeseek
 </title>
@@ -160,48 +169,16 @@
     <section class="content-wrap">
         <div class="container">
             <div class="row">
-                <main class="col-md-8 main-content ">
-                    
-<div class="carousel">
-    <a href="" target="_blank">
-        <img src="https://z3.ax1x.com/2021/05/30/2VTUJA.jpg" alt="">
-    </a>
-</div>
-
-
-
-
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
 <article class="post">
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/2021/06/01/HTML%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/">
-                    HTML常用标签</a>
-            </h1>
-            <div class="post-meta"> &bull;
-                <time class="post-date" datetime="" title="">
-                    2021年06月01日
-                </time>
-            </div>
-        </div>
-        <p class="brief">
+    <div class="post-head">
+        <h1 id="HTML常用标签">
             
-            **a 标签的用法 **
-作用： 标签主要做超链接，可以跳转外部页面、内部锚点、邮箱以及电话
-它有以下几种属性
-
-
-href 写一个网址进行引用
-target 确定在哪个窗口打开超链接
-download 理论上是下载网页，实际上浏览器...
+            HTML常用标签
             
-        </p>
-    </div>
-    
-    <footer class="post-footer clearfix">
-        <div class="pull-left tag-list">
-            <div class="post-meta">
+        </h1>
+        <div class="post-meta">
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
@@ -217,171 +194,192 @@ download 理论上是下载网页，实际上浏览器...
     </span>
     
     
-</div>
-        </div>
-        <div class="post-permalink">
-            <a href="/2021/06/01/HTML%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/" class="btn btn-default">
-                阅读全文</a>
-        </div>
-    </footer>
-    
-</article>
-
-
-<article class="post">
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/2021/05/22/HTML%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A01/">
-                    HTML入门笔记1</a>
-            </h1>
-            <div class="post-meta"> &bull;
-                <time class="post-date" datetime="" title="">
-                    2021年05月22日
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-            HTML 的发明者HTML 是由 Tim Berners-Lee (李爵士) 发明的。
-HTML 起手应该写些什么如下图所示
-
-常用的表章节的标签有哪些，分别是什么意思章节标签是用来表示文章或书籍的层级，以下是标签的具体分类
-
-标题 ...
-            
-        </p>
-    </div>
-    
-    <footer class="post-footer clearfix">
-        <div class="pull-left tag-list">
-            <div class="post-meta">
-    
-    <span class="categories-meta fa-wrap">
-        <i class="fa fa-folder-open-o"></i>
-        <a class="category-link" href="/categories/HTML/">HTML</a>
-    </span>
-    
     
     <span class="fa-wrap">
-        <i class="fa fa-tags"></i>
-        <span class="tags-meta">
-            
-        </span>
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2021/06/01</span>
     </span>
     
     
 </div>
-        </div>
-        <div class="post-permalink">
-            <a href="/2021/05/22/HTML%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A01/" class="btn btn-default">
-                阅读全文</a>
-        </div>
-    </footer>
+        
+        
+    </div>
     
+    <div class="post-body post-content">
+        <h3 id="a-标签的用法"><a href="#a-标签的用法" class="headerlink" title="**a 标签的用法 **"></a>**a 标签的用法 **</h3><ol>
+<li>作用： 标签主要做超链接，可以跳转外部页面、内部锚点、邮箱以及电话</li>
+<li>它有以下几种属性</li>
+</ol>
+<ul>
+<li>href 写一个网址进行引用</li>
+<li>target 确定在哪个窗口打开超链接</li>
+<li>download 理论上是下载网页，实际上浏览器可能不支持</li>
+<li>rel =noopener 防止 Bug</li>
+</ul>
+<ol start="3">
+<li>a 的 href 取值有以下几种</li>
+</ol>
+<ul>
+<li><p>网址 以 “https” “http” 或 “//“ 开头 + 域名 三种类型，用”// +域名”的方式比较保险，不用考虑网页是按照 https 还是 http 的方式请求。</p>
+</li>
+<li><p>路径 /a/b/c 或者 a/b/c， 注意当 http 服务开启后，”/“不再是表示计算机本地的根目录，而是表示当前服务的根目录。</p>
+</li>
+<li><p>伪协议</p>
+<ul>
+<li>Javascript 代码，点击链接后就会执行</li>
+<li>tel:手机号</li>
+<li>mailto: 邮箱</li>
+</ul>
+</li>
+<li><p>id</p>
+<p>href=”#xxx” 跳转到指定标签</p>
+</li>
+</ul>
+<ol start="4">
+<li>a 的 target 取值</li>
+</ol>
+<ul>
+<li>内置名字</li>
+</ul>
+<p>​ _blank 在空白窗口打开</p>
+<p>​ _top 在最顶级窗口打开</p>
+<p>​ _parent 在当前连接所在 iframe 的上一层打开</p>
+<p>​ _self 默认在当前窗口打开</p>
+<ul>
+<li>自己命名 windows 的 name</li>
+</ul>
+<p>当写 name 的时候定义一个字符串，target = “xxx” 可以实现在同一个窗口打开不同的页面<br>target=”xxx” 意思是如果有窗口 xxx 就用 xxx 窗口打开，如果没有 xxx 窗口 就创建一个 xxx 窗口打开</p>
+<ul>
+<li><h3 id="img-标签"><a href="#img-标签" class="headerlink" title="img 标签 *"></a>img 标签 *</h3></li>
+</ul>
+<ol>
+<li><p>作用 : 发出 get 请求，展示图片</p>
+</li>
+<li><p>属性：</p>
+<ul>
+<li>alt （写加载失败后提示用户的话）</li>
+<li>height（图高 ）width（图宽）只写其中一个另一个会自适应，同时写会导致图片变形</li>
+<li>src</li>
+</ul>
+</li>
+<li><p>事件：onload/onerror 监听图片是否加载成功</p>
+</li>
+<li><p>响应式：max-width：100% （保证在手机上也能正常使用</p>
+</li>
+</ol>
+<ul>
+<li><h3 id="table-标签"><a href="#table-标签" class="headerlink" title="table 标签 *"></a>table 标签 *</h3></li>
+</ul>
+<ol>
+<li><p>作用: table 标签主要是用于做表格</p>
+</li>
+<li><p>相关标签：</p>
+</li>
+</ol>
+<ul>
+<li>thead 表头</li>
+<li>tbody 内容</li>
+<li>tfoot 表尾</li>
+<li>tr 表的一行</li>
+<li>td 表的数据</li>
+</ul>
+<ol start="3">
+<li>相关样式</li>
+</ol>
+<ul>
+<li><p>table-layout auto 宽度根据内容决定 fixed 宽度尽量平均</p>
+</li>
+<li><p>border-collapse 合并边框</p>
+</li>
+<li><p>border-space 调整边框距离</p>
+</li>
+</ul>
+<ol start="4">
+<li><p>单表头与多表头的实现</p>
+<ul>
+<li><p>单表头</p>
+<table>        <thead>            <tr>                 <th>时间</th>                <th>任务</th>            </tr>         </thead>        <tbody>            <tr>               <td> 七点 </td>                  <td> 起床 </td>            </tr>            <tr>                <td> 八点 </td>                   <td> 学习 </td>             </tr> </tbody>        <tfoot>            <tr>              <td> 空 </td>              <td> 空 </td>           </tr></tfoot>    </table>
+
+<ul>
+<li><p>多表头</p>
+<table>         <thead>               <tr>                 <th></th>                 <th>小斌</th>                 <th>小滕</th>               </tr>         </thead>           <tbody>                <tr>                   <th>英语</th>                       <td>100</td>                   <td>100</td>                </tr>                <tr>                    <th>语文</th>                        <td>100</td>                    <td>100</td>                 </tr>           </tbody>           <tfoot>                <tr>                    <th>总分</th>                    <td>200</td>                    <td>200</td>                </tr>            </tfoot>
+
+</li>
+</ul>
+<p>注意：多表头是在正常完成单表头写法的基础上，遇到表头就写<th> ,遇到数据就写<td>，就实现了多表头的表。</p>
+</li>
+</ul>
+</li>
+</ol>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Amazeseek</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
 </article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+    <a href="/2021/05/22/HTML%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A01/" class="next-post btn btn-default" title='HTML入门笔记1'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            HTML入门笔记1</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: 'eR0SDTdoQ1U55NajfdAGQi8N-gzGzoHsz',
+    appKey: 'CGQgfSWBWL0lzuoNVNQ2G8QT',
+    placeholder: '欢迎留下你的足迹呦。',
+    notify: false,
+    verify: true,
+    avatar: 'monsterid',
+    meta: 'nick,mail'.split(','),
+    pageSize: '10',
+    path: window.location.pathname,
+    lang: 'zh-CN'.toLowerCase()
+})
+</script>
 
 
+</div>
 
                 </main>
                 
-                    
-<aside class="col-md-4 sidebar">
-    
-    
-<div class="widget">
-    <h3 class="title">
-        搜索
-    </h3>
-    <div id="search-form">
-        <div id="result-mask" class="hide"></div>
-        <div class="search-area">
-            
-            <input id="search-key" type="search" autocomplete="off" placeholder="搜点什么呢？">
-            <button type="button" class="search-form-submit" id="search-local">
-                站内搜索</button>
-            
-            
-        </div>
-        <div id="result-wrap" class="hide">
-            <div id="search-result"></div>
-        </div>
-        <div class="hide">
-            <template id="search-tpl">
-                <div class="item">
-                    <a href="/{path}" title="{title}">
-                        <div class="title">{title}</div>
-                        <div class="content">{content}</div>
-                    </a>
-                </div>
-            </template>
-        </div>
-    </div>
-</div>
-
-    
-    
-    
-    
-<div class="widget">
-    <h3 class="title">
-        社交
-    </h3>
-    <div class="content social">
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            文章目录
+        </h3>
         
-        <a href="//github.com/Amazeseek" rel="external nofollow" title="Github" target="_blank">
-            <i class="github fa fa-github"></i>
-        </a>
-        
-        <a href="mailto:Amazeseek@gmail.com" rel="external nofollow" title="邮箱" target="_blank">
-            <i class="envelope-o fa fa-envelope-o"></i>
-        </a>
-        
-        <a href="https://twitter.com/Amazeseek" rel="external nofollow" title="twitter" target="_blank">
-            <i class="twitter fa fa-twitter"></i>
-        </a>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#a-%E6%A0%87%E7%AD%BE%E7%9A%84%E7%94%A8%E6%B3%95"><span class="toc-text">**a 标签的用法 **</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#img-%E6%A0%87%E7%AD%BE"><span class="toc-text">img 标签 *</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#table-%E6%A0%87%E7%AD%BE"><span class="toc-text">table 标签 *</span></a></li></ol>
         
     </div>
-</div>
-
-    
-    
-<div class="widget">
-    <h3 class="title">
-        分类
-    </h3>
-    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/HTML/"><i class="fa" aria-hidden="true">HTML</i></a><span class="category-list-count">1</span></li></ul>
-</div>
-
-    
-    
-<div class="widget">
-    <h3 class="title">
-        归档
-    </h3>
-    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/"><i class="fa" aria-hidden="true">2021年06月</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/"><i class="fa" aria-hidden="true">2021年05月</i></a><span class="archive-list-count">1</span></li></ul>
-</div>
-
-    
-    
-    
-    
-<div class="widget">
-    <h3 class="title">
-        友链
-    </h3>
-    <div class="content friends-link">
-        
-        <a href="https://weibo.com/atthemomenttour?is_all=1" class="fa" target="_blank">
-            许巍音乐之旅</a>
-        
-    </div>
-</div>
-
-    
 </aside>
-
                 
             </div>
         </div>
@@ -418,10 +416,6 @@ HTML 起手应该写些什么如下图所示
         </div>
     </div>
 </div>
-
-
-<script src="/js/search.js?rev=@@hash.js"></script>
-
 
 
 
