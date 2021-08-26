@@ -22,7 +22,9 @@
 <meta name="keywords" content="" />
 
 
-<meta name="description" content="" />
+<meta name="description" content="URL 的构成与作用URL 由 协议 + 域名或者 IP + 端口号+路径+ 查询字符串+锚点 几部分构成
+协议：https 或者 http  作用是规定请求的格式与响应的格式
+域名或者IP：作..." />
 
 
 <meta name="robots" content="all" />
@@ -33,7 +35,7 @@
 
 <title>
     
-    分类: HTML |
+    浅析URL |
     
     Amazeseek
 </title>
@@ -157,174 +159,129 @@
     <section class="content-wrap">
         <div class="container">
             <div class="row">
-                <main class="col-md-8 main-content ">
-                    <ol class="breadcrumb">
-    
-    <li>
-        HTML
-    </li>
-    
-</ol>
-
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
 <article class="post">
+    <div class="post-head">
+        <h1 id="浅析URL">
+            
+            浅析URL
+            
+        </h1>
+        <div class="post-meta">
     
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/2021/06/01/HTML%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/">
-                    HTML常用标签</a>
-            </h1>
-            <div class="post-meta"> &bull;
-                <time class="post-date" datetime="" title="">
-                    2021年06月01日
-                </time>
-            </div>
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2021/08/26</span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h3 id="URL-的构成与作用"><a href="#URL-的构成与作用" class="headerlink" title="URL 的构成与作用"></a>URL 的构成与作用</h3><p>URL 由 协议 + 域名或者 IP + 端口号+路径+ 查询字符串+锚点 几部分构成</p>
+<p>协议：https 或者 http  作用是规定请求的格式与响应的格式</p>
+<p>域名或者IP：作用是定位设备 封装数据报文以及同其他设备交流</p>
+<p>端口号：作用是找到相应的服务</p>
+<p>路径：请求不同的页面</p>
+<p>查询字符串：查询同一个页面下 不同的内容</p>
+<p>锚点：查询同一个内容下 不同的位置（注意锚点不支持中文且不会上传到服务器）</p>
+<h3 id="域名的含义与分类"><a href="#域名的含义与分类" class="headerlink" title="域名的含义与分类"></a>域名的含义与分类</h3><p>域名是对 IP 的别称，它分为三类：顶级域名 二级域名 三级域名</p>
+<p>如 cn 是顶级域名</p>
+<p>  <a target="_blank" rel="noopener" href="https://tengchunlei.cn/">tengchunlei.cn</a> 是二级域名</p>
+<p><a target="_blank" rel="noopener" href="http://www.tengchunlei.cn/">www.tengchunlei.cn</a>  是三级域名</p>
+<h3 id="DNS-的作用"><a href="#DNS-的作用" class="headerlink" title="DNS 的作用"></a>DNS 的作用</h3><p>DNS 的作用是将域名和 IP 对应起来，例如当我们在浏览器中输入 <a href="www.tengchunlei.cn">tengchunlei.cn</a> 的时候，浏览器会向服务商提供的 DNS 服务器询问 <a href="www.tengchunlei.cn">tengchunlei.cn</a> 对应的 IP 是多少，服务商会回答一个 IP ，然后浏览器会向对应的 IP 的 80/443 端口发送请求，内容是查看 <a href="www.tengchunlei.cn">tengchunlei.cn</a>的首页。</p>
+<h3 id="nslookup-命令如何使用"><a href="#nslookup-命令如何使用" class="headerlink" title="nslookup 命令如何使用"></a>nslookup 命令如何使用</h3><p>nslookup 用于查询域名对应的 IP </p>
+<p>如：nslookup <a href="GOOGLE.COM">google.com</a> </p>
+<h3 id="IP-的作用-以及-ping-命令的使用"><a href="#IP-的作用-以及-ping-命令的使用" class="headerlink" title="IP 的作用 以及  ping  命令的使用"></a>IP 的作用 以及  ping  命令的使用</h3><p>IP 的作用是定位设备 封装数据报文以及同其他设备交流</p>
+<p>如果我们想知道一个域名的 IP 地址就可以通过 ping 命令</p>
+<p>如： ping  <a href="www.tengchunlei.cn">tengchunlei.cn</a></p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Amazeseek</a>
+            
+            
         </div>
-        <p class="brief">
+        <div>
             
-            a 标签的用法
-作用： a 标签主要做超链接，可以跳转外部页面、内部锚点、邮箱以及电话
-
-它有以下几种属性 
-
-
-
-href 写一个网址进行引用
-
-
-target 确定在哪个窗口打开超链接
-download 理论上是下载网页，实际上浏...
-            
-        </p>
+        </div>
     </div>
 </article>
-
-<article class="post">
+<div class="article-nav prev-next-wrap clearfix">
     
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/2021/05/22/HTML%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A01/">
-                    HTML入门笔记1</a>
-            </h1>
-            <div class="post-meta"> &bull;
-                <time class="post-date" datetime="" title="">
-                    2021年05月22日
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-            HTML 的发明者HTML 是由 Tim Berners-Lee (李爵士) 发明的。
-HTML 起手应该写些什么如下图所示
+    
+    <a href="/2021/06/01/HTML%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/" class="next-post btn btn-default" title='HTML常用标签'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            HTML常用标签</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
 
-常用的表章节的标签有哪些，分别是什么意思**章节标签是用来表示文章或书籍的层级，以下是标签的具体分类
+<div id="comments">
+    
 
-标...
-            
-        </p>
-    </div>
-</article>
+<div id="vcomments" class="valine"></div>
 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: 'eR0SDTdoQ1U55NajfdAGQi8N-gzGzoHsz',
+    appKey: 'CGQgfSWBWL0lzuoNVNQ2G8QT',
+    placeholder: '欢迎留下你的足迹呦。',
+    notify: false,
+    verify: true,
+    avatar: 'monsterid',
+    meta: 'nick,mail'.split(','),
+    pageSize: '10',
+    path: window.location.pathname,
+    lang: 'zh-CN'.toLowerCase()
+})
+</script>
+
+
+</div>
 
                 </main>
                 
-                    
-<aside class="col-md-4 sidebar">
-    
-    
-<div class="widget">
-    <h3 class="title">
-        搜索
-    </h3>
-    <div id="search-form">
-        <div id="result-mask" class="hide"></div>
-        <div class="search-area">
-            
-            <input id="search-key" type="search" autocomplete="off" placeholder="搜点什么呢？">
-            <button type="button" class="search-form-submit" id="search-local">
-                站内搜索</button>
-            
-            
-        </div>
-        <div id="result-wrap" class="hide">
-            <div id="search-result"></div>
-        </div>
-        <div class="hide">
-            <template id="search-tpl">
-                <div class="item">
-                    <a href="/{path}" title="{title}">
-                        <div class="title">{title}</div>
-                        <div class="content">{content}</div>
-                    </a>
-                </div>
-            </template>
-        </div>
-    </div>
-</div>
-
-    
-    
-    
-    
-<div class="widget">
-    <h3 class="title">
-        社交
-    </h3>
-    <div class="content social">
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            文章目录
+        </h3>
         
-        <a href="//github.com/Amazeseek" rel="external nofollow" title="Github" target="_blank">
-            <i class="github fa fa-github"></i>
-        </a>
-        
-        <a href="mailto:Amazeseek@gmail.com" rel="external nofollow" title="邮箱" target="_blank">
-            <i class="envelope-o fa fa-envelope-o"></i>
-        </a>
-        
-        <a href="https://twitter.com/Amazeseek" rel="external nofollow" title="twitter" target="_blank">
-            <i class="twitter fa fa-twitter"></i>
-        </a>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#URL-%E7%9A%84%E6%9E%84%E6%88%90%E4%B8%8E%E4%BD%9C%E7%94%A8"><span class="toc-text">URL 的构成与作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D%E7%9A%84%E5%90%AB%E4%B9%89%E4%B8%8E%E5%88%86%E7%B1%BB"><span class="toc-text">域名的含义与分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DNS-%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-text">DNS 的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nslookup-%E5%91%BD%E4%BB%A4%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8"><span class="toc-text">nslookup 命令如何使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IP-%E7%9A%84%E4%BD%9C%E7%94%A8-%E4%BB%A5%E5%8F%8A-ping-%E5%91%BD%E4%BB%A4%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">IP 的作用 以及  ping  命令的使用</span></a></li></ol>
         
     </div>
-</div>
-
-    
-    
-<div class="widget">
-    <h3 class="title">
-        分类
-    </h3>
-    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/HTML/"><i class="fa" aria-hidden="true">HTML</i></a><span class="category-list-count">2</span></li></ul>
-</div>
-
-    
-    
-<div class="widget">
-    <h3 class="title">
-        归档
-    </h3>
-    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/"><i class="fa" aria-hidden="true">2021年08月</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/"><i class="fa" aria-hidden="true">2021年06月</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/"><i class="fa" aria-hidden="true">2021年05月</i></a><span class="archive-list-count">1</span></li></ul>
-</div>
-
-    
-    
-    
-    
-<div class="widget">
-    <h3 class="title">
-        友链
-    </h3>
-    <div class="content friends-link">
-        
-        <a href="https://weibo.com/atthemomenttour?is_all=1" class="fa" target="_blank">
-            许巍音乐之旅</a>
-        
-    </div>
-</div>
-
-    
 </aside>
-
                 
             </div>
         </div>
@@ -361,10 +318,6 @@ HTML 起手应该写些什么如下图所示
         </div>
     </div>
 </div>
-
-
-<script src="/js/search.js?rev=@@hash.js"></script>
-
 
 
 
