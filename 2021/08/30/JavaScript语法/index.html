@@ -22,7 +22,9 @@
 <meta name="keywords" content="" />
 
 
-<meta name="description" content="" />
+<meta name="description" content="表达式和语句的含义表达式是可以被求值的代码，而语句是一段可执行代码。
+表达式一般都有值，语句可能有也可能没有，语句一般会改变环境变量。
+标识符规则第一个字符可以是 Unicode 字母或者 _ ..." />
 
 
 <meta name="robots" content="all" />
@@ -33,7 +35,7 @@
 
 <title>
     
-    归档：2021/6 |
+    JavaScript语法 |
     
     AmazeseeK
 </title>
@@ -157,199 +159,140 @@
     <section class="content-wrap">
         <div class="container">
             <div class="row">
-                <main class="col-md-8 main-content ">
-                    <div id="main">
-    <div class="timebox">
-        <div class="timeline">
-            <ul>
-                
-                
-                
-                
-                
-                
-                <h2>
-                    2021
-                </h2>
-                
-                
-                <li class="hide">
-                    
-                    <h3>
-                        30<span>
-                            08月</span>
-                    </h3>
-                    <a href="/2021/08/30/JavaScript%E8%AF%AD%E6%B3%95/" title="JavaScript语法" target="_blank">
-                        JavaScript语法</a>
-                </li>
-                
-                
-                
-                
-                
-                
-                <li class="hide">
-                    
-                    <h3>
-                        30<span>
-                            08月</span>
-                    </h3>
-                    <a href="/2021/08/30/JavaScript%E7%AE%80%E4%BB%8B/" title="JavaScript 简介" target="_blank">
-                        JavaScript 简介</a>
-                </li>
-                
-                
-                
-                
-                
-                
-                <li class="hide">
-                    
-                    <h3>
-                        26<span>
-                            08月</span>
-                    </h3>
-                    <a href="/2021/08/26/%E6%B5%85%E6%9E%90URL/" title="浅析URL" target="_blank">
-                        浅析URL</a>
-                </li>
-                
-                
-                
-                
-                
-                
-                <li class="">
-                    
-                    <h3>
-                        01<span>
-                            06月</span>
-                    </h3>
-                    <a href="/2021/06/01/HTML%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/" title="HTML常用标签" target="_blank">
-                        HTML常用标签</a>
-                </li>
-                
-                
-                
-                
-                
-                
-                <li class="hide">
-                    
-                    <h3>
-                        22<span>
-                            05月</span>
-                    </h3>
-                    <a href="/2021/05/22/HTML%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A01/" title="HTML入门笔记1" target="_blank">
-                        HTML入门笔记1</a>
-                </li>
-                
-                
-            </ul>
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="JavaScript语法">
+            
+            JavaScript语法
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2021/08/30</span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h3 id="表达式和语句的含义"><a href="#表达式和语句的含义" class="headerlink" title="表达式和语句的含义"></a>表达式和语句的含义</h3><p>表达式是可以被求值的代码，而语句是一段可执行代码。</p>
+<p>表达式一般都有值，语句可能有也可能没有，语句一般会改变环境变量。</p>
+<h3 id="标识符规则"><a href="#标识符规则" class="headerlink" title="标识符规则"></a>标识符规则</h3><p>第一个字符可以是 Unicode 字母或者 _ 或 $ 或中文，后面的字符，除了以上所说还可以有数字。</p>
+<h3 id="if-else-语句的使用"><a href="#if-else-语句的使用" class="headerlink" title="if else  语句的使用"></a>if else  语句的使用</h3><p>语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if（表达式）&#123;语句1 &#125;else&#123;语句2&#125;</span><br></pre></td></tr></table></figure>
+
+<p>{ } 在语句只有一句的时候可省略，但是不建议这样使用。</p>
+<p>最推荐的写法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if（表达式 ）&#123;</span><br><span class="line">   语句</span><br><span class="line">&#125;else if（表达式）&#123;</span><br><span class="line">   语句</span><br><span class="line">&#125;else &#123;</span><br><span class="line">   语句</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="while-for-语句的使用"><a href="#while-for-语句的使用" class="headerlink" title="while  for 语句的使用"></a>while  for 语句的使用</h3><p>while 语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">while （表达式）&#123;语句&#125;</span><br></pre></td></tr></table></figure>
+
+<p>首先判断表达式的真假</p>
+<p>当表达式为真，执行语句，执行完再判断表达式的真假</p>
+<p>当表达式为假，执行后面的语句</p>
+<p>for 语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for（语句1;表达式2;语句3）&#123;</span><br><span class="line">   循环体</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>首先执行语句1</p>
+<p>接着判断表达式2</p>
+<p>如果为真，执行循环体，然后执行语句3</p>
+<p>如果为假，直接退出循环，执行后面的语句</p>
+<h3 id="break-continue-的使用"><a href="#break-continue-的使用" class="headerlink" title="break  continue  的使用"></a>break  continue  的使用</h3><p>break 退出所有循环</p>
+<p>continue 退出当前一次循环</p>
+<h3 id="label"><a href="#label" class="headerlink" title="label"></a>label</h3><figure class="highlight plain"><figcaption><span>a：1&#125;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123; </span><br><span class="line">   a：1</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<p>这段代码的含义是指： a是一个 label，语句是 1 。</p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">AmazeseeK</a>
+            
+            
+        </div>
+        <div>
+            
         </div>
     </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+    <a href="/2021/08/30/JavaScript%E7%AE%80%E4%BB%8B/" class="next-post btn btn-default" title='JavaScript 简介'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            JavaScript 简介</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
 </div>
+
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: 'eR0SDTdoQ1U55NajfdAGQi8N-gzGzoHsz',
+    appKey: 'CGQgfSWBWL0lzuoNVNQ2G8QT',
+    placeholder: '欢迎留下你的足迹呦。',
+    notify: false,
+    verify: true,
+    avatar: 'monsterid',
+    meta: 'nick,mail'.split(','),
+    pageSize: '10',
+    path: window.location.pathname,
+    lang: 'zh-CN'.toLowerCase()
+})
+</script>
+
+
+</div>
+
                 </main>
                 
-                    
-<aside class="col-md-4 sidebar">
-    
-    
-<div class="widget">
-    <h3 class="title">
-        搜索
-    </h3>
-    <div id="search-form">
-        <div id="result-mask" class="hide"></div>
-        <div class="search-area">
-            
-            <input id="search-key" type="search" autocomplete="off" placeholder="搜点什么呢？">
-            <button type="button" class="search-form-submit" id="search-local">
-                站内搜索</button>
-            
-            
-        </div>
-        <div id="result-wrap" class="hide">
-            <div id="search-result"></div>
-        </div>
-        <div class="hide">
-            <template id="search-tpl">
-                <div class="item">
-                    <a href="/{path}" title="{title}">
-                        <div class="title">{title}</div>
-                        <div class="content">{content}</div>
-                    </a>
-                </div>
-            </template>
-        </div>
-    </div>
-</div>
-
-    
-    
-    
-    
-<div class="widget">
-    <h3 class="title">
-        社交
-    </h3>
-    <div class="content social">
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            文章目录
+        </h3>
         
-        <a href="//github.com/AmazeseeK" rel="external nofollow" title="Github" target="_blank">
-            <i class="github fa fa-github"></i>
-        </a>
-        
-        <a href="mailto:amazeseek@gmail.com" rel="external nofollow" title="邮箱" target="_blank">
-            <i class="envelope-o fa fa-envelope-o"></i>
-        </a>
-        
-        <a href="https://weibo.com/u/7683551346?is_all=1" rel="external nofollow" title="微博" target="_blank">
-            <i class="weibo fa fa-weibo"></i>
-        </a>
-        
-        <a href="https://twitter.com/AmazeseeK" rel="external nofollow" title="twitter" target="_blank">
-            <i class="twitter fa fa-twitter"></i>
-        </a>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8C%E8%AF%AD%E5%8F%A5%E7%9A%84%E5%90%AB%E4%B9%89"><span class="toc-text">表达式和语句的含义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E8%AF%86%E7%AC%A6%E8%A7%84%E5%88%99"><span class="toc-text">标识符规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#if-else-%E8%AF%AD%E5%8F%A5%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">if else  语句的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#while-for-%E8%AF%AD%E5%8F%A5%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">while  for 语句的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#break-continue-%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">break  continue  的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#label"><span class="toc-text">label</span></a></li></ol>
         
     </div>
-</div>
-
-    
-    
-<div class="widget">
-    <h3 class="title">
-        分类
-    </h3>
-    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/HTML/"><i class="fa" aria-hidden="true">HTML</i></a><span class="category-list-count">2</span></li></ul>
-</div>
-
-    
-    
-<div class="widget">
-    <h3 class="title">
-        归档
-    </h3>
-    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/"><i class="fa" aria-hidden="true">2021年08月</i></a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/"><i class="fa" aria-hidden="true">2021年06月</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/"><i class="fa" aria-hidden="true">2021年05月</i></a><span class="archive-list-count">1</span></li></ul>
-</div>
-
-    
-    
-    
-    
-<div class="widget">
-    <h3 class="title">
-        友链
-    </h3>
-    <div class="content friends-link">
-        
-        <a href="https://weibo.com/atthemomenttour?is_all=1" class="fa" target="_blank">
-            许巍音乐之旅</a>
-        
-    </div>
-</div>
-
-    
 </aside>
-
                 
             </div>
         </div>
@@ -386,10 +329,6 @@
         </div>
     </div>
 </div>
-
-
-<script src="/js/search.js?rev=@@hash.js"></script>
-
 
 
 
