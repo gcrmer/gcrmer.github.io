@@ -22,7 +22,8 @@
 <meta name="keywords" content="" />
 
 
-<meta name="description" content="" />
+<meta name="description" content="声明对象的两种语法let obj = { ‘name’:’AmazeseeK’ ,’age’ :26  }
+let obj = new Object({  ‘name’:’AmazeseeK’ ..." />
 
 
 <meta name="robots" content="all" />
@@ -33,7 +34,7 @@
 
 <title>
     
-    归档：2021 |
+    JavaScript对象基本用法 |
     
     AmazeseeK
 </title>
@@ -157,229 +158,125 @@
     <section class="content-wrap">
         <div class="container">
             <div class="row">
-                <main class="col-md-8 main-content ">
-                    <div id="main">
-    <div class="timebox">
-        <div class="timeline">
-            <ul>
-                
-                
-                
-                
-                
-                
-                <h2>
-                    2021
-                </h2>
-                
-                
-                <li>
-                    
-                    <h3>
-                        04<span>
-                            09月</span>
-                    </h3>
-                    <a href="/2021/09/04/JavaScript%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" title="JavaScript对象基本用法" target="_blank">
-                        JavaScript对象基本用法</a>
-                </li>
-                
-                
-                
-                
-                
-                
-                <li>
-                    
-                    <h3>
-                        03<span>
-                            09月</span>
-                    </h3>
-                    <a href="/2021/09/03/JavaScript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" title="JavaScript数据类型" target="_blank">
-                        JavaScript数据类型</a>
-                </li>
-                
-                
-                
-                
-                
-                
-                <li>
-                    
-                    <h3>
-                        30<span>
-                            08月</span>
-                    </h3>
-                    <a href="/2021/08/30/JavaScript%E8%AF%AD%E6%B3%95/" title="JavaScript语法" target="_blank">
-                        JavaScript语法</a>
-                </li>
-                
-                
-                
-                
-                
-                
-                <li>
-                    
-                    <h3>
-                        30<span>
-                            08月</span>
-                    </h3>
-                    <a href="/2021/08/30/JavaScript%E7%AE%80%E4%BB%8B/" title="JavaScript 简介" target="_blank">
-                        JavaScript 简介</a>
-                </li>
-                
-                
-                
-                
-                
-                
-                <li>
-                    
-                    <h3>
-                        26<span>
-                            08月</span>
-                    </h3>
-                    <a href="/2021/08/26/%E6%B5%85%E6%9E%90URL/" title="浅析URL" target="_blank">
-                        浅析URL</a>
-                </li>
-                
-                
-                
-                
-                
-                
-                <li>
-                    
-                    <h3>
-                        01<span>
-                            06月</span>
-                    </h3>
-                    <a href="/2021/06/01/HTML%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/" title="HTML常用标签" target="_blank">
-                        HTML常用标签</a>
-                </li>
-                
-                
-                
-                
-                
-                
-                <li>
-                    
-                    <h3>
-                        22<span>
-                            05月</span>
-                    </h3>
-                    <a href="/2021/05/22/HTML%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A01/" title="HTML入门笔记1" target="_blank">
-                        HTML入门笔记1</a>
-                </li>
-                
-                
-            </ul>
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="JavaScript对象基本用法">
+            
+            JavaScript对象基本用法
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2021/09/04</span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h3 id="声明对象的两种语法"><a href="#声明对象的两种语法" class="headerlink" title="声明对象的两种语法"></a>声明对象的两种语法</h3><p>let obj = { ‘name’:’AmazeseeK’ ,’age’ :26  }</p>
+<p>let obj = new Object({  ‘name’:’AmazeseeK’ })</p>
+<h3 id="如何删除对象的属性"><a href="#如何删除对象的属性" class="headerlink" title="如何删除对象的属性"></a>如何删除对象的属性</h3><p>delete obj.xxx 或delete obj[‘xxx’]</p>
+<h3 id="如何查看对象的属性"><a href="#如何查看对象的属性" class="headerlink" title="如何查看对象的属性"></a>如何查看对象的属性</h3><p>查看自身所有属性：Object.keys（obj）</p>
+<p>查看自身 + 共有属性：console dir(obj)</p>
+<h3 id="如何修改或增加对象的属性"><a href="#如何修改或增加对象的属性" class="headerlink" title="如何修改或增加对象的属性"></a>如何修改或增加对象的属性</h3><p>直接赋值：   </p>
+<p>let obj ={name: ‘AmazeseeK’}  </p>
+<p>obj.name = ‘AmazeseeK’</p>
+<p>obj[‘name’] =’AmazeseeK’</p>
+<p>批量赋值：</p>
+<p>Object.assign(obj , {age: 26,gender:’man’}) </p>
+<h3 id="‘name’-in-object-和-obj-hasOwnProperty-‘name’-的区别"><a href="#‘name’-in-object-和-obj-hasOwnProperty-‘name’-的区别" class="headerlink" title="‘name’  in object  和 obj.hasOwnProperty(‘name’)的区别"></a>‘name’  in object  和 obj.hasOwnProperty(‘name’)的区别</h3><p>‘name’  in object  ：能确定 object 中是否包含’name’属性</p>
+<p>obj.hasOwnProperty(‘name’)：能确定’ name’属性是自身属性还是共有属性</p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">AmazeseeK</a>
+            
+            
+        </div>
+        <div>
+            
         </div>
     </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+    <a href="/2021/09/03/JavaScript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="next-post btn btn-default" title='JavaScript数据类型'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            JavaScript数据类型</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
 </div>
+
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: 'eR0SDTdoQ1U55NajfdAGQi8N-gzGzoHsz',
+    appKey: 'CGQgfSWBWL0lzuoNVNQ2G8QT',
+    placeholder: '欢迎留下你的足迹呦。',
+    notify: false,
+    verify: true,
+    avatar: 'monsterid',
+    meta: 'nick,mail'.split(','),
+    pageSize: '10',
+    path: window.location.pathname,
+    lang: 'zh-CN'.toLowerCase()
+})
+</script>
+
+
+</div>
+
                 </main>
                 
-                    
-<aside class="col-md-4 sidebar">
-    
-    
-<div class="widget">
-    <h3 class="title">
-        搜索
-    </h3>
-    <div id="search-form">
-        <div id="result-mask" class="hide"></div>
-        <div class="search-area">
-            
-            <input id="search-key" type="search" autocomplete="off" placeholder="搜点什么呢？">
-            <button type="button" class="search-form-submit" id="search-local">
-                站内搜索</button>
-            
-            
-        </div>
-        <div id="result-wrap" class="hide">
-            <div id="search-result"></div>
-        </div>
-        <div class="hide">
-            <template id="search-tpl">
-                <div class="item">
-                    <a href="/{path}" title="{title}">
-                        <div class="title">{title}</div>
-                        <div class="content">{content}</div>
-                    </a>
-                </div>
-            </template>
-        </div>
-    </div>
-</div>
-
-    
-    
-    
-    
-<div class="widget">
-    <h3 class="title">
-        社交
-    </h3>
-    <div class="content social">
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            文章目录
+        </h3>
         
-        <a href="//github.com/AmazeseeK" rel="external nofollow" title="Github" target="_blank">
-            <i class="github fa fa-github"></i>
-        </a>
-        
-        <a href="mailto:amazeseek@gmail.com" rel="external nofollow" title="邮箱" target="_blank">
-            <i class="envelope-o fa fa-envelope-o"></i>
-        </a>
-        
-        <a href="https://weibo.com/u/7683551346?is_all=1" rel="external nofollow" title="微博" target="_blank">
-            <i class="weibo fa fa-weibo"></i>
-        </a>
-        
-        <a href="https://twitter.com/AmazeseeK" rel="external nofollow" title="twitter" target="_blank">
-            <i class="twitter fa fa-twitter"></i>
-        </a>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A3%B0%E6%98%8E%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%B8%A4%E7%A7%8D%E8%AF%AD%E6%B3%95"><span class="toc-text">声明对象的两种语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%88%A0%E9%99%A4%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="toc-text">如何删除对象的属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="toc-text">如何查看对象的属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E6%88%96%E5%A2%9E%E5%8A%A0%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="toc-text">如何修改或增加对象的属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%80%98name%E2%80%99-in-object-%E5%92%8C-obj-hasOwnProperty-%E2%80%98name%E2%80%99-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">‘name’  in object  和 obj.hasOwnProperty(‘name’)的区别</span></a></li></ol>
         
     </div>
-</div>
-
-    
-    
-<div class="widget">
-    <h3 class="title">
-        分类
-    </h3>
-    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/HTML/"><i class="fa" aria-hidden="true">HTML</i></a><span class="category-list-count">2</span></li></ul>
-</div>
-
-    
-    
-<div class="widget">
-    <h3 class="title">
-        归档
-    </h3>
-    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/"><i class="fa" aria-hidden="true">2021年09月</i></a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/"><i class="fa" aria-hidden="true">2021年08月</i></a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/"><i class="fa" aria-hidden="true">2021年06月</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/"><i class="fa" aria-hidden="true">2021年05月</i></a><span class="archive-list-count">1</span></li></ul>
-</div>
-
-    
-    
-    
-    
-<div class="widget">
-    <h3 class="title">
-        友链
-    </h3>
-    <div class="content friends-link">
-        
-        <a href="https://weibo.com/atthemomenttour?is_all=1" class="fa" target="_blank">
-            许巍音乐之旅</a>
-        
-    </div>
-</div>
-
-    
 </aside>
-
                 
             </div>
         </div>
@@ -416,10 +313,6 @@
         </div>
     </div>
 </div>
-
-
-<script src="/js/search.js?rev=@@hash.js"></script>
-
 
 
 
