@@ -22,8 +22,7 @@
 <meta name="keywords" content="" />
 
 
-<meta name="description" content="关于博主没有优越的出身，没有耀眼的学历，我只是一个真真正正、普普通通的人，不想与任何人比较，只想安安静静的努力，默默的成为一个优秀的人，坦然幸福的活在属于我自己的小世界里。
-关于博客我始终觉得在..." />
+<meta name="description" content="" />
 
 
 <meta name="robots" content="all" />
@@ -34,7 +33,7 @@
 
 <title>
     
-    一个喜欢解决问题且有趣的人 |
+    Dom事件模型 |
     
     AmazeseeK
 </title>
@@ -158,124 +157,112 @@
     <section class="content-wrap">
         <div class="container">
             <div class="row">
-                <main class="col-md-8 main-content ">
-                    <div>
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Dom事件模型">
+            
+            Dom事件模型
+            
+        </h1>
+        <div class="post-meta">
     
-    <article class="post">
-    <h1 class="post-head">
-        一个喜欢解决问题且有趣的人
-    </h1>
-    <div class="post-body">
-        <h2 id="关于博主"><a href="#关于博主" class="headerlink" title="关于博主"></a>关于博主</h2><p>没有优越的出身，没有耀眼的学历，我只是一个真真正正、普普通通的人，不想与任何人比较，只想安安静静的努力，默默的成为一个优秀的人，坦然幸福的活在属于我自己的小世界里。</p>
-<h2 id="关于博客"><a href="#关于博客" class="headerlink" title="关于博客"></a>关于博客</h2><p>我始终觉得在互联网的世界里，拥有一个属于自己的空间是一件超级幸福的事，写写技术、聊聊生活，反思自己、记录自己，或许这就是博客对于我来说存在的意义。有人说通过博客是能够看出一个人是怎样的，我很认可这句话，因为我也喜欢看别人的博客，我大概是能够了解到博客背后的人的一些经历思想观点，我觉得他们很优秀，还会将他们作为我的榜样，努力的成为他们。希望有一天我也能成为一个优秀的人。</p>
-<h2 id="欢迎交流"><a href="#欢迎交流" class="headerlink" title="欢迎交流"></a>欢迎交流</h2><p>欢迎大家在留言区给我留言，期待与你的交流。</p>
-
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2021/09/16</span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">AmazeseeK</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
     </div>
 </article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+    <a href="/2021/09/16/jQuery%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/" class="next-post btn btn-default" title='jQuery相关知识'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            jQuery相关知识</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
     
 </div>
+
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: 'eR0SDTdoQ1U55NajfdAGQi8N-gzGzoHsz',
+    appKey: 'CGQgfSWBWL0lzuoNVNQ2G8QT',
+    placeholder: '欢迎留下你的足迹呦。',
+    notify: false,
+    verify: true,
+    avatar: 'monsterid',
+    meta: 'nick,mail'.split(','),
+    pageSize: '10',
+    path: window.location.pathname,
+    lang: 'zh-CN'.toLowerCase()
+})
+</script>
+
+
+</div>
+
                 </main>
                 
-                    
-<aside class="col-md-4 sidebar">
-    
-    
-<div class="widget">
-    <h3 class="title">
-        搜索
-    </h3>
-    <div id="search-form">
-        <div id="result-mask" class="hide"></div>
-        <div class="search-area">
-            
-            <input id="search-key" type="search" autocomplete="off" placeholder="搜点什么呢？">
-            <button type="button" class="search-form-submit" id="search-local">
-                站内搜索</button>
-            
-            
-        </div>
-        <div id="result-wrap" class="hide">
-            <div id="search-result"></div>
-        </div>
-        <div class="hide">
-            <template id="search-tpl">
-                <div class="item">
-                    <a href="/{path}" title="{title}">
-                        <div class="title">{title}</div>
-                        <div class="content">{content}</div>
-                    </a>
-                </div>
-            </template>
-        </div>
-    </div>
-</div>
-
-    
-    
-    
-    
-<div class="widget">
-    <h3 class="title">
-        社交
-    </h3>
-    <div class="content social">
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            文章目录
+        </h3>
         
-        <a href="//github.com/AmazeseeK" rel="external nofollow" title="Github" target="_blank">
-            <i class="github fa fa-github"></i>
-        </a>
-        
-        <a href="mailto:amazeseek@gmail.com" rel="external nofollow" title="邮箱" target="_blank">
-            <i class="envelope-o fa fa-envelope-o"></i>
-        </a>
-        
-        <a href="https://weibo.com/u/7683551346?is_all=1" rel="external nofollow" title="微博" target="_blank">
-            <i class="weibo fa fa-weibo"></i>
-        </a>
-        
-        <a href="https://twitter.com/AmazeseeK" rel="external nofollow" title="twitter" target="_blank">
-            <i class="twitter fa fa-twitter"></i>
-        </a>
+        <p>暂无目录</p>
         
     </div>
-</div>
-
-    
-    
-<div class="widget">
-    <h3 class="title">
-        分类
-    </h3>
-    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/HTML/"><i class="fa" aria-hidden="true">HTML</i></a><span class="category-list-count">2</span></li></ul>
-</div>
-
-    
-    
-<div class="widget">
-    <h3 class="title">
-        归档
-    </h3>
-    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/"><i class="fa" aria-hidden="true">2021年09月</i></a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/"><i class="fa" aria-hidden="true">2021年08月</i></a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/"><i class="fa" aria-hidden="true">2021年06月</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/"><i class="fa" aria-hidden="true">2021年05月</i></a><span class="archive-list-count">1</span></li></ul>
-</div>
-
-    
-    
-    
-    
-<div class="widget">
-    <h3 class="title">
-        友链
-    </h3>
-    <div class="content friends-link">
-        
-        <a href="https://weibo.com/atthemomenttour?is_all=1" class="fa" target="_blank">
-            许巍音乐之旅</a>
-        
-    </div>
-</div>
-
-    
 </aside>
-
                 
             </div>
         </div>
@@ -312,10 +299,6 @@
         </div>
     </div>
 </div>
-
-
-<script src="/js/search.js?rev=@@hash.js"></script>
-
 
 
 
