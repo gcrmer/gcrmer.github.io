@@ -22,7 +22,9 @@
 <meta name="keywords" content="" />
 
 
-<meta name="description" content="为什么以下代码输出的结果是 6 个  6？i 123456let i &#x3D; 0for(i &#x3D; 0; i&lt;6; i++)&#123;  setTimeout(()&#x3D..." />
+<meta name="description" content="jQuery 如何获取元素主要是通过将选择表达式，放进构造函数 jQuery() 里，得到要选中的元素。
+选择表达式可以是 CSS 选择器
+1$(&#39;#myId&#39;)  &#x2F;..." />
 
 
 <meta name="robots" content="all" />
@@ -33,7 +35,7 @@
 
 <title>
     
-    JavaScript函数的执行时机 |
+    jQuery相关知识 |
     
     AmazeseeK
 </title>
@@ -161,9 +163,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="JavaScript函数的执行时机">
+        <h1 id="jQuery相关知识">
             
-            JavaScript函数的执行时机
+            jQuery相关知识
             
         </h1>
         <div class="post-meta">
@@ -186,7 +188,7 @@
     <span class="fa-wrap">
         <i class="fa fa-clock-o"></i>
         <span class="date-meta">
-            2021/09/06</span>
+            2021/09/16</span>
     </span>
     
     
@@ -196,14 +198,30 @@
     </div>
     
     <div class="post-body post-content">
-        <h3 id="为什么以下代码输出的结果是-6-个-6？"><a href="#为什么以下代码输出的结果是-6-个-6？" class="headerlink" title="为什么以下代码输出的结果是 6 个  6？"></a>为什么以下代码输出的结果是 6 个  6？</h3><figure class="highlight plain"><figcaption><span>i </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let i &#x3D; 0</span><br><span class="line">for(i &#x3D; 0; i&lt;6; i++)&#123;</span><br><span class="line">  setTimeout(()&#x3D;&gt;&#123;</span><br><span class="line">    console.log(i)</span><br><span class="line">  &#125;,0)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h3 id="jQuery-如何获取元素"><a href="#jQuery-如何获取元素" class="headerlink" title="jQuery 如何获取元素"></a>jQuery 如何获取元素</h3><p>主要是通过将选择表达式，放进构造函数 jQuery() 里，得到要选中的元素。</p>
+<p>选择表达式可以是 CSS 选择器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(&#39;#myId&#39;)  &#x2F;&#x2F;选择 ID 为 myId 的网页元素。</span><br></pre></td></tr></table></figure>
 
-<p>setTimeout 函数的作用是尽快执行代码（即过一会儿在执行），但是程序不会等待 setTimeout 函数执行完再执行，它会继续向下执行， for 循环会执行6次，每次都会将 i 的值打印出来，一共打印 6 次，而最终 i 的值是 6，所以打印 6个 6</p>
-<h3 id="对以上代码进行改进使其输出-0、1、2、3、4、5"><a href="#对以上代码进行改进使其输出-0、1、2、3、4、5" class="headerlink" title="对以上代码进行改进使其输出 0、1、2、3、4、5"></a>对以上代码进行改进使其输出 0、1、2、3、4、5</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">for(let i &#x3D; 0; i&lt;6; i++)&#123;</span><br><span class="line">  setTimeout(()&#x3D;&gt;&#123;</span><br><span class="line">    console.log(i)</span><br><span class="line">  &#125;,0)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>选择表达式也可以是 jQuery 特有的表达式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(&#39;a:first&#39;) &#x2F;&#x2F;选择网页中第一个 a 元素。 </span><br></pre></td></tr></table></figure>
 
-<p>let 变量放在 for 循环的内部，每次执行时都会复制一个 i 然后将它打印出来，for 循环执行 6 次，就复制 6 个 i，再分别打印出来，就会打印出 0、 1、2 、3、 4 、5</p>
-<h3 id="除了使用-for-let-配合，还可以使用什么方法打印出-0、1、2、3、4、5"><a href="#除了使用-for-let-配合，还可以使用什么方法打印出-0、1、2、3、4、5" class="headerlink" title="除了使用 for let 配合，还可以使用什么方法打印出 0、1、2、3、4、5"></a>除了使用 for let 配合，还可以使用什么方法打印出 0、1、2、3、4、5</h3><p>利用 const 关键字</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let i</span><br><span class="line">for(i = 0; i&lt;6; i++)&#123;</span><br><span class="line">    const x = i</span><br><span class="line">    setTimeout(()=&gt;&#123;</span><br><span class="line">      console.log(x)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="jQuery-的链式操作是怎样的"><a href="#jQuery-的链式操作是怎样的" class="headerlink" title="jQuery 的链式操作是怎样的"></a>jQuery 的链式操作是怎样的</h3><p>jQuery 在选中网页元素以后，可以对它进行一系列操作，同时又可以将所有操作连接在一起，以链条的方式写出来。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$(&#39;div&#39;)  &#x2F;&#x2F;找到 div 元素</span><br><span class="line">.find(&#39;h2&#39;)   &#x2F;&#x2F;选择其中的 h2 元素</span><br><span class="line">.eq(1)    &#x2F;&#x2F;选择第二个 h2 元素</span><br><span class="line">.html(&#39;AmazeseeK&#39;); &#x2F;&#x2F;将它的内容改为 AmazeseeK</span><br></pre></td></tr></table></figure>
+
+<p>链式操作的原理是每一步的  jQuery  操作返回的都是一个  jQuery 对象，所以不同的操作可以连在一起。</p>
+<h3 id="jQuery-如何创建元素"><a href="#jQuery-如何创建元素" class="headerlink" title="jQuery 如何创建元素"></a>jQuery 如何创建元素</h3><p>把新元素直接传入 jQuery 的构造函数，就完成了元素的创建。</p>
+<p>例如 ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(&#39;&lt;p&gt;AmazeseeK&lt;&#x2F;p&gt;&#39;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="jQuery-如何移动元素"><a href="#jQuery-如何移动元素" class="headerlink" title="jQuery 如何移动元素"></a>jQuery 如何移动元素</h3><p>jQuery 提供两组方法，操作元素在网页中的位置移动。假设我们选中一个 div 元素，此时要将它移动到 p 元素后面，我们分别用以下两种方法实现：</p>
+<p>方法一：使用  .insertAfter() 把 div 元素移动到 p 元素后面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(&#39;div&#39;).insertAfter($(&#39;p&#39;));</span><br></pre></td></tr></table></figure>
+
+<p>方法二：使用  .after() 把 p 元素加到div元素前面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(&#39;p&#39;).after($(&#39;div&#39;));</span><br></pre></td></tr></table></figure>
+
+<p>两种方法实现效果一样，但是有一个重大的差别就是返回的元素不一样，方法一返回的是 div 元素，方法二返回的是 p 元素。</p>
+
     </div>
     
     <div class="post-footer">
@@ -221,17 +239,11 @@
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/2021/09/16/jQuery%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/" class="pre-post btn btn-default" title='jQuery相关知识'>
-        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-        <span class="hidden-xs">
-            jQuery相关知识</span>
-    </a>
     
-    
-    <a href="/2021/09/04/JavaScript%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" class="next-post btn btn-default" title='JavaScript对象基本用法'>
+    <a href="/2021/09/06/JavaScript%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/" class="next-post btn btn-default" title='JavaScript函数的执行时机'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
-            JavaScript对象基本用法</span><i class="fa fa-angle-right fa-fw"></i>
+            JavaScript函数的执行时机</span><i class="fa fa-angle-right fa-fw"></i>
     </a>
     
 </div>
@@ -272,7 +284,7 @@ new Valine({
             文章目录
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BB%A5%E4%B8%8B%E4%BB%A3%E7%A0%81%E8%BE%93%E5%87%BA%E7%9A%84%E7%BB%93%E6%9E%9C%E6%98%AF-6-%E4%B8%AA-6%EF%BC%9F"><span class="toc-text">为什么以下代码输出的结果是 6 个  6？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E4%BB%A5%E4%B8%8A%E4%BB%A3%E7%A0%81%E8%BF%9B%E8%A1%8C%E6%94%B9%E8%BF%9B%E4%BD%BF%E5%85%B6%E8%BE%93%E5%87%BA-0%E3%80%811%E3%80%812%E3%80%813%E3%80%814%E3%80%815"><span class="toc-text">对以上代码进行改进使其输出 0、1、2、3、4、5</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%99%A4%E4%BA%86%E4%BD%BF%E7%94%A8-for-let-%E9%85%8D%E5%90%88%EF%BC%8C%E8%BF%98%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8%E4%BB%80%E4%B9%88%E6%96%B9%E6%B3%95%E6%89%93%E5%8D%B0%E5%87%BA-0%E3%80%811%E3%80%812%E3%80%813%E3%80%814%E3%80%815"><span class="toc-text">除了使用 for let 配合，还可以使用什么方法打印出 0、1、2、3、4、5</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#jQuery-%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0"><span class="toc-text">jQuery 如何获取元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jQuery-%E7%9A%84%E9%93%BE%E5%BC%8F%E6%93%8D%E4%BD%9C%E6%98%AF%E6%80%8E%E6%A0%B7%E7%9A%84"><span class="toc-text">jQuery 的链式操作是怎样的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jQuery-%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E5%85%83%E7%B4%A0"><span class="toc-text">jQuery 如何创建元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jQuery-%E5%A6%82%E4%BD%95%E7%A7%BB%E5%8A%A8%E5%85%83%E7%B4%A0"><span class="toc-text">jQuery 如何移动元素</span></a></li></ol>
         
     </div>
 </aside>

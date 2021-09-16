@@ -22,7 +22,13 @@
 <meta name="keywords" content="" />
 
 
-<meta name="description" content="为什么以下代码输出的结果是 6 个  6？i 123456let i &#x3D; 0for(i &#x3D; 0; i&lt;6; i++)&#123;  setTimeout(()&#x3D..." />
+<meta name="description" content="浏览器渲染原理权威参考文章
+渲染树的构建、布局、绘制
+渲染性能
+transform 实现动画
+浏览器渲染过程
+ 根据HTML 构建HTML树 （DOM） 
+ 根据CSS构建CSS树（CSSOM）..." />
 
 
 <meta name="robots" content="all" />
@@ -33,7 +39,7 @@
 
 <title>
     
-    JavaScript函数的执行时机 |
+    CSS知识总结 |
     
     AmazeseeK
 </title>
@@ -161,9 +167,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="JavaScript函数的执行时机">
+        <h1 id="CSS知识总结">
             
-            JavaScript函数的执行时机
+            CSS知识总结
             
         </h1>
         <div class="post-meta">
@@ -186,7 +192,7 @@
     <span class="fa-wrap">
         <i class="fa fa-clock-o"></i>
         <span class="date-meta">
-            2021/09/06</span>
+            2021/08/26</span>
     </span>
     
     
@@ -196,14 +202,41 @@
     </div>
     
     <div class="post-body post-content">
-        <h3 id="为什么以下代码输出的结果是-6-个-6？"><a href="#为什么以下代码输出的结果是-6-个-6？" class="headerlink" title="为什么以下代码输出的结果是 6 个  6？"></a>为什么以下代码输出的结果是 6 个  6？</h3><figure class="highlight plain"><figcaption><span>i </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let i &#x3D; 0</span><br><span class="line">for(i &#x3D; 0; i&lt;6; i++)&#123;</span><br><span class="line">  setTimeout(()&#x3D;&gt;&#123;</span><br><span class="line">    console.log(i)</span><br><span class="line">  &#125;,0)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h3 id="浏览器渲染原理"><a href="#浏览器渲染原理" class="headerlink" title="浏览器渲染原理"></a>浏览器渲染原理</h3><p><strong>权威参考文章</strong></p>
+<p><a target="_blank" rel="noopener" href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-tree-construction">渲染树的构建、布局、绘制</a></p>
+<p><a target="_blank" rel="noopener" href="https://developers.google.com/web/fundamentals/performance/rendering/">渲染性能</a></p>
+<p><a target="_blank" rel="noopener" href="https://developers.google.com/web/fundamentals/performance/rendering/stick-to-compositor-only-properties-and-manage-layer-count">transform 实现动画</a></p>
+<p><strong>浏览器渲染过程</strong></p>
+<p> 根据HTML 构建HTML树 （DOM） </p>
+<p> 根据CSS构建CSS树（CSSOM）</p>
+<p> 将两棵树合并成一颗渲染树（rendertree）</p>
+<p>Layout 布局（文档流 盒模型 计算大小和位置）</p>
+<p>Paint 绘制（将边框颜色 文字颜色 阴影画出来）</p>
+<p>Compose 合成（根据层叠关系展示画面）</p>
+<h3 id="动画的两种做法"><a href="#动画的两种做法" class="headerlink" title="动画的两种做法"></a>动画的两种做法</h3><p><strong>transition</strong>：是采用补充中间帧的方式对属性进行过渡进而实现动画</p>
+<p>语法为 transition: 属性名  时长 过渡方式 延迟</p>
+<p>属性名：即将产生变化的属性（例如 width 或 height）</p>
+<p>时长：动画持续的时间长度</p>
+<p>过渡方式：linear /    ease    /  ease-in    / ease-out 等等</p>
+<p>延迟：动画在一定时间后开始</p>
+<p>注意：并不是所有的属性都能够进行过渡的，例如 display：none ⇒ block 就无法进行过渡，一般改成 visibility：hidden ⇒visible  而且过渡必须要有起始，一般只有一次或者两次动画，例如 hover 和非 hover 状态的过渡</p>
+<p><strong>animation</strong>：通过声明关键帧，然后在相应属性添加动画的方式来实现</p>
+<p>语法为 animation：时长   过渡方式   延迟    次数   方向    填充模式     是否暂停  动画名</p>
+<p>时长：1s 或其他长度</p>
+<p>过渡方式：同 transition 取值</p>
+<p>延迟：在一定时间后动画开始</p>
+<p>次数：3 或者 2.4 或者 infinite</p>
+<p>方向：reverse/   alternate/   alternate-reverse</p>
+<p>填充模式：none /    forwards   /backwards   /   both     </p>
+<p>是否暂停：paused    / running</p>
+<p><strong>声明关键帧的标准写法有两种</strong>：</p>
+<p>第一种写法是 from  to</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@keyframes  slidein&#123;</span><br><span class="line">    from&#123; </span><br><span class="line">       transform：translateX（0%）;</span><br><span class="line">    &#125;</span><br><span class="line">    to&#123;</span><br><span class="line">       transform：translateX（100%）</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>setTimeout 函数的作用是尽快执行代码（即过一会儿在执行），但是程序不会等待 setTimeout 函数执行完再执行，它会继续向下执行， for 循环会执行6次，每次都会将 i 的值打印出来，一共打印 6 次，而最终 i 的值是 6，所以打印 6个 6</p>
-<h3 id="对以上代码进行改进使其输出-0、1、2、3、4、5"><a href="#对以上代码进行改进使其输出-0、1、2、3、4、5" class="headerlink" title="对以上代码进行改进使其输出 0、1、2、3、4、5"></a>对以上代码进行改进使其输出 0、1、2、3、4、5</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">for(let i &#x3D; 0; i&lt;6; i++)&#123;</span><br><span class="line">  setTimeout(()&#x3D;&gt;&#123;</span><br><span class="line">    console.log(i)</span><br><span class="line">  &#125;,0)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第二种写法是百分数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@keyframes  identifier&#123;</span><br><span class="line">    0%&#123;top:0; left:0;&#125;</span><br><span class="line">    30%&#123;top:50px;&#125;</span><br><span class="line">    68%,72%&#123;left:50px;&#125;</span><br><span class="line">    100%&#123;top:100px; left:100%;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>let 变量放在 for 循环的内部，每次执行时都会复制一个 i 然后将它打印出来，for 循环执行 6 次，就复制 6 个 i，再分别打印出来，就会打印出 0、 1、2 、3、 4 、5</p>
-<h3 id="除了使用-for-let-配合，还可以使用什么方法打印出-0、1、2、3、4、5"><a href="#除了使用-for-let-配合，还可以使用什么方法打印出-0、1、2、3、4、5" class="headerlink" title="除了使用 for let 配合，还可以使用什么方法打印出 0、1、2、3、4、5"></a>除了使用 for let 配合，还可以使用什么方法打印出 0、1、2、3、4、5</h3><p>利用 const 关键字</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let i</span><br><span class="line">for(i = 0; i&lt;6; i++)&#123;</span><br><span class="line">    const x = i</span><br><span class="line">    setTimeout(()=&gt;&#123;</span><br><span class="line">      console.log(x)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
     </div>
     
     <div class="post-footer">
@@ -221,17 +254,17 @@
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/2021/09/16/jQuery%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/" class="pre-post btn btn-default" title='jQuery相关知识'>
+    <a href="/2021/08/30/JavaScript%E7%AE%80%E4%BB%8B/" class="pre-post btn btn-default" title='JavaScript 简介'>
         <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
         <span class="hidden-xs">
-            jQuery相关知识</span>
+            JavaScript 简介</span>
     </a>
     
     
-    <a href="/2021/09/04/JavaScript%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" class="next-post btn btn-default" title='JavaScript对象基本用法'>
+    <a href="/2021/08/26/%E6%B5%85%E6%9E%90URL/" class="next-post btn btn-default" title='浅析URL'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
-            JavaScript对象基本用法</span><i class="fa fa-angle-right fa-fw"></i>
+            浅析URL</span><i class="fa fa-angle-right fa-fw"></i>
     </a>
     
 </div>
@@ -272,7 +305,7 @@ new Valine({
             文章目录
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BB%A5%E4%B8%8B%E4%BB%A3%E7%A0%81%E8%BE%93%E5%87%BA%E7%9A%84%E7%BB%93%E6%9E%9C%E6%98%AF-6-%E4%B8%AA-6%EF%BC%9F"><span class="toc-text">为什么以下代码输出的结果是 6 个  6？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E4%BB%A5%E4%B8%8A%E4%BB%A3%E7%A0%81%E8%BF%9B%E8%A1%8C%E6%94%B9%E8%BF%9B%E4%BD%BF%E5%85%B6%E8%BE%93%E5%87%BA-0%E3%80%811%E3%80%812%E3%80%813%E3%80%814%E3%80%815"><span class="toc-text">对以上代码进行改进使其输出 0、1、2、3、4、5</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%99%A4%E4%BA%86%E4%BD%BF%E7%94%A8-for-let-%E9%85%8D%E5%90%88%EF%BC%8C%E8%BF%98%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8%E4%BB%80%E4%B9%88%E6%96%B9%E6%B3%95%E6%89%93%E5%8D%B0%E5%87%BA-0%E3%80%811%E3%80%812%E3%80%813%E3%80%814%E3%80%815"><span class="toc-text">除了使用 for let 配合，还可以使用什么方法打印出 0、1、2、3、4、5</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86"><span class="toc-text">浏览器渲染原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E7%94%BB%E7%9A%84%E4%B8%A4%E7%A7%8D%E5%81%9A%E6%B3%95"><span class="toc-text">动画的两种做法</span></a></li></ol>
         
     </div>
 </aside>
