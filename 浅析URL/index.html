@@ -22,9 +22,9 @@
 <meta name="keywords" content="" />
 
 
-<meta name="description" content="表达式和语句的含义表达式是可以被求值的代码，而语句是一段可执行代码。
-表达式一般都有值，语句可能有也可能没有，语句一般会改变环境变量。
-标识符规则第一个字符可以是 Unicode 字母或者 _ ..." />
+<meta name="description" content="URL 的构成与作用URL 由 协议 + 域名或者 IP + 端口号+路径+ 查询字符串+锚点 几部分构成
+协议：https 或者 http  作用是规定请求的格式与响应的格式
+域名或者IP：作..." />
 
 
 <meta name="robots" content="all" />
@@ -35,7 +35,7 @@
 
 <title>
     
-    JavaScript语法 |
+    浅析URL |
     
     AmazeseeK
 </title>
@@ -168,9 +168,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="JavaScript语法">
+        <h1 id="浅析URL">
             
-            JavaScript语法
+            浅析URL
             
         </h1>
         <div class="post-meta">
@@ -193,7 +193,7 @@
     <span class="fa-wrap">
         <i class="fa fa-clock-o"></i>
         <span class="date-meta">
-            2021/08/30</span>
+            2021/08/26</span>
     </span>
     
     
@@ -203,37 +203,23 @@
     </div>
     
     <div class="post-body post-content">
-        <h3 id="表达式和语句的含义"><a href="#表达式和语句的含义" class="headerlink" title="表达式和语句的含义"></a>表达式和语句的含义</h3><p>表达式是可以被求值的代码，而语句是一段可执行代码。</p>
-<p>表达式一般都有值，语句可能有也可能没有，语句一般会改变环境变量。</p>
-<h3 id="标识符规则"><a href="#标识符规则" class="headerlink" title="标识符规则"></a>标识符规则</h3><p>第一个字符可以是 Unicode 字母或者 _ 或 $ 或中文，后面的字符，除了以上所说还可以有数字。</p>
-<h3 id="if-else-语句的使用"><a href="#if-else-语句的使用" class="headerlink" title="if else  语句的使用"></a>if else  语句的使用</h3><p>语法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if（表达式）&#123;语句1 &#125;else&#123;语句2&#125;</span><br></pre></td></tr></table></figure>
-
-<p>{ } 在语句只有一句的时候可省略，但是不建议这样使用。</p>
-<p>最推荐的写法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if（表达式 ）&#123;</span><br><span class="line">   语句</span><br><span class="line">&#125;else if（表达式）&#123;</span><br><span class="line">   语句</span><br><span class="line">&#125;else &#123;</span><br><span class="line">   语句</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="while-for-语句的使用"><a href="#while-for-语句的使用" class="headerlink" title="while  for 语句的使用"></a>while  for 语句的使用</h3><p>while 语法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">while （表达式）&#123;语句&#125;</span><br></pre></td></tr></table></figure>
-
-<p>首先判断表达式的真假</p>
-<p>当表达式为真，执行语句，执行完再判断表达式的真假</p>
-<p>当表达式为假，执行后面的语句</p>
-<p>for 语法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for（语句1;表达式2;语句3）&#123;</span><br><span class="line">   循环体</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>首先执行语句1</p>
-<p>接着判断表达式2</p>
-<p>如果为真，执行循环体，然后执行语句3</p>
-<p>如果为假，直接退出循环，执行后面的语句</p>
-<h3 id="问号冒号表达式"><a href="#问号冒号表达式" class="headerlink" title="问号冒号表达式"></a>问号冒号表达式</h3><p>语法:表达式1?表达式2;表达式3<br>含义:表达式1为真，就执行表达式2，否则就执行表达式3</p>
-<h3 id="短路逻辑"><a href="#短路逻辑" class="headerlink" title="短路逻辑"></a>短路逻辑</h3><p>&amp;&amp;:<br>  A&amp;&amp;B&amp;&amp;C&amp;&amp;D 取第一个假值或D</p>
-<p>||:<br>A||B||C||D 取第一个真值或D</p>
-<h3 id="break-continue-的使用"><a href="#break-continue-的使用" class="headerlink" title="break  continue  的使用"></a>break  continue  的使用</h3><p>break 退出所有循环</p>
-<p>continue 退出当前一次循环</p>
-<h3 id="label"><a href="#label" class="headerlink" title="label"></a>label</h3><figure class="highlight plain"><figcaption><span>a：1&#125;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123; </span><br><span class="line">   a：1</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
-
-<p>这段代码的含义是指： a是一个 label，语句是 1 。</p>
+        <h3 id="URL-的构成与作用"><a href="#URL-的构成与作用" class="headerlink" title="URL 的构成与作用"></a>URL 的构成与作用</h3><p>URL 由 协议 + 域名或者 IP + 端口号+路径+ 查询字符串+锚点 几部分构成</p>
+<p>协议：https 或者 http  作用是规定请求的格式与响应的格式</p>
+<p>域名或者IP：作用是定位设备 封装数据报文以及同其他设备交流</p>
+<p>端口号：作用是找到相应的服务</p>
+<p>路径：请求不同的页面</p>
+<p>查询字符串：查询同一个页面下 不同的内容</p>
+<p>锚点：查询同一个内容下 不同的位置（注意锚点不支持中文且不会上传到服务器）</p>
+<h3 id="域名的含义与分类"><a href="#域名的含义与分类" class="headerlink" title="域名的含义与分类"></a>域名的含义与分类</h3><p>域名是对 IP 的别称，它分为三类：顶级域名 二级域名 三级域名</p>
+<p>如 cn 是顶级域名</p>
+<p>  <a target="_blank" rel="noopener" href="https://tengchunlei.cn/">tengchunlei.cn</a> 是二级域名</p>
+<p><a target="_blank" rel="noopener" href="http://www.tengchunlei.cn/">www.tengchunlei.cn</a>  是三级域名</p>
+<h3 id="DNS-的作用"><a href="#DNS-的作用" class="headerlink" title="DNS 的作用"></a>DNS 的作用</h3><p>DNS 的作用是将域名和 IP 对应起来，例如当我们在浏览器中输入 <a href="www.tengchunlei.cn">tengchunlei.cn</a> 的时候，浏览器会向服务商提供的 DNS 服务器询问 <a href="www.tengchunlei.cn">tengchunlei.cn</a> 对应的 IP 是多少，服务商会回答一个 IP ，然后浏览器会向对应的 IP 的 80/443 端口发送请求，内容是查看 <a href="www.tengchunlei.cn">tengchunlei.cn</a>的首页。</p>
+<h3 id="nslookup-命令如何使用"><a href="#nslookup-命令如何使用" class="headerlink" title="nslookup 命令如何使用"></a>nslookup 命令如何使用</h3><p>nslookup 用于查询域名对应的 IP </p>
+<p>如：nslookup <a href="GOOGLE.COM">google.com</a> </p>
+<h3 id="IP-的作用-以及-ping-命令的使用"><a href="#IP-的作用-以及-ping-命令的使用" class="headerlink" title="IP 的作用 以及  ping  命令的使用"></a>IP 的作用 以及  ping  命令的使用</h3><p>IP 的作用是定位设备 封装数据报文以及同其他设备交流</p>
+<p>如果我们想知道一个域名的 IP 地址就可以通过 ping 命令</p>
+<p>如： ping  <a href="www.tengchunlei.cn">tengchunlei.cn</a></p>
 
     </div>
     
@@ -252,17 +238,17 @@
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/2021/09/03/JavaScript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="pre-post btn btn-default" title='JavaScript数据类型'>
+    <a href="/CSS%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" class="pre-post btn btn-default" title='CSS知识总结'>
         <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
         <span class="hidden-xs">
-            JavaScript数据类型</span>
+            CSS知识总结</span>
     </a>
     
     
-    <a href="/2021/08/30/JavaScript%E7%AE%80%E4%BB%8B/" class="next-post btn btn-default" title='JavaScript 简介'>
+    <a href="/HTML%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/" class="next-post btn btn-default" title='HTML常用标签'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
-            JavaScript 简介</span><i class="fa fa-angle-right fa-fw"></i>
+            HTML常用标签</span><i class="fa fa-angle-right fa-fw"></i>
     </a>
     
 </div>
@@ -303,7 +289,7 @@ new Valine({
             文章目录
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8C%E8%AF%AD%E5%8F%A5%E7%9A%84%E5%90%AB%E4%B9%89"><span class="toc-text">表达式和语句的含义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E8%AF%86%E7%AC%A6%E8%A7%84%E5%88%99"><span class="toc-text">标识符规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#if-else-%E8%AF%AD%E5%8F%A5%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">if else  语句的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#while-for-%E8%AF%AD%E5%8F%A5%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">while  for 语句的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E5%8F%B7%E5%86%92%E5%8F%B7%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-text">问号冒号表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9F%AD%E8%B7%AF%E9%80%BB%E8%BE%91"><span class="toc-text">短路逻辑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#break-continue-%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">break  continue  的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#label"><span class="toc-text">label</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#URL-%E7%9A%84%E6%9E%84%E6%88%90%E4%B8%8E%E4%BD%9C%E7%94%A8"><span class="toc-text">URL 的构成与作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D%E7%9A%84%E5%90%AB%E4%B9%89%E4%B8%8E%E5%88%86%E7%B1%BB"><span class="toc-text">域名的含义与分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DNS-%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-text">DNS 的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nslookup-%E5%91%BD%E4%BB%A4%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8"><span class="toc-text">nslookup 命令如何使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IP-%E7%9A%84%E4%BD%9C%E7%94%A8-%E4%BB%A5%E5%8F%8A-ping-%E5%91%BD%E4%BB%A4%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">IP 的作用 以及  ping  命令的使用</span></a></li></ol>
         
     </div>
 </aside>

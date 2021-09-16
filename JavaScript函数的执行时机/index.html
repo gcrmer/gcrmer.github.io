@@ -22,9 +22,7 @@
 <meta name="keywords" content="" />
 
 
-<meta name="description" content="URL 的构成与作用URL 由 协议 + 域名或者 IP + 端口号+路径+ 查询字符串+锚点 几部分构成
-协议：https 或者 http  作用是规定请求的格式与响应的格式
-域名或者IP：作..." />
+<meta name="description" content="为什么以下代码输出的结果是 6 个  6？i 123456let i &#x3D; 0for(i &#x3D; 0; i&lt;6; i++)&#123;  setTimeout(()&#x3D..." />
 
 
 <meta name="robots" content="all" />
@@ -35,7 +33,7 @@
 
 <title>
     
-    浅析URL |
+    JavaScript函数的执行时机 |
     
     AmazeseeK
 </title>
@@ -168,9 +166,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="浅析URL">
+        <h1 id="JavaScript函数的执行时机">
             
-            浅析URL
+            JavaScript函数的执行时机
             
         </h1>
         <div class="post-meta">
@@ -193,7 +191,7 @@
     <span class="fa-wrap">
         <i class="fa fa-clock-o"></i>
         <span class="date-meta">
-            2021/08/26</span>
+            2021/09/06</span>
     </span>
     
     
@@ -203,24 +201,14 @@
     </div>
     
     <div class="post-body post-content">
-        <h3 id="URL-的构成与作用"><a href="#URL-的构成与作用" class="headerlink" title="URL 的构成与作用"></a>URL 的构成与作用</h3><p>URL 由 协议 + 域名或者 IP + 端口号+路径+ 查询字符串+锚点 几部分构成</p>
-<p>协议：https 或者 http  作用是规定请求的格式与响应的格式</p>
-<p>域名或者IP：作用是定位设备 封装数据报文以及同其他设备交流</p>
-<p>端口号：作用是找到相应的服务</p>
-<p>路径：请求不同的页面</p>
-<p>查询字符串：查询同一个页面下 不同的内容</p>
-<p>锚点：查询同一个内容下 不同的位置（注意锚点不支持中文且不会上传到服务器）</p>
-<h3 id="域名的含义与分类"><a href="#域名的含义与分类" class="headerlink" title="域名的含义与分类"></a>域名的含义与分类</h3><p>域名是对 IP 的别称，它分为三类：顶级域名 二级域名 三级域名</p>
-<p>如 cn 是顶级域名</p>
-<p>  <a target="_blank" rel="noopener" href="https://tengchunlei.cn/">tengchunlei.cn</a> 是二级域名</p>
-<p><a target="_blank" rel="noopener" href="http://www.tengchunlei.cn/">www.tengchunlei.cn</a>  是三级域名</p>
-<h3 id="DNS-的作用"><a href="#DNS-的作用" class="headerlink" title="DNS 的作用"></a>DNS 的作用</h3><p>DNS 的作用是将域名和 IP 对应起来，例如当我们在浏览器中输入 <a href="www.tengchunlei.cn">tengchunlei.cn</a> 的时候，浏览器会向服务商提供的 DNS 服务器询问 <a href="www.tengchunlei.cn">tengchunlei.cn</a> 对应的 IP 是多少，服务商会回答一个 IP ，然后浏览器会向对应的 IP 的 80/443 端口发送请求，内容是查看 <a href="www.tengchunlei.cn">tengchunlei.cn</a>的首页。</p>
-<h3 id="nslookup-命令如何使用"><a href="#nslookup-命令如何使用" class="headerlink" title="nslookup 命令如何使用"></a>nslookup 命令如何使用</h3><p>nslookup 用于查询域名对应的 IP </p>
-<p>如：nslookup <a href="GOOGLE.COM">google.com</a> </p>
-<h3 id="IP-的作用-以及-ping-命令的使用"><a href="#IP-的作用-以及-ping-命令的使用" class="headerlink" title="IP 的作用 以及  ping  命令的使用"></a>IP 的作用 以及  ping  命令的使用</h3><p>IP 的作用是定位设备 封装数据报文以及同其他设备交流</p>
-<p>如果我们想知道一个域名的 IP 地址就可以通过 ping 命令</p>
-<p>如： ping  <a href="www.tengchunlei.cn">tengchunlei.cn</a></p>
+        <h3 id="为什么以下代码输出的结果是-6-个-6？"><a href="#为什么以下代码输出的结果是-6-个-6？" class="headerlink" title="为什么以下代码输出的结果是 6 个  6？"></a>为什么以下代码输出的结果是 6 个  6？</h3><figure class="highlight plain"><figcaption><span>i </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let i &#x3D; 0</span><br><span class="line">for(i &#x3D; 0; i&lt;6; i++)&#123;</span><br><span class="line">  setTimeout(()&#x3D;&gt;&#123;</span><br><span class="line">    console.log(i)</span><br><span class="line">  &#125;,0)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p>setTimeout 函数的作用是尽快执行代码（即过一会儿在执行），但是程序不会等待 setTimeout 函数执行完再执行，它会继续向下执行， for 循环会执行6次，每次都会将 i 的值打印出来，一共打印 6 次，而最终 i 的值是 6，所以打印 6个 6</p>
+<h3 id="对以上代码进行改进使其输出-0、1、2、3、4、5"><a href="#对以上代码进行改进使其输出-0、1、2、3、4、5" class="headerlink" title="对以上代码进行改进使其输出 0、1、2、3、4、5"></a>对以上代码进行改进使其输出 0、1、2、3、4、5</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">for(let i &#x3D; 0; i&lt;6; i++)&#123;</span><br><span class="line">  setTimeout(()&#x3D;&gt;&#123;</span><br><span class="line">    console.log(i)</span><br><span class="line">  &#125;,0)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>let 变量放在 for 循环的内部，每次执行时都会复制一个 i 然后将它打印出来，for 循环执行 6 次，就复制 6 个 i，再分别打印出来，就会打印出 0、 1、2 、3、 4 、5</p>
+<h3 id="除了使用-for-let-配合，还可以使用什么方法打印出-0、1、2、3、4、5"><a href="#除了使用-for-let-配合，还可以使用什么方法打印出-0、1、2、3、4、5" class="headerlink" title="除了使用 for let 配合，还可以使用什么方法打印出 0、1、2、3、4、5"></a>除了使用 for let 配合，还可以使用什么方法打印出 0、1、2、3、4、5</h3><p>利用 const 关键字</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let i</span><br><span class="line">for(i = 0; i&lt;6; i++)&#123;</span><br><span class="line">    const x = i</span><br><span class="line">    setTimeout(()=&gt;&#123;</span><br><span class="line">      console.log(x)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
     
     <div class="post-footer">
@@ -238,17 +226,17 @@
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/2021/08/26/CSS%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" class="pre-post btn btn-default" title='CSS知识总结'>
+    <a href="/jQuery%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/" class="pre-post btn btn-default" title='jQuery相关知识'>
         <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
         <span class="hidden-xs">
-            CSS知识总结</span>
+            jQuery相关知识</span>
     </a>
     
     
-    <a href="/2021/06/01/HTML%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/" class="next-post btn btn-default" title='HTML常用标签'>
+    <a href="/JavaScript%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" class="next-post btn btn-default" title='JavaScript对象基本用法'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
-            HTML常用标签</span><i class="fa fa-angle-right fa-fw"></i>
+            JavaScript对象基本用法</span><i class="fa fa-angle-right fa-fw"></i>
     </a>
     
 </div>
@@ -289,7 +277,7 @@ new Valine({
             文章目录
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#URL-%E7%9A%84%E6%9E%84%E6%88%90%E4%B8%8E%E4%BD%9C%E7%94%A8"><span class="toc-text">URL 的构成与作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D%E7%9A%84%E5%90%AB%E4%B9%89%E4%B8%8E%E5%88%86%E7%B1%BB"><span class="toc-text">域名的含义与分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DNS-%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-text">DNS 的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nslookup-%E5%91%BD%E4%BB%A4%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8"><span class="toc-text">nslookup 命令如何使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IP-%E7%9A%84%E4%BD%9C%E7%94%A8-%E4%BB%A5%E5%8F%8A-ping-%E5%91%BD%E4%BB%A4%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">IP 的作用 以及  ping  命令的使用</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BB%A5%E4%B8%8B%E4%BB%A3%E7%A0%81%E8%BE%93%E5%87%BA%E7%9A%84%E7%BB%93%E6%9E%9C%E6%98%AF-6-%E4%B8%AA-6%EF%BC%9F"><span class="toc-text">为什么以下代码输出的结果是 6 个  6？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E4%BB%A5%E4%B8%8A%E4%BB%A3%E7%A0%81%E8%BF%9B%E8%A1%8C%E6%94%B9%E8%BF%9B%E4%BD%BF%E5%85%B6%E8%BE%93%E5%87%BA-0%E3%80%811%E3%80%812%E3%80%813%E3%80%814%E3%80%815"><span class="toc-text">对以上代码进行改进使其输出 0、1、2、3、4、5</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%99%A4%E4%BA%86%E4%BD%BF%E7%94%A8-for-let-%E9%85%8D%E5%90%88%EF%BC%8C%E8%BF%98%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8%E4%BB%80%E4%B9%88%E6%96%B9%E6%B3%95%E6%89%93%E5%8D%B0%E5%87%BA-0%E3%80%811%E3%80%812%E3%80%813%E3%80%814%E3%80%815"><span class="toc-text">除了使用 for let 配合，还可以使用什么方法打印出 0、1、2、3、4、5</span></a></li></ol>
         
     </div>
 </aside>

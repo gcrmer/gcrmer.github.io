@@ -22,9 +22,8 @@
 <meta name="keywords" content="" />
 
 
-<meta name="description" content="jQuery 如何获取元素主要是通过将选择表达式，放进构造函数 jQuery() 里，得到要选中的元素。
-选择表达式可以是 CSS 选择器
-1$(&#39;#myId&#39;)  &#x2F;..." />
+<meta name="description" content="数据类型数字 number字符串 string符号 symbol布尔 bool空 null空 undefined对象 objectbigint
+数字:特殊值 正 0 和负 0 都等于 0无穷大 ..." />
 
 
 <meta name="robots" content="all" />
@@ -35,7 +34,7 @@
 
 <title>
     
-    jQuery相关知识 |
+    JavaScript数据类型 |
     
     AmazeseeK
 </title>
@@ -168,9 +167,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="jQuery相关知识">
+        <h1 id="JavaScript数据类型">
             
-            jQuery相关知识
+            JavaScript数据类型
             
         </h1>
         <div class="post-meta">
@@ -193,7 +192,7 @@
     <span class="fa-wrap">
         <i class="fa fa-clock-o"></i>
         <span class="date-meta">
-            2021/09/16</span>
+            2021/09/03</span>
     </span>
     
     
@@ -203,33 +202,22 @@
     </div>
     
     <div class="post-body post-content">
-        <h3 id="jQuery-如何获取元素"><a href="#jQuery-如何获取元素" class="headerlink" title="jQuery 如何获取元素"></a>jQuery 如何获取元素</h3><p>主要是通过将选择表达式，放进构造函数 jQuery() 里，得到要选中的元素。</p>
-<p>选择表达式可以是 CSS 选择器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(&#39;#myId&#39;)  &#x2F;&#x2F;选择 ID 为 myId 的网页元素。</span><br></pre></td></tr></table></figure>
+        <h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p>数字 number<br>字符串 string<br>符号 symbol<br>布尔 bool<br>空 null<br>空 undefined<br>对象 object<br>bigint</p>
+<p>数字:<br>特殊值 正 0 和负 0 都等于 0<br>无穷大 Infinity 、+Infinity、 -Infinity<br>无法表示的数字 NaN</p>
+<p>字符串:<br>单引号 ‘AmazeseeK’<br>双引号 “AmazeseeK”<br>反引号 ``</p>
+<p>转义:<br>\n 表示 换行<br>\r 表示 回车<br>\t 表示 tab 制表符</p>
+<p>布尔 boolean：<br>只有 true 和 false 两个值<br>通过运算符得到 bool 值<br>否定运算 ！value<br>相等运算 2==3 、2!=3 、6===7 、 6!==7<br>比较运算 5&gt;6、 5&gt;=6 、 5&lt;6 、 5&lt;=6</p>
+<p>if 语句常用来判断真假</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if(value)&#123;...&#125;else&#123;...&#125;</span><br></pre></td></tr></table></figure>
 
-<p>选择表达式也可以是 jQuery 特有的表达式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(&#39;a:first&#39;) &#x2F;&#x2F;选择网页中第一个 a 元素。 </span><br></pre></td></tr></table></figure>
-
-<h3 id="jQuery-的链式操作是怎样的"><a href="#jQuery-的链式操作是怎样的" class="headerlink" title="jQuery 的链式操作是怎样的"></a>jQuery 的链式操作是怎样的</h3><p>jQuery 在选中网页元素以后，可以对它进行一系列操作，同时又可以将所有操作连接在一起，以链条的方式写出来。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$(&#39;div&#39;)  &#x2F;&#x2F;找到 div 元素</span><br><span class="line">.find(&#39;h2&#39;)   &#x2F;&#x2F;选择其中的 h2 元素</span><br><span class="line">.eq(1)    &#x2F;&#x2F;选择第二个 h2 元素</span><br><span class="line">.html(&#39;AmazeseeK&#39;); &#x2F;&#x2F;将它的内容改为 AmazeseeK</span><br></pre></td></tr></table></figure>
-
-<p>链式操作的原理是每一步的  jQuery  操作返回的都是一个  jQuery 对象，所以不同的操作可以连在一起。</p>
-<h3 id="jQuery-如何创建元素"><a href="#jQuery-如何创建元素" class="headerlink" title="jQuery 如何创建元素"></a>jQuery 如何创建元素</h3><p>把新元素直接传入 jQuery 的构造函数，就完成了元素的创建。</p>
-<p>例如 ：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(&#39;&lt;p&gt;AmazeseeK&lt;&#x2F;p&gt;&#39;);</span><br></pre></td></tr></table></figure>
-
-<h3 id="jQuery-如何移动元素"><a href="#jQuery-如何移动元素" class="headerlink" title="jQuery 如何移动元素"></a>jQuery 如何移动元素</h3><p>jQuery 提供两组方法，操作元素在网页中的位置移动。假设我们选中一个 div 元素，此时要将它移动到 p 元素后面，我们分别用以下两种方法实现：</p>
-<p>方法一：使用  .insertAfter() 把 div 元素移动到 p 元素后面</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(&#39;div&#39;).insertAfter($(&#39;p&#39;));</span><br></pre></td></tr></table></figure>
-
-<p>方法二：使用  .after() 把 p 元素加到div元素前面</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(&#39;p&#39;).after($(&#39;div&#39;));</span><br></pre></td></tr></table></figure>
-
-<p>两种方法实现效果一样，但是有一个重大的差别就是返回的元素不一样，方法一返回的是 div 元素，方法二返回的是 p 元素。</p>
-<h3 id="jQuery-如何修改元素属性"><a href="#jQuery-如何修改元素属性" class="headerlink" title="jQuery 如何修改元素属性"></a>jQuery 如何修改元素属性</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.attr(name);         <span class="comment">//获取元素属性名为name的属性值</span></span><br><span class="line">.attr(name, value);  <span class="comment">//设置属性名为name的元素的属性值为value</span></span><br><span class="line">.attr(&#123;<span class="attr">name</span>: value, <span class="attr">name2</span>: value,...&#125;); <span class="comment">//设置多个元素属性的属性值</span></span><br><span class="line">.attr(name, fn);    <span class="comment">//设置name属性的值为 fn 函数的返回值</span></span><br><span class="line">.removeAttr(name);  <span class="comment">//移除属性名为name的属性</span></span><br></pre></td></tr></table></figure>
-
-
-
+<p>当 value 是 bool 值时很容易判断真假<br>但是当 value 不是 bool 值时就很难判断真假,为了解决这个问题,采用 falsy 值的方法,falsy 就是相当于 false 但又不是 false 的值，它们分别是 undefined、 null 、0 、NaN 、’’</p>
+<h3 id="变量的声明方式"><a href="#变量的声明方式" class="headerlink" title="变量的声明方式"></a>变量的声明方式</h3><p>三种声明方式：<br>var a=3<br>let a=3<br>const a=3</p>
+<p>区别： var 为过时不好用的方式<br>let 为新的更合理的方式<br>const 声明时必须赋值，且赋值后不能再更改</p>
+<p>let 声明规则:<br>遵循块作用域，即使用范围不能超出{}<br>不能重复申明<br>可以赋值也可以不赋值<br>必须先声明在使用<br>全局声明 let 变量 不会变成 window 的属性</p>
+<h3 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h3><p>number =&gt; string :<br>String(n)<br>n + “”</p>
+<p>string =&gt; number :<br>Number(s)<br>parseInt(s)/parseFloat(s)<br>s - 0</p>
+<p>x =&gt; bool :<br>Boolean(x)<br>!!x</p>
+<p>x =&gt; string :<br>String(x)<br>x.toString()</p>
 
     </div>
     
@@ -248,17 +236,17 @@
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/2021/09/16/Dom%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/" class="pre-post btn btn-default" title='Dom事件模型'>
+    <a href="/JavaScript%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" class="pre-post btn btn-default" title='JavaScript对象基本用法'>
         <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
         <span class="hidden-xs">
-            Dom事件模型</span>
+            JavaScript对象基本用法</span>
     </a>
     
     
-    <a href="/2021/09/06/JavaScript%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/" class="next-post btn btn-default" title='JavaScript函数的执行时机'>
+    <a href="/JavaScript%E8%AF%AD%E6%B3%95/" class="next-post btn btn-default" title='JavaScript语法'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
-            JavaScript函数的执行时机</span><i class="fa fa-angle-right fa-fw"></i>
+            JavaScript语法</span><i class="fa fa-angle-right fa-fw"></i>
     </a>
     
 </div>
@@ -299,7 +287,7 @@ new Valine({
             文章目录
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#jQuery-%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0"><span class="toc-text">jQuery 如何获取元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jQuery-%E7%9A%84%E9%93%BE%E5%BC%8F%E6%93%8D%E4%BD%9C%E6%98%AF%E6%80%8E%E6%A0%B7%E7%9A%84"><span class="toc-text">jQuery 的链式操作是怎样的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jQuery-%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E5%85%83%E7%B4%A0"><span class="toc-text">jQuery 如何创建元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jQuery-%E5%A6%82%E4%BD%95%E7%A7%BB%E5%8A%A8%E5%85%83%E7%B4%A0"><span class="toc-text">jQuery 如何移动元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jQuery-%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E5%85%83%E7%B4%A0%E5%B1%9E%E6%80%A7"><span class="toc-text">jQuery 如何修改元素属性</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E7%9A%84%E5%A3%B0%E6%98%8E%E6%96%B9%E5%BC%8F"><span class="toc-text">变量的声明方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-text">类型转换</span></a></li></ol>
         
     </div>
 </aside>

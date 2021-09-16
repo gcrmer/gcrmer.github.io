@@ -22,10 +22,9 @@
 <meta name="keywords" content="" />
 
 
-<meta name="description" content="HTML 的发明者HTML 是由 Tim Berners-Lee (李爵士) 发明的。
-HTML 起手应该写些什么如下图所示
-
-常用的表章节的标签有哪些，分别是什么意思**章节标签是用来表示文章..." />
+<meta name="description" content="表达式和语句的含义表达式是可以被求值的代码，而语句是一段可执行代码。
+表达式一般都有值，语句可能有也可能没有，语句一般会改变环境变量。
+标识符规则第一个字符可以是 Unicode 字母或者 _ ..." />
 
 
 <meta name="robots" content="all" />
@@ -36,7 +35,7 @@ HTML 起手应该写些什么如下图所示
 
 <title>
     
-    HTML入门笔记1 |
+    JavaScript语法 |
     
     AmazeseeK
 </title>
@@ -169,16 +168,16 @@ HTML 起手应该写些什么如下图所示
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="HTML入门笔记1">
+        <h1 id="JavaScript语法">
             
-            HTML入门笔记1
+            JavaScript语法
             
         </h1>
         <div class="post-meta">
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <a class="category-link" href="/categories/HTML/">HTML</a>
+        
     </span>
     
     
@@ -194,7 +193,7 @@ HTML 起手应该写些什么如下图所示
     <span class="fa-wrap">
         <i class="fa fa-clock-o"></i>
         <span class="date-meta">
-            2021/05/22</span>
+            2021/08/30</span>
     </span>
     
     
@@ -204,85 +203,37 @@ HTML 起手应该写些什么如下图所示
     </div>
     
     <div class="post-body post-content">
-        <h3 id="HTML-的发明者"><a href="#HTML-的发明者" class="headerlink" title="HTML 的发明者"></a><strong>HTML 的发明者</strong></h3><p>HTML 是由 Tim Berners-Lee (李爵士) 发明的。</p>
-<h3 id="HTML-起手应该写些什么"><a href="#HTML-起手应该写些什么" class="headerlink" title="HTML 起手应该写些什么"></a><strong>HTML 起手应该写些什么</strong></h3><p>如下图所示</p>
-<p><img src="https://z3.ax1x.com/2021/05/30/2ZE2tJ.md.png" alt="2ZE2tJ.md.png"></p>
-<h3 id="常用的表章节的标签有哪些，分别是什么意思"><a href="#常用的表章节的标签有哪些，分别是什么意思" class="headerlink" title="常用的表章节的标签有哪些，分别是什么意思**"></a>常用的表章节的标签有哪些，分别是什么意思**</h3><p>章节标签是用来表示文章或书籍的层级，以下是标签的具体分类</p>
-<ul>
-<li><p>标题 h1 ~ h6</p>
-<p><code>&lt;h1&gt; 文章标题 &lt;/h1&gt; </code></p>
-</li>
-<li><p>章节 section</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">section</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h2</span>&gt;</span>第一章<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>段落 p</p>
-<p><code>&lt;p&gt;我真的超级棒&lt;/p&gt;</code></p>
-</li>
-<li><p>文章 article</p>
-</li>
-<li><p>头部 header</p>
-<p>一般是用 header 标签来加网页的置顶广告 <code>&lt;header&gt;这是一个好的广告位&lt;/header&gt;</code></p>
-</li>
-<li><p>脚部 footer</p>
-<p>一般用 footer 标签来加自己网站的版权声明 <code>&lt;footer&gt;Amazeseek版权所有&lt;/footer&gt;</code></p>
-</li>
-<li><p>主要内容 main</p>
-<p>表示内容里主要的部分，通过使用 main 能够让文章的结构更加具有层次感。</p>
-</li>
-<li><p>旁支内容 aside</p>
-<p>表示内容里次要的部分，一般在 aside 标签里添加网站的导航。</p>
-</li>
-<li><p>划分 div</p>
-<p>通过 div 标签将 main 中的内容和 aside 中的内容包含起来，作为一个整体，这样层次感更加突出。</p>
-</li>
-</ul>
-<h3 id="全局属性有哪些"><a href="#全局属性有哪些" class="headerlink" title="全局属性有哪些"></a><strong>全局属性有哪些</strong></h3><p>全局属性是指所有标签都具备的属性，主要有以下几类</p>
-<ul>
-<li><p>class</p>
-<p>给标签分个类，其实就是给标签做个标记。</p>
-</li>
-</ul>
-<ul>
-<li><p>contenteditable</p>
-<p>用户可以直接编辑页面上的文字，可以用来做一个编辑器。</p>
-</li>
-<li><p>hidden</p>
-<p>作用是快速的的让一个东西看不见。</p>
-</li>
-<li><p>id</p>
-<ol>
-<li>一个作用是 在 CSS 中加样式</li>
-<li>另一个作用是在 JS 中 是可以直接通过 id 获取元素的，但是这些元素中有些是禁忌的，需要注意。</li>
-</ol>
-<p>id 与 class 到底用谁？</p>
-<p>如果元素是全页面唯一的就用 id ，反之用 class ，还有就是不到万不得已千万不要用 id， 因为 id 的全局唯一性是不能保证的，同时也不会报错。</p>
-</li>
-<li><p>style</p>
-<p>每个元素都可以写一个 style 属性，注意 style属性的优先级要比 CSS 高。如果 CSS HTML 与 JS 的属性同时存在，则最终呈现效果以 JS 为准。</p>
-</li>
-<li><p>tabindex</p>
-<p>页面所有的可交互的属性都可用 tab 完成，tabindex 为正数时，以顺序的方式分别访问，不必是连续的正数。tabindex = 0 时，表示最后访问，若为 - 1 则表示不访问，tab找不到。</p>
-</li>
-<li><p>title</p>
-<p>当文字超长，想省略只显示一行时，就用 title 解决。以下三行代码分别代表 不换行   文本溢出有省略号  溢出省略。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">white-space: norap;</span><br><span class="line">text-overflow: ellipsis;</span><br><span class="line">over-flow:hidden;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        <h3 id="表达式和语句的含义"><a href="#表达式和语句的含义" class="headerlink" title="表达式和语句的含义"></a>表达式和语句的含义</h3><p>表达式是可以被求值的代码，而语句是一段可执行代码。</p>
+<p>表达式一般都有值，语句可能有也可能没有，语句一般会改变环境变量。</p>
+<h3 id="标识符规则"><a href="#标识符规则" class="headerlink" title="标识符规则"></a>标识符规则</h3><p>第一个字符可以是 Unicode 字母或者 _ 或 $ 或中文，后面的字符，除了以上所说还可以有数字。</p>
+<h3 id="if-else-语句的使用"><a href="#if-else-语句的使用" class="headerlink" title="if else  语句的使用"></a>if else  语句的使用</h3><p>语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if（表达式）&#123;语句1 &#125;else&#123;语句2&#125;</span><br></pre></td></tr></table></figure>
 
-</li>
-</ul>
-<h3 id="常用的内容标签有哪些，分别是什么意思"><a href="#常用的内容标签有哪些，分别是什么意思" class="headerlink" title="常用的内容标签有哪些，分别是什么意思"></a><strong>常用的内容标签有哪些，分别是什么意思</strong></h3><ul>
-<li>ol + li   有序列表</li>
-<li>ul + li   无序列表</li>
-<li>dl + dt +dd   对象描述列表</li>
-<li>pre  如果想要保留空格 就用 pre</li>
-<li>hr  分割线</li>
-<li>br  换行</li>
-<li>a   超链接</li>
-<li>em 强调 表示语气很重要 强调句子成分</li>
-<li>strong 重要  表示本身很重要</li>
-<li>code 代码标签</li>
-<li>quote 引用</li>
-<li>blockquote 换行引用</li>
-</ul>
+<p>{ } 在语句只有一句的时候可省略，但是不建议这样使用。</p>
+<p>最推荐的写法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if（表达式 ）&#123;</span><br><span class="line">   语句</span><br><span class="line">&#125;else if（表达式）&#123;</span><br><span class="line">   语句</span><br><span class="line">&#125;else &#123;</span><br><span class="line">   语句</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="while-for-语句的使用"><a href="#while-for-语句的使用" class="headerlink" title="while  for 语句的使用"></a>while  for 语句的使用</h3><p>while 语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">while （表达式）&#123;语句&#125;</span><br></pre></td></tr></table></figure>
+
+<p>首先判断表达式的真假</p>
+<p>当表达式为真，执行语句，执行完再判断表达式的真假</p>
+<p>当表达式为假，执行后面的语句</p>
+<p>for 语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for（语句1;表达式2;语句3）&#123;</span><br><span class="line">   循环体</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>首先执行语句1</p>
+<p>接着判断表达式2</p>
+<p>如果为真，执行循环体，然后执行语句3</p>
+<p>如果为假，直接退出循环，执行后面的语句</p>
+<h3 id="问号冒号表达式"><a href="#问号冒号表达式" class="headerlink" title="问号冒号表达式"></a>问号冒号表达式</h3><p>语法:表达式1?表达式2;表达式3<br>含义:表达式1为真，就执行表达式2，否则就执行表达式3</p>
+<h3 id="短路逻辑"><a href="#短路逻辑" class="headerlink" title="短路逻辑"></a>短路逻辑</h3><p>&amp;&amp;:<br>  A&amp;&amp;B&amp;&amp;C&amp;&amp;D 取第一个假值或D</p>
+<p>||:<br>A||B||C||D 取第一个真值或D</p>
+<h3 id="break-continue-的使用"><a href="#break-continue-的使用" class="headerlink" title="break  continue  的使用"></a>break  continue  的使用</h3><p>break 退出所有循环</p>
+<p>continue 退出当前一次循环</p>
+<h3 id="label"><a href="#label" class="headerlink" title="label"></a>label</h3><figure class="highlight plain"><figcaption><span>a：1&#125;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123; </span><br><span class="line">   a：1</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<p>这段代码的含义是指： a是一个 label，语句是 1 。</p>
 
     </div>
     
@@ -301,12 +252,18 @@ HTML 起手应该写些什么如下图所示
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/2021/06/01/HTML%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/" class="pre-post btn btn-default" title='HTML常用标签'>
+    <a href="/JavaScript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="pre-post btn btn-default" title='JavaScript数据类型'>
         <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
         <span class="hidden-xs">
-            HTML常用标签</span>
+            JavaScript数据类型</span>
     </a>
     
+    
+    <a href="/JavaScript%E7%AE%80%E4%BB%8B/" class="next-post btn btn-default" title='JavaScript 简介'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            JavaScript 简介</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
     
 </div>
 
@@ -346,7 +303,7 @@ new Valine({
             文章目录
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML-%E7%9A%84%E5%8F%91%E6%98%8E%E8%80%85"><span class="toc-text">HTML 的发明者</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML-%E8%B5%B7%E6%89%8B%E5%BA%94%E8%AF%A5%E5%86%99%E4%BA%9B%E4%BB%80%E4%B9%88"><span class="toc-text">HTML 起手应该写些什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E8%A1%A8%E7%AB%A0%E8%8A%82%E7%9A%84%E6%A0%87%E7%AD%BE%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%8C%E5%88%86%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%8F%E6%80%9D"><span class="toc-text">常用的表章节的标签有哪些，分别是什么意思**</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E5%B1%9E%E6%80%A7%E6%9C%89%E5%93%AA%E4%BA%9B"><span class="toc-text">全局属性有哪些</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E5%86%85%E5%AE%B9%E6%A0%87%E7%AD%BE%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%8C%E5%88%86%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%8F%E6%80%9D"><span class="toc-text">常用的内容标签有哪些，分别是什么意思</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8C%E8%AF%AD%E5%8F%A5%E7%9A%84%E5%90%AB%E4%B9%89"><span class="toc-text">表达式和语句的含义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E8%AF%86%E7%AC%A6%E8%A7%84%E5%88%99"><span class="toc-text">标识符规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#if-else-%E8%AF%AD%E5%8F%A5%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">if else  语句的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#while-for-%E8%AF%AD%E5%8F%A5%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">while  for 语句的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E5%8F%B7%E5%86%92%E5%8F%B7%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-text">问号冒号表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9F%AD%E8%B7%AF%E9%80%BB%E8%BE%91"><span class="toc-text">短路逻辑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#break-continue-%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">break  continue  的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#label"><span class="toc-text">label</span></a></li></ol>
         
     </div>
 </aside>

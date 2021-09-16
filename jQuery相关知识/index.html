@@ -22,7 +22,9 @@
 <meta name="keywords" content="" />
 
 
-<meta name="description" content="JavaScript 语言的介绍JavaScript 是一种高级的、解释型的编程语言，它支持面向对象程式设计，指令式编程，以及函数式编程。在语法上与 Java 有很多的相似性，但是在设计上主要受..." />
+<meta name="description" content="jQuery 如何获取元素主要是通过将选择表达式，放进构造函数 jQuery() 里，得到要选中的元素。
+选择表达式可以是 CSS 选择器
+1$(&#39;#myId&#39;)  &#x2F;..." />
 
 
 <meta name="robots" content="all" />
@@ -33,7 +35,7 @@
 
 <title>
     
-    JavaScript 简介 |
+    jQuery相关知识 |
     
     AmazeseeK
 </title>
@@ -166,9 +168,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="JavaScript 简介">
+        <h1 id="jQuery相关知识">
             
-            JavaScript 简介
+            jQuery相关知识
             
         </h1>
         <div class="post-meta">
@@ -191,7 +193,7 @@
     <span class="fa-wrap">
         <i class="fa fa-clock-o"></i>
         <span class="date-meta">
-            2021/08/30</span>
+            2021/09/16</span>
     </span>
     
     
@@ -201,28 +203,33 @@
     </div>
     
     <div class="post-body post-content">
-        <h3 id="JavaScript-语言的介绍"><a href="#JavaScript-语言的介绍" class="headerlink" title="JavaScript 语言的介绍"></a>JavaScript 语言的介绍</h3><p>JavaScript 是一种高级的、解释型的编程语言，它支持面向对象程式设计，指令式编程，以及函数式编程。在语法上与 Java 有很多的相似性，但是在设计上主要受 Self 语言和 Scheme 语言的影响。 </p>
-<h3 id="JavaScript-语言的产生"><a href="#JavaScript-语言的产生" class="headerlink" title="JavaScript 语言的产生"></a>JavaScript 语言的产生</h3><p>1994年，网景公司（Netscape）发布了 Navigator 浏览器 0.9 版。这个版本的浏览器只能用于浏览，不具备与访问者互动的能力。此时公司需要一种网页脚本语言来实现浏览器与网页的互动，但是选择哪种语言令公司非常犯难。在 1995 年 Sun 公司正式向市场推出 Java 语言后，网景公司决定与其结盟并且在之后做出决策，未来的网页脚本语言必须看上去与 Java 足够相似，但是比 Java 简单。Brendan Eich 被指定为这种 “简化版 Java语言” 的设计师,但是他对 Java 一点兴趣也没有，为了完成公司安排的任务仅仅用了 10 天就完成了 JavaScript 语言的设计。</p>
-<h3 id="JavaScript-语言的特点"><a href="#JavaScript-语言的特点" class="headerlink" title="JavaScript 语言的特点"></a>JavaScript 语言的特点</h3><ul>
-<li>是一种解释性脚本语言。</li>
-<li>主要用来向 HTML 页面添加交互行为。</li>
-<li>可以直接嵌入 HTML 页面，但写成单独的 js 文件有利于结构和行为的分离。</li>
-</ul>
-<h3 id="JavaScript-语言的用处"><a href="#JavaScript-语言的用处" class="headerlink" title="JavaScript 语言的用处"></a>JavaScript 语言的用处</h3><ul>
-<li>嵌入动态文本于 HTML 页面</li>
-<li>对浏览器事件作出响应</li>
-<li>读写 HTML 元素</li>
-<li>在数据被提交到服务器之前验证数据</li>
-<li>检测访客的浏览器信息</li>
-<li>控制 cookie，包括创建和修改等</li>
-</ul>
-<h3 id="JavaScript-语言的标准"><a href="#JavaScript-语言的标准" class="headerlink" title="JavaScript 语言的标准"></a>JavaScript 语言的标准</h3><p>JavaScript 已经被 Netscape 公司提交给 <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/ECMA">ECMA</a> 制定为标准，称之为 <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/ECMAScript">ECMAScript</a>，标准编号 ECMA-262。最新版为 ECMAScript 6 。</p>
-<h3 id="JavaScript-语言的缺陷"><a href="#JavaScript-语言的缺陷" class="headerlink" title="JavaScript 语言的缺陷"></a>JavaScript 语言的缺陷</h3><ol>
-<li>不适合开发大型程序</li>
-<li>标准库非常小</li>
-<li>全局变量难以控制</li>
-<li>自动插入行尾分号</li>
-</ol>
+        <h3 id="jQuery-如何获取元素"><a href="#jQuery-如何获取元素" class="headerlink" title="jQuery 如何获取元素"></a>jQuery 如何获取元素</h3><p>主要是通过将选择表达式，放进构造函数 jQuery() 里，得到要选中的元素。</p>
+<p>选择表达式可以是 CSS 选择器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(&#39;#myId&#39;)  &#x2F;&#x2F;选择 ID 为 myId 的网页元素。</span><br></pre></td></tr></table></figure>
+
+<p>选择表达式也可以是 jQuery 特有的表达式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(&#39;a:first&#39;) &#x2F;&#x2F;选择网页中第一个 a 元素。 </span><br></pre></td></tr></table></figure>
+
+<h3 id="jQuery-的链式操作是怎样的"><a href="#jQuery-的链式操作是怎样的" class="headerlink" title="jQuery 的链式操作是怎样的"></a>jQuery 的链式操作是怎样的</h3><p>jQuery 在选中网页元素以后，可以对它进行一系列操作，同时又可以将所有操作连接在一起，以链条的方式写出来。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$(&#39;div&#39;)  &#x2F;&#x2F;找到 div 元素</span><br><span class="line">.find(&#39;h2&#39;)   &#x2F;&#x2F;选择其中的 h2 元素</span><br><span class="line">.eq(1)    &#x2F;&#x2F;选择第二个 h2 元素</span><br><span class="line">.html(&#39;AmazeseeK&#39;); &#x2F;&#x2F;将它的内容改为 AmazeseeK</span><br></pre></td></tr></table></figure>
+
+<p>链式操作的原理是每一步的  jQuery  操作返回的都是一个  jQuery 对象，所以不同的操作可以连在一起。</p>
+<h3 id="jQuery-如何创建元素"><a href="#jQuery-如何创建元素" class="headerlink" title="jQuery 如何创建元素"></a>jQuery 如何创建元素</h3><p>把新元素直接传入 jQuery 的构造函数，就完成了元素的创建。</p>
+<p>例如 ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(&#39;&lt;p&gt;AmazeseeK&lt;&#x2F;p&gt;&#39;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="jQuery-如何移动元素"><a href="#jQuery-如何移动元素" class="headerlink" title="jQuery 如何移动元素"></a>jQuery 如何移动元素</h3><p>jQuery 提供两组方法，操作元素在网页中的位置移动。假设我们选中一个 div 元素，此时要将它移动到 p 元素后面，我们分别用以下两种方法实现：</p>
+<p>方法一：使用  .insertAfter() 把 div 元素移动到 p 元素后面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(&#39;div&#39;).insertAfter($(&#39;p&#39;));</span><br></pre></td></tr></table></figure>
+
+<p>方法二：使用  .after() 把 p 元素加到div元素前面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(&#39;p&#39;).after($(&#39;div&#39;));</span><br></pre></td></tr></table></figure>
+
+<p>两种方法实现效果一样，但是有一个重大的差别就是返回的元素不一样，方法一返回的是 div 元素，方法二返回的是 p 元素。</p>
+<h3 id="jQuery-如何修改元素属性"><a href="#jQuery-如何修改元素属性" class="headerlink" title="jQuery 如何修改元素属性"></a>jQuery 如何修改元素属性</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.attr(name);         <span class="comment">//获取元素属性名为name的属性值</span></span><br><span class="line">.attr(name, value);  <span class="comment">//设置属性名为name的元素的属性值为value</span></span><br><span class="line">.attr(&#123;<span class="attr">name</span>: value, <span class="attr">name2</span>: value,...&#125;); <span class="comment">//设置多个元素属性的属性值</span></span><br><span class="line">.attr(name, fn);    <span class="comment">//设置name属性的值为 fn 函数的返回值</span></span><br><span class="line">.removeAttr(name);  <span class="comment">//移除属性名为name的属性</span></span><br></pre></td></tr></table></figure>
+
+
+
 
     </div>
     
@@ -241,17 +248,17 @@
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/2021/08/30/JavaScript%E8%AF%AD%E6%B3%95/" class="pre-post btn btn-default" title='JavaScript语法'>
+    <a href="/Dom%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/" class="pre-post btn btn-default" title='Dom事件模型'>
         <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
         <span class="hidden-xs">
-            JavaScript语法</span>
+            Dom事件模型</span>
     </a>
     
     
-    <a href="/2021/08/26/CSS%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" class="next-post btn btn-default" title='CSS知识总结'>
+    <a href="/JavaScript%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/" class="next-post btn btn-default" title='JavaScript函数的执行时机'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
-            CSS知识总结</span><i class="fa fa-angle-right fa-fw"></i>
+            JavaScript函数的执行时机</span><i class="fa fa-angle-right fa-fw"></i>
     </a>
     
 </div>
@@ -292,7 +299,7 @@ new Valine({
             文章目录
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#JavaScript-%E8%AF%AD%E8%A8%80%E7%9A%84%E4%BB%8B%E7%BB%8D"><span class="toc-text">JavaScript 语言的介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JavaScript-%E8%AF%AD%E8%A8%80%E7%9A%84%E4%BA%A7%E7%94%9F"><span class="toc-text">JavaScript 语言的产生</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JavaScript-%E8%AF%AD%E8%A8%80%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-text">JavaScript 语言的特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JavaScript-%E8%AF%AD%E8%A8%80%E7%9A%84%E7%94%A8%E5%A4%84"><span class="toc-text">JavaScript 语言的用处</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JavaScript-%E8%AF%AD%E8%A8%80%E7%9A%84%E6%A0%87%E5%87%86"><span class="toc-text">JavaScript 语言的标准</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JavaScript-%E8%AF%AD%E8%A8%80%E7%9A%84%E7%BC%BA%E9%99%B7"><span class="toc-text">JavaScript 语言的缺陷</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#jQuery-%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0"><span class="toc-text">jQuery 如何获取元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jQuery-%E7%9A%84%E9%93%BE%E5%BC%8F%E6%93%8D%E4%BD%9C%E6%98%AF%E6%80%8E%E6%A0%B7%E7%9A%84"><span class="toc-text">jQuery 的链式操作是怎样的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jQuery-%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E5%85%83%E7%B4%A0"><span class="toc-text">jQuery 如何创建元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jQuery-%E5%A6%82%E4%BD%95%E7%A7%BB%E5%8A%A8%E5%85%83%E7%B4%A0"><span class="toc-text">jQuery 如何移动元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jQuery-%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E5%85%83%E7%B4%A0%E5%B1%9E%E6%80%A7"><span class="toc-text">jQuery 如何修改元素属性</span></a></li></ol>
         
     </div>
 </aside>
