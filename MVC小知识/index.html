@@ -22,7 +22,8 @@
 <meta name="keywords" content="" />
 
 
-<meta name="description" content="" />
+<meta name="description" content="关于模块化的理解？模块化其实就是用一套规则将复杂且可读性不高的程序进行切割分块，不同的块之间保持各自的独立性，目的就是避免变量污染，命名冲突，提高代码的复用率与可维护性。
+MVC 是做什么的？M..." />
 
 
 <meta name="robots" content="all" />
@@ -194,7 +195,23 @@
     </div>
     
     <div class="post-body post-content">
-        
+        <h3 id="关于模块化的理解？"><a href="#关于模块化的理解？" class="headerlink" title="关于模块化的理解？"></a>关于模块化的理解？</h3><p>模块化其实就是用一套规则将复杂且可读性不高的程序进行切割分块，不同的块之间保持各自的独立性，目的就是避免变量污染，命名冲突，提高代码的复用率与可维护性。</p>
+<h3 id="MVC-是做什么的？"><a href="#MVC-是做什么的？" class="headerlink" title="MVC 是做什么的？"></a>MVC 是做什么的？</h3><p>M - Model 数据模型 处理数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 数据和增删改查</span><br><span class="line">m &#x3D; &#123;</span><br><span class="line">    data: &#123;&#125;,</span><br><span class="line">    create() &#123;&#125;,</span><br><span class="line">    delete() &#123;&#125;,</span><br><span class="line">    update() &#123;&#125;,</span><br><span class="line">    get() &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>V - View 视图 负责所有的 UI 界面，当数据模型发生变化，视图也会更新。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 构建HTML骨架与渲染</span><br><span class="line">v &#x3D; &#123;</span><br><span class="line">    el: null,</span><br><span class="line">    html: &lt;template&gt;,</span><br><span class="line">    init(container) &#123;</span><br><span class="line">        v.el &#x3D; $(container)</span><br><span class="line">    &#125;,</span><br><span class="line">    render(n) &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>C - Controller 控制器 定义用户界面对用户输入的相应方式，起到不同层面间的组织作用，用于控制应用程序的流程。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> c &#x3D; &#123;</span><br><span class="line">    init(container) &#123;&#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    events: &#123;&#125;,</span><br><span class="line">    actions: &#123;&#125;,</span><br><span class="line">    autoBindEvents() &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="EventBus-的用处？"><a href="#EventBus-的用处？" class="headerlink" title="EventBus 的用处？"></a>EventBus 的用处？</h3><p>EventBus 是事件总线框架，可以用来简化组件之间通信和数据传输。它基于发布/订阅模式，实现业务代码解耦，提高开发效率。</p>
+<p>EventBus 的 API</p>
+<p>on 监听事件<br>trigger 触发事件<br>off 取消监听</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">constructor()&#123;</span><br><span class="line">    this._eventBus &#x3D;$(window)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">on(eventName, fn)&#123;</span><br><span class="line">    return this._eventBus.on(eventName,fn)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">trigger(eventName,data)&#123;</span><br><span class="line">    return this._trigger.tiggger(eventName,data)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">off(eventName, fn)&#123;</span><br><span class="line">    return this._eventBus.off(eventName,fn)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="表驱动编程的用处？"><a href="#表驱动编程的用处？" class="headerlink" title="表驱动编程的用处？"></a>表驱动编程的用处？</h3><p>表驱动法就是一种编程模式(scheme)——从表里面查找信息而不使用逻辑语句(if 和 case)。事实上，凡是能通过逻辑语句来选择的事物，都可以通过查表来选择。对简单的情况而言，使用逻辑语句更为容易和直白。但随着逻辑链的越来越复杂，查表法也就愈发显得更具吸引力。表驱动编程能够将逻辑与数据进行分离，在我们面对条件表达式过多的情况下，可以使用表去查询，以便我们写出简洁优雅的代码。</p>
+
     </div>
     
     <div class="post-footer">
@@ -257,7 +274,7 @@
             文章目录
         </h3>
         
-        <p>暂无目录</p>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E6%A8%A1%E5%9D%97%E5%8C%96%E7%9A%84%E7%90%86%E8%A7%A3%EF%BC%9F"><span class="toc-text">关于模块化的理解？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MVC-%E6%98%AF%E5%81%9A%E4%BB%80%E4%B9%88%E7%9A%84%EF%BC%9F"><span class="toc-text">MVC 是做什么的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EventBus-%E7%9A%84%E7%94%A8%E5%A4%84%EF%BC%9F"><span class="toc-text">EventBus 的用处？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A8%E9%A9%B1%E5%8A%A8%E7%BC%96%E7%A8%8B%E7%9A%84%E7%94%A8%E5%A4%84%EF%BC%9F"><span class="toc-text">表驱动编程的用处？</span></a></li></ol>
         
     </div>
 </aside>
