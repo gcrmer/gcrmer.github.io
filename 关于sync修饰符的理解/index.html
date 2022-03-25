@@ -22,8 +22,7 @@
 <meta name="keywords" content="" />
 
 
-<meta name="description" content="hello
-" />
+<meta name="description" content="修饰符 sync 的功能当一个子组件改变了一个 prop 的值时，这个变化也会同步到父组件中所绑定。但是子组件并不是直接改变 prop 的值的，而是先触发一个更新事件，在父组件监听到这个事件后，..." />
 
 
 <meta name="robots" content="all" />
@@ -33,6 +32,8 @@
     <!--Title-->
 
 <title>
+    
+    关于sync修饰符的理解 |
     
     goremoter
 </title>
@@ -154,114 +155,117 @@
     <section class="content-wrap">
         <div class="container">
             <div class="row">
-                <main class="col-md-8 main-content ">
-                    <div>
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="关于sync修饰符的理解">
+            
+            关于sync修饰符的理解
+            
+        </h1>
+        <div class="post-meta">
     
-    <article class="post">
-    <h1 class="post-head">
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
         
-    </h1>
-    <div class="post-body">
-        <p>hello</p>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2022/03/25</span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h3 id="修饰符-sync-的功能"><a href="#修饰符-sync-的功能" class="headerlink" title="修饰符 sync 的功能"></a>修饰符 sync 的功能</h3><p>当一个子组件改变了一个 prop 的值时，这个变化也会同步到父组件中所绑定。但是子组件并不是直接改变 prop 的值的，而是先触发一个更新事件，在父组件监听到这个事件后，根据 $event 的参数值(这个参数值是由子组件传过来的)对数据进行更新。</p>
+<h3 id="一个代码示例"><a href="#一个代码示例" class="headerlink" title="一个代码示例"></a>一个代码示例</h3><p>以下代码主要实现了父组件给子组件传递了一个参数 money，子组件通过$emit 修改 money 值后，将值同步到父组件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">Father.vue</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class&#x3D;&quot;app&quot;&gt;</span><br><span class="line">     &#123;&#123;datalast&#125;&#125;</span><br><span class="line">    &lt;hr&gt;</span><br><span class="line">    &lt;Child :money.sync&#x3D;&quot;datalast&quot;&#x2F;&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import Child from &quot;.&#x2F;Child.vue&quot;;</span><br><span class="line">export default &#123;</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123; datalast: 100 &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  components: &#123; Child &#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line"></span><br><span class="line">Child.vue</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class&#x3D;&quot;child&quot;&gt;</span><br><span class="line">    &#123;&#123;money&#125;&#125;</span><br><span class="line">    &lt;button @click&#x3D;&quot;$emit(&#39;update:money&#39;, money-1)&quot;&gt;</span><br><span class="line">    &lt;&#x2F;button&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  props: [&quot;money&quot;]</span><br><span class="line">&#125;;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
 
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">以下两句代码的作用是相同的</span><br><span class="line">&lt;Child :money&#x3D;&quot;datalast&quot; v-on:update:money&#x3D;&quot;datalast &#x3D; $event&quot;&#x2F;&gt;</span><br><span class="line">&lt;Child :money.sync&#x3D;&quot;datalast&quot;&#x2F;&gt;</span><br></pre></td></tr></table></figure>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">goremoter</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
     </div>
 </article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+    <a href="/%E8%B6%A3%E8%AF%B4-sync%E4%BF%AE%E9%A5%B0%E7%AC%A6/" class="next-post btn btn-default" title='关于sync修饰符的理解'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            关于sync修饰符的理解</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
     
 </div>
+
+<div id="comments">
+    
+    
+<div id="vcomments" class="valine"></div>
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+<script>
+    new Valine({
+        av: AV,
+        el: '#vcomments',
+        appId: 'eR0SDTdoQ1U55NajfdAGQi8N-gzGzoHsz',
+        appKey: 'CGQgfSWBWL0lzuoNVNQ2G8QT',
+        placeholder: '欢迎留下你的足迹呦。',
+        notify: false,
+        verify: true,
+        avatar: 'monsterid',
+        meta: 'nick,mail'.split(','),
+        pageSize: '10',
+        path: window.location.pathname,
+        lang: 'zh-CN'.toLowerCase()
+    })
+    </script>
+
+
+</div>
+
                 </main>
                 
-                    
-<aside class="col-md-4 sidebar">
-    
-    
-<div class="widget">
-    <h3 class="title">
-        搜索
-    </h3>
-    <div id="search-form">
-        <div id="result-mask" class="hide"></div>
-        <div class="search-area">
-            
-            <input id="search-key" type="search" autocomplete="off" placeholder="搜点什么呢？">
-            <button type="button" class="search-form-submit" id="search-local">
-                站内搜索</button>
-            
-            
-        </div>
-        <div id="result-wrap" class="hide">
-            <div id="search-result"></div>
-        </div>
-        <div class="hide">
-            <template id="search-tpl">
-                <div class="item">
-                    <a href="/{path}" title="{title}">
-                        <div class="title">{title}</div>
-                        <div class="content">{content}</div>
-                    </a>
-                </div>
-            </template>
-        </div>
-    </div>
-</div>
-
-    
-    
-    
-    
-<div class="widget">
-    <h3 class="title">
-        社交
-    </h3>
-    <div class="content social">
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            文章目录
+        </h3>
         
-        <a href="//github.com/goremoter" rel="external nofollow" title="Github" target="_blank">
-            <i class="github fa fa-github"></i>
-        </a>
-        
-        <a href="mailto:goremoter@gmail.com" rel="external nofollow" title="邮箱" target="_blank">
-            <i class="envelope-o fa fa-envelope-o"></i>
-        </a>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E9%A5%B0%E7%AC%A6-sync-%E7%9A%84%E5%8A%9F%E8%83%BD"><span class="toc-text">修饰符 sync 的功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B"><span class="toc-text">一个代码示例</span></a></li></ol>
         
     </div>
-</div>
-
-    
-    
-<div class="widget">
-    <h3 class="title">
-        分类
-    </h3>
-    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/HTML/"><i class="fa" aria-hidden="true">HTML</i></a><span class="category-list-count">2</span></li></ul>
-</div>
-
-    
-    
-<div class="widget">
-    <h3 class="title">
-        归档
-    </h3>
-    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/"><i class="fa" aria-hidden="true">2022年03月</i></a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/"><i class="fa" aria-hidden="true">2021年09月</i></a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/"><i class="fa" aria-hidden="true">2021年08月</i></a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/"><i class="fa" aria-hidden="true">2021年06月</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/"><i class="fa" aria-hidden="true">2021年05月</i></a><span class="archive-list-count">1</span></li></ul>
-</div>
-
-    
-    
-    
-    
-<div class="widget">
-    <h3 class="title">
-        友链
-    </h3>
-    <div class="content friends-link">
-        
-        <a href="https://weibo.com/atthemomenttour?is_all=1" class="fa" target="_blank">
-            许巍音乐之旅</a>
-        
-    </div>
-</div>
-
-    
 </aside>
-
                 
             </div>
         </div>
@@ -298,10 +302,6 @@
         </div>
     </div>
 </div>
-
-
-<script src="/js/search.js?rev=@@hash.js"></script>
-
 
 
 
