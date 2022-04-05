@@ -22,7 +22,9 @@
 <meta name="keywords" content="" />
 
 
-<meta name="description" content="修饰符 sync 的功能当一个子组件改变了一个 prop 的值时，这个变化也会同步到父组件中所绑定。但是子组件并不是直接改变 prop 的值的，而是先触发一个更新事件，在父组件监听到这个事件后，..." />
+<meta name="description" content="最近想注册一个 gmail 邮箱账号，但是在验证手机号的时候却出现了此号码无法用于进行验证的情况
+
+经过一番搜索找到了解决的办法，在这里做一下记录。ps:我用的是 chrome 浏览器，哈哈，其..." />
 
 
 <meta name="robots" content="all" />
@@ -33,7 +35,7 @@
 
 <title>
     
-    关于sync修饰符的理解 |
+    注册gmail时出现此号码无法用于进行验证的解决办法 |
     
     goremoter
 </title>
@@ -159,9 +161,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="关于sync修饰符的理解">
+        <h1 id="注册gmail时出现此号码无法用于进行验证的解决办法">
             
-            关于sync修饰符的理解
+            注册gmail时出现此号码无法用于进行验证的解决办法
             
         </h1>
         <div class="post-meta">
@@ -184,7 +186,7 @@
     <span class="fa-wrap">
         <i class="fa fa-clock-o"></i>
         <span class="date-meta">
-            2022/03/25</span>
+            2022/04/05</span>
     </span>
     
     
@@ -194,11 +196,15 @@
     </div>
     
     <div class="post-body post-content">
-        <h3 id="修饰符-sync-的功能"><a href="#修饰符-sync-的功能" class="headerlink" title="修饰符 sync 的功能"></a>修饰符 sync 的功能</h3><p>当一个子组件改变了一个 prop 的值时，这个变化也会同步到父组件中所绑定。但是子组件并不是直接改变 prop 的值的，而是先触发一个更新事件，在父组件监听到这个事件后，根据 $event 的参数值(这个参数值是由子组件传过来的)对数据进行更新。</p>
-<h3 id="一个代码示例"><a href="#一个代码示例" class="headerlink" title="一个代码示例"></a>一个代码示例</h3><p>以下代码主要实现了父组件给子组件传递了一个参数 money，子组件通过$emit 修改 money 值后，将值同步到父组件。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">Father.vue</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class&#x3D;&quot;app&quot;&gt;</span><br><span class="line">     &#123;&#123;datalast&#125;&#125;</span><br><span class="line">    &lt;hr&gt;</span><br><span class="line">    &lt;Child :money.sync&#x3D;&quot;datalast&quot;&#x2F;&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import Child from &quot;.&#x2F;Child.vue&quot;;</span><br><span class="line">export default &#123;</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123; datalast: 100 &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  components: &#123; Child &#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line"></span><br><span class="line">Child.vue</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class&#x3D;&quot;child&quot;&gt;</span><br><span class="line">    &#123;&#123;money&#125;&#125;</span><br><span class="line">    &lt;button @click&#x3D;&quot;$emit(&#39;update:money&#39;, money-1)&quot;&gt;</span><br><span class="line">    &lt;&#x2F;button&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  props: [&quot;money&quot;]</span><br><span class="line">&#125;;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">以下两句代码的作用是相同的</span><br><span class="line">&lt;Child :money&#x3D;&quot;datalast&quot; v-on:update:money&#x3D;&quot;datalast &#x3D; $event&quot;&#x2F;&gt;</span><br><span class="line">&lt;Child :money.sync&#x3D;&quot;datalast&quot;&#x2F;&gt;</span><br></pre></td></tr></table></figure>
+        <p>最近想注册一个 gmail 邮箱账号，但是在验证手机号的时候却出现了此号码无法用于进行验证的情况</p>
+<p><img src="https://s2.loli.net/2022/04/05/NkIUKgZSOWiqAbm.png" alt="gmail1.png"></p>
+<p>经过一番搜索找到了解决的办法，在这里做一下记录。ps:我用的是 chrome 浏览器，哈哈，其他浏览器的我没试过，不知道是否也会出现这样的问题。其实解决办法用一句话来说就是将 chrome 浏览器的语言首选项设置成英语(美国)就 ok 啦。下面说下具体的步骤:</p>
+<h3 id="1-点击-chrome-的设置选项"><a href="#1-点击-chrome-的设置选项" class="headerlink" title="1.点击 chrome 的设置选项"></a>1.点击 chrome 的设置选项</h3><p><img src="https://s2.loli.net/2022/04/05/sTVEA5cJfQwkB4j.png" alt="ScreenClip.png"></p>
+<h3 id="2-点击高级下的语言选项"><a href="#2-点击高级下的语言选项" class="headerlink" title="2.点击高级下的语言选项"></a>2.点击高级下的语言选项</h3><p><img src="https://s2.loli.net/2022/04/05/N7TilDadRk3cn5y.png" alt="gmail2.png"></p>
+<h3 id="3-添加语言，选择英语-美国"><a href="#3-添加语言，选择英语-美国" class="headerlink" title="3.添加语言，选择英语(美国)"></a>3.添加语言，选择英语(美国)</h3><p><img src="https://s2.loli.net/2022/04/05/Caxs1GSPlUB4QJL.png" alt="gmail3.png"></p>
+<h3 id="4-选择以这种语言显示-Google-Chrome"><a href="#4-选择以这种语言显示-Google-Chrome" class="headerlink" title="4.选择以这种语言显示 Google Chrome"></a>4.选择以这种语言显示 Google Chrome</h3><p><img src="https://s2.loli.net/2022/04/05/MWUv8ezpFDNnQ9I.png" alt="gmail4.png"></p>
+<h3 id="5-将英语-美国-之外的其他语言全部移除，比如中文-简体"><a href="#5-将英语-美国-之外的其他语言全部移除，比如中文-简体" class="headerlink" title="5.将英语(美国)之外的其他语言全部移除，比如中文(简体)"></a>5.将英语(美国)之外的其他语言全部移除，比如中文(简体)</h3><p><img src="https://s2.loli.net/2022/04/05/KGI63ayTYwAUpXr.png" alt="gmail5.png"></p>
+<h3 id="6-重启浏览器再次进行注册，这次就不会出现此号码无法用于进行验证的情况啦。"><a href="#6-重启浏览器再次进行注册，这次就不会出现此号码无法用于进行验证的情况啦。" class="headerlink" title="6.重启浏览器再次进行注册，这次就不会出现此号码无法用于进行验证的情况啦。"></a>6.重启浏览器再次进行注册，这次就不会出现此号码无法用于进行验证的情况啦。</h3><p><img src="https://s2.loli.net/2022/04/05/Slqp3LtTWcJUoGV.png" alt="gmail6.png"></p>
 
     </div>
     
@@ -217,14 +223,8 @@
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/%E6%B3%A8%E5%86%8Cgmail%E6%97%B6%E5%87%BA%E7%8E%B0%E6%AD%A4%E5%8F%B7%E7%A0%81%E6%97%A0%E6%B3%95%E7%94%A8%E4%BA%8E%E8%BF%9B%E8%A1%8C%E9%AA%8C%E8%AF%81%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" class="pre-post btn btn-default" title='注册gmail时出现此号码无法用于进行验证的解决办法'>
-        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-        <span class="hidden-xs">
-            注册gmail时出现此号码无法用于进行验证的解决办法</span>
-    </a>
     
-    
-    <a href="/%E8%B6%A3%E8%AF%B4-sync%E4%BF%AE%E9%A5%B0%E7%AC%A6/" class="next-post btn btn-default" title='关于sync修饰符的理解'>
+    <a href="/%E5%85%B3%E4%BA%8Esync%E4%BF%AE%E9%A5%B0%E7%AC%A6%E7%9A%84%E7%90%86%E8%A7%A3/" class="next-post btn btn-default" title='关于sync修饰符的理解'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
             关于sync修饰符的理解</span><i class="fa fa-angle-right fa-fw"></i>
@@ -268,7 +268,7 @@
             文章目录
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E9%A5%B0%E7%AC%A6-sync-%E7%9A%84%E5%8A%9F%E8%83%BD"><span class="toc-text">修饰符 sync 的功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B"><span class="toc-text">一个代码示例</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%82%B9%E5%87%BB-chrome-%E7%9A%84%E8%AE%BE%E7%BD%AE%E9%80%89%E9%A1%B9"><span class="toc-text">1.点击 chrome 的设置选项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%82%B9%E5%87%BB%E9%AB%98%E7%BA%A7%E4%B8%8B%E7%9A%84%E8%AF%AD%E8%A8%80%E9%80%89%E9%A1%B9"><span class="toc-text">2.点击高级下的语言选项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%B7%BB%E5%8A%A0%E8%AF%AD%E8%A8%80%EF%BC%8C%E9%80%89%E6%8B%A9%E8%8B%B1%E8%AF%AD-%E7%BE%8E%E5%9B%BD"><span class="toc-text">3.添加语言，选择英语(美国)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E9%80%89%E6%8B%A9%E4%BB%A5%E8%BF%99%E7%A7%8D%E8%AF%AD%E8%A8%80%E6%98%BE%E7%A4%BA-Google-Chrome"><span class="toc-text">4.选择以这种语言显示 Google Chrome</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%B0%86%E8%8B%B1%E8%AF%AD-%E7%BE%8E%E5%9B%BD-%E4%B9%8B%E5%A4%96%E7%9A%84%E5%85%B6%E4%BB%96%E8%AF%AD%E8%A8%80%E5%85%A8%E9%83%A8%E7%A7%BB%E9%99%A4%EF%BC%8C%E6%AF%94%E5%A6%82%E4%B8%AD%E6%96%87-%E7%AE%80%E4%BD%93"><span class="toc-text">5.将英语(美国)之外的其他语言全部移除，比如中文(简体)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E9%87%8D%E5%90%AF%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%8D%E6%AC%A1%E8%BF%9B%E8%A1%8C%E6%B3%A8%E5%86%8C%EF%BC%8C%E8%BF%99%E6%AC%A1%E5%B0%B1%E4%B8%8D%E4%BC%9A%E5%87%BA%E7%8E%B0%E6%AD%A4%E5%8F%B7%E7%A0%81%E6%97%A0%E6%B3%95%E7%94%A8%E4%BA%8E%E8%BF%9B%E8%A1%8C%E9%AA%8C%E8%AF%81%E7%9A%84%E6%83%85%E5%86%B5%E5%95%A6%E3%80%82"><span class="toc-text">6.重启浏览器再次进行注册，这次就不会出现此号码无法用于进行验证的情况啦。</span></a></li></ol>
         
     </div>
 </aside>
