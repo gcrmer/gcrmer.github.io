@@ -1,0 +1,438 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="goremoter">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://example.com">
+    <!--SEO-->
+
+<meta name="keywords" content="" />
+
+
+<meta name="description" content="大屏适配问题的思考① 大屏适配算法
+可视化 Echarts 图表的使用第一步:引入 echarts,可以采用 bootcdn 或者 import 两种方式第二步:基于准备好的 DOM 容器初始化..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    大屏可视化技术小记 |
+    
+    goremoter
+</title>
+
+<link rel="alternate" href="/atom.xml" title="goremoter" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+<script>
+(function() {
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='goremoter'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <h2>
+                保持理智 相信未来
+            </h2>
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://example.com">
+                        goremoter</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                首页</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/HTML/"><i class="fa "></i>
+                                前端</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/framework/"><i class="fa "></i>
+                                框架</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/about/"><i class="fa "></i>
+                                关于</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a target="_blank" rel="noopener" href="https://amazeseek.com/bbs/"><i class="fa "></i>
+                                留言板</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="大屏可视化技术小记">
+            
+            大屏可视化技术小记
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2022/04/12</span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h3 id="大屏适配问题的思考"><a href="#大屏适配问题的思考" class="headerlink" title="大屏适配问题的思考"></a>大屏适配问题的思考</h3><p>① 大屏适配算法</p>
+<h3 id="可视化-Echarts-图表的使用"><a href="#可视化-Echarts-图表的使用" class="headerlink" title="可视化 Echarts 图表的使用"></a>可视化 Echarts 图表的使用</h3><p>第一步:引入 echarts,可以采用 bootcdn 或者 import 两种方式<br>第二步:基于准备好的 DOM 容器初始化 echarts 图表<br>第三步:根据个人需要对 echarts 图表的配置选项进行修改，主要是图表的外观以及数据。</p>
+<p>示例:一个基础的柱状图</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;引入echarts,这里用的是import方式</span><br><span class="line">import * as echarts from &#39;echarts&#39;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;基于准备好的DOM容器初始化 echarts 图表</span><br><span class="line">var chartDom &#x3D; document.getElementById(&#39;main&#39;);</span><br><span class="line">var myChart &#x3D; echarts.init(chartDom);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;根据个人需要对配置选项做出修改</span><br><span class="line">var option;</span><br><span class="line">option &#x3D; &#123;</span><br><span class="line">  &#x2F;&#x2F;设置 x 轴的内容</span><br><span class="line">  xAxis: &#123;</span><br><span class="line">    type: &#39;category&#39;,</span><br><span class="line">    data: [&#39;Mon&#39;, &#39;Tue&#39;, &#39;Wed&#39;, &#39;Thu&#39;, &#39;Fri&#39;, &#39;Sat&#39;, &#39;Sun&#39;]</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  &#x2F;&#x2F;设置 y 轴的内容</span><br><span class="line">  yAxis: &#123;</span><br><span class="line">    type: &#39;value&#39;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  &#x2F;&#x2F;设置 y 轴的数据</span><br><span class="line">  series: [</span><br><span class="line">    &#123;</span><br><span class="line">      data: [120, 200, 150, 80, 70, 110, 130],</span><br><span class="line">      type: &#39;bar&#39;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;使用设置选项显示图标</span><br><span class="line">myChart.setOption(option);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>关于如何修改图表的配置选项，其实我们通过 <a target="_blank" rel="noopener" href="https://echarts.apache.org/zh/cheat-sheet.html">echarts 术语速查手册</a>查找常用组件就能快速定位到需要修改的配置项，比如修改柱状图的颜色，这个主要是在 series 中的 itemStyle 去修改的，比如我们想想把柱状图的颜色改为粉色，只需要在 series 中加上以下代码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">itemStyle:&#123;</span><br><span class="line">        color:&#39;#f06&#39;</span><br><span class="line">      &#125;,</span><br></pre></td></tr></table></figure>
+
+<h3 id="flex-布局的使用"><a href="#flex-布局的使用" class="headerlink" title="flex 布局的使用"></a>flex 布局的使用</h3><p>指定一个容器为 flex 布局</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.box&#123;</span><br><span class="line">  display: flex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>定义容器的 6 个属性:</p>
+<ul>
+  <li>flex-direction</li>
+  决定主轴的方向,即项目的排列方向,它有4个值
+
+<p>①row:主轴为水平方向 起点在左端<br>②row-reverse:主轴为水平方向 起点在右端<br>③column:主轴为垂直方向 起点在上沿<br>④column:主轴为垂直方向 起点在下沿</p>
+ <li>flex-wrap</li>
+   决定项目是否换行,默认情况项目都排在一条轴线上,当一条轴线排不下时,该以何种方式换行呢?它将由以下3个值决定        
+
+<p>①nowrap:默认值-不换行<br>②wrap:换行且第一行在上方<br>③wrap-reverse:换行且第一行在下方</p>
+ <li>flex-flow</li>
+ 它是 flex-direction 与 flex-wrap 属性的简写形式 默认值是 row nowrap
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.box&#123;</span><br><span class="line">  flex-flow:&lt;flex-direction&gt; ||&lt;flex-wrap&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+ <li>justify-content</li>
+ 定义项目在主轴上的对齐方式,它有以下5个值,假设主轴从左到右,那么  
+
+<p>①flex-start:默认值-左对齐<br>②flex-end:右对齐<br>③center:居中对齐<br>④space-between:两端对齐,项目之间间隔相等<br>⑤space-around:每个项目两侧的间隔相等,所以项目之间的间隔是项目与边框的间隔的两倍</p>
+ <li>align-items</li>
+ 定义项目在交叉轴上的对齐方式，它有5个值,对齐方式与交叉轴的方向有关，假设交叉轴从上到下,那么
+
+<p>①flex-start:交叉轴的起点对齐<br>②flex-end:交叉轴的终点对齐<br>③center:交叉轴的中点对齐<br>④baseline:项目第一行文字的基线对齐<br>⑤stretch:如果项目未设置高度或设为 auto,那么项目将会占满整个容器高度</p>
+  <li>align-content</li>
+  定义多根轴线的对齐方式,若项目仅有一根轴线,则属性不起作用,它有以下6个值
+
+<p>①flex-start:与交叉轴的起点对齐<br>②flex-end:与交叉轴的终点对齐<br>③center:与交叉轴的中点对齐<br>④space-between:与交叉轴的两端对齐,轴线之间的间隔相等<br>⑤space-around:每根轴线两侧的间隔都相等,轴线之间的间隔是轴线与边框之间间隔的两倍<br>⑥stretch:轴线占满整个交叉轴</p>
+</ul>
+
+<p>定义项目的 6 个属性:</p>
+<ul>
+<li>order</li>
+定义项目的排列顺序,数值越小,位置越靠前
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.item&#123;</span><br><span class="line">  order:&lt;integer&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<li>flex-grow</li>
+定义项目的放大比例，默认为0，即有剩余空间也不放大，如果所有项目的flex-grow 属性都为1，则它们会等分剩余空间，如果其中一个项目的flex-grow属性为2，其他项目都为1，则前者占据的剩余空间为其他项目的2倍。    
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.item&#123;</span><br><span class="line">  flex-grow:&lt;number&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<li>flex-shrink</li>
+定义项目的缩小比例，默认为1，即如果空间不足，该项目就会缩小。如果所有项目的flex-shrink属性都为1，当空间不足时，它们都将等比例缩小，如果一个项目的flex-shrink属性为0，其他项目都为1，若空间不足，前者不缩小，负值对该属性无效。
+
+<li>flex-basis</li>
+定义在分配多余的空间之前，项目占据的主轴空间，默认值为auto，即项目的本来大小。
+
+<li>flex</li>
+它是flex-grow，flex-shrink 和flex-basis的缩写，默认值是 0 1 auto，此属性有两个快捷值auto(1 1 auto)，none(0 0 auto)。
+
+<li>align-self</li>
+它允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items，默认值auto，表示继承父元素的align-items属性，若没有父元素，则等同于stretch。
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.item &#123;</span><br><span class="line">  align-self: auto | flex-start | flex-end | center | baseline | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</ul>
+本文参考:
+
+<p><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/">阮一峰老师的 Flex 布局教程</a>，在此向阮老师致敬。</p>
+<h3 id="Grid-布局的使用"><a href="#Grid-布局的使用" class="headerlink" title="Grid 布局的使用"></a>Grid 布局的使用</h3><p>Grid 就是网格布局<br>下面以示例说明 Grid 布局的用法<br>① 指定一个容器采用网格布局</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">div&#123;</span><br><span class="line">  display:grid;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>② 划分行与列，grid-template-columns 定义每一行列宽，grid-template-rows 定义每一行行高，以下代码定义了一个四行四列的网格。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.container &#123;</span><br><span class="line">  display: grid;</span><br><span class="line">  grid-template-columns: 100px 100px 100px 100px ;</span><br><span class="line">  grid-template-rows: 100px 100px 100px 100px ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>repeat():</p>
+<p>重复写相同的值非常麻烦，repeat 接受两个参数，第一个表示重复的次数，第二个表示要重复的值，上面代码可以改写为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.container &#123;</span><br><span class="line">  display: grid;</span><br><span class="line">  grid-template-columns: repeat(4, 100px);</span><br><span class="line">  grid-template-rows: repeat(4, 100px);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>auto-fill 关键字<br>由于容器的大小不确定，但是单元格大小是固定的，我们希望每一行能容纳更多的单元格，就可已使用 auto-fill 关键字进行自动填充，下面代码表示每一列的列宽为 50px，然后自动填充，知道容器不能放置更多的列。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.container &#123;</span><br><span class="line">  display: grid;</span><br><span class="line">  grid-template-columns: repeat(auto-fill, 50px);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>fr 关键字<br>为了方便表示比例，采用 fr 关键字，fr 代表片段，如果两列宽度分别为 1fr 和 2fr 就表示后者是前者的两倍。</p>
+<p>③row-gap:设置行间距<br>column-gap: 设置列间距<br>gap: 是 row-gap 与 column-gap 的缩写，语法为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gap: &lt;row-gap&gt; &lt;column-gap&gt;;</span><br></pre></td></tr></table></figure>
+
+<p>④grid-template-areas:可以指定区域，此区域可以包含若干个单元格</p>
+<p>⑤grid-auto-flow:决定容器中子元素的放置顺序，默认值是 row 代表先行后列，如果想设置为先列后行，改成 column 即可。<br>⑥justify-items:设置单元格内容的水平位置，左中右。<br>align-items:设置单元格内容的垂直位置，上中下。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.container &#123;</span><br><span class="line">  justify-items: start | end | center | stretch;</span><br><span class="line">  align-items: start | end | center | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>place-items:align-items 和 justify-items 的合并简写形式,语法为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;如果省略第二个值，则浏览器默认与第一个值相等</span><br><span class="line">place-items: &lt;align-items&gt; &lt;justify-items&gt;;</span><br></pre></td></tr></table></figure>
+
+<p>⑦justify-content:整个内容区域在容器里的水平位置，左中右。<br>align-content:整个内容区域在容器里的垂直位置，上中下。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.container &#123;</span><br><span class="line">  justify-content: start | end | center | stretch | space-around | space-between | space-evenly;</span><br><span class="line">  align-content: start | end | center | stretch | space-around | space-between | space-evenly;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>place-content:align-content 和 justify-content 的合并简写形式，语法为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">place-content: &lt;align-content&gt; &lt;justify-content&gt;</span><br></pre></td></tr></table></figure>
+
+<p>⑧grid-auto-columns:设置浏览器自动创建的多余网格的列宽<br>grid-auto-rows: 设置浏览器自动创建的多余网格的行高</p>
+<p>⑨grid-template:grid-template-columns、grid-template-rows 和 grid-template-areas 的合并简写形式。<br>grid:grid-template-rows、grid-template-columns、grid-template-areas、 grid-auto-rows、grid-auto-columns、grid-auto-flow 的合并简写形式，并不建议这样写，易读性不好。</p>
+<p>⑩ 通过以下四个属性指定项目的位置<br>grid-column-start 属性：左边框所在的垂直网格线<br>grid-column-end 属性：右边框所在的垂直网格线<br>grid-row-start 属性：上边框所在的水平网格线<br>grid-row-end 属性：下边框所在的水平网格线</p>
+<p>grid-column:grid-column-start 和 grid-column-end 的合并简写形式<br>grid-row:grid-row-start 属性和 grid-row-end 的合并简写形式。</p>
+<p>grid-area:指定项目放在哪个区域</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;一号项目放在a区域</span><br><span class="line">.item-1 &#123;</span><br><span class="line">  grid-area: a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>justify-self:设置单元格内容的水平位置,左中右。同 justify-items 用法完全一致，只作用于单个项目。<br>align-self 属性设置单元格内容的垂直位置，上中下。同 align-items 用法完全一致，只作用于单个项目。<br>place-self:align-self 和 justify-self 的合并简写形式，语法为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">place-self: &lt;align-self&gt; &lt;justify-self&gt;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>本文参考:<br><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/">阮一峰老师的 Grid 布局教程</a>，在此向阮老师致敬。</p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">goremoter</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+    <a href="/The-repository-name-has-been-retired-and-cannot-be-reused%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" class="next-post btn btn-default" title='The repository [name] has been retired and cannot be reused问题的解决办法'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            The repository [name] has been retired and cannot be reused问题的解决办法</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+    
+<div id="vcomments" class="valine"></div>
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+<script>
+    new Valine({
+        av: AV,
+        el: '#vcomments',
+        appId: 'eR0SDTdoQ1U55NajfdAGQi8N-gzGzoHsz',
+        appKey: 'CGQgfSWBWL0lzuoNVNQ2G8QT',
+        placeholder: '欢迎留下你的足迹呦。',
+        notify: false,
+        verify: true,
+        avatar: 'monsterid',
+        meta: 'nick,mail'.split(','),
+        pageSize: '10',
+        path: window.location.pathname,
+        lang: 'zh-CN'.toLowerCase()
+    })
+    </script>
+
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            文章目录
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%A7%E5%B1%8F%E9%80%82%E9%85%8D%E9%97%AE%E9%A2%98%E7%9A%84%E6%80%9D%E8%80%83"><span class="toc-text">大屏适配问题的思考</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E8%A7%86%E5%8C%96-Echarts-%E5%9B%BE%E8%A1%A8%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">可视化 Echarts 图表的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-%E5%B8%83%E5%B1%80%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">flex 布局的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Grid-%E5%B8%83%E5%B1%80%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">Grid 布局的使用</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2022 goremoter
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/assets/tagcanvas.min.js?rev=2.9.js"></script>
+
+<script>
+var tagOption = {
+    textColour: '#444', // 字体颜色
+    outlineMethod: 'block', // 选中模式
+    outlineColour: '#FFDAB9', // 选中模式的颜色
+    interval: 30 || 30, // 动画帧之间的时间间隔，值越大，转动幅度越大
+    textHeight: 13,
+    outlineRadius: 3,
+    freezeActive: true || '', // 选中的标签是否继续滚动
+    frontSelect: true || '', // 不选标签云后部的标签
+    initial: [0.1, -0.1],
+    depth: 0.5,
+    decel: 0.95,
+    maxSpeed: 0.03,
+    reverse: true || '', // 是否反向触发
+    fadeIn: 500, // 进入动画时间
+    wheelZoom: false || '' // 是否启用鼠标滚轮
+}
+TagCanvas.Start('tag-cloud-3d', '', tagOption);
+</script>
+
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+</body>
+</html>
