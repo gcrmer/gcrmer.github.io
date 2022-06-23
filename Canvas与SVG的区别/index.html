@@ -22,8 +22,8 @@
 <meta name="keywords" content="" />
 
 
-<meta name="description" content="声明对象的两种语法let obj = { ‘name’:’AmazeseeK’ ,’age’ :26  }
-let obj = new Object({  ‘name’:’AmazeseeK’ ..." />
+<meta name="description" content="什么是 CanvasCanvas 基于 HTML canvas 标签，主要是用笔刷来绘制 2D 图形的，它的图像单位是像素。
+什么是 SVGSVG 基于 XML 元素，主要是用标签来绘制不规则矢..." />
 
 
 <meta name="robots" content="all" />
@@ -34,7 +34,7 @@ let obj = new Object({  ‘name’:’AmazeseeK’ ..." />
 
 <title>
     
-    JavaScript对象基本用法 |
+    Canvas与SVG的区别 |
     
     滕春雷
 </title>
@@ -155,9 +155,9 @@ let obj = new Object({  ‘name’:’AmazeseeK’ ..." />
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="JavaScript对象基本用法">
+        <h1 id="Canvas与SVG的区别">
             
-            JavaScript对象基本用法
+            Canvas与SVG的区别
             
         </h1>
         <div class="post-meta">
@@ -180,7 +180,7 @@ let obj = new Object({  ‘name’:’AmazeseeK’ ..." />
     <span class="fa-wrap">
         <i class="fa fa-clock-o"></i>
         <span class="date-meta">
-            2021/09/04</span>
+            2022/06/23</span>
     </span>
     
     
@@ -190,23 +190,14 @@ let obj = new Object({  ‘name’:’AmazeseeK’ ..." />
     </div>
     
     <div class="post-body post-content">
-        <h3 id="声明对象的两种语法"><a href="#声明对象的两种语法" class="headerlink" title="声明对象的两种语法"></a>声明对象的两种语法</h3><p>let obj = { ‘name’:’AmazeseeK’ ,’age’ :26  }</p>
-<p>let obj = new Object({  ‘name’:’AmazeseeK’ })</p>
-<h3 id="如何删除对象的属性"><a href="#如何删除对象的属性" class="headerlink" title="如何删除对象的属性"></a>如何删除对象的属性</h3><p>delete obj.xxx 或delete obj[‘xxx’]</p>
-<h3 id="如何查看对象的属性"><a href="#如何查看对象的属性" class="headerlink" title="如何查看对象的属性"></a>如何查看对象的属性</h3><p>查看自身所有属性：Object.keys（obj）</p>
-<p>查看自身 + 共有属性：console dir(obj)</p>
-<p>查看属性的两种方法：</p>
-<p>中括号语法：obj[‘key’]</p>
-<p>点语法：obj.key</p>
-<p>读对象的属性时，如果使用 [ ] 语法，那么 JavaScript 会先求 [ ] 中表达式的值，注意区分表达式是变量还是常量。<br>如果使用点语法，那么点后面一定是 string 常量。</p>
-<h3 id="如何修改或增加对象的属性"><a href="#如何修改或增加对象的属性" class="headerlink" title="如何修改或增加对象的属性"></a>如何修改或增加对象的属性</h3><p>直接赋值：   </p>
-<p>let obj ={name: ‘AmazeseeK’}  </p>
-<p>obj.name = ‘AmazeseeK’</p>
-<p>obj[‘name’] =’AmazeseeK’</p>
-<p>批量赋值：</p>
-<p>Object.assign(obj , {age: 26,gender:’man’}) </p>
-<h3 id="‘name’-in-object-和-obj-hasOwnProperty-‘name’-的区别"><a href="#‘name’-in-object-和-obj-hasOwnProperty-‘name’-的区别" class="headerlink" title="‘name’  in object  和 obj.hasOwnProperty(‘name’)的区别"></a>‘name’  in object  和 obj.hasOwnProperty(‘name’)的区别</h3><p>‘name’  in object  ：能确定 object 中是否包含’name’属性</p>
-<p>obj.hasOwnProperty(‘name’)：能确定’ name’属性是自身属性还是共有属性</p>
+        <h2 id="什么是-Canvas"><a href="#什么是-Canvas" class="headerlink" title="什么是 Canvas"></a>什么是 Canvas</h2><p>Canvas 基于 HTML canvas 标签，主要是用笔刷来绘制 2D 图形的，它的图像单位是像素。</p>
+<h2 id="什么是-SVG"><a href="#什么是-SVG" class="headerlink" title="什么是 SVG"></a>什么是 SVG</h2><p>SVG 基于 XML 元素，主要是用标签来绘制不规则矢量图的，可通过 JS 给元素添加点击事件。</p>
+<h2 id="Canvas-与-SVG-的相同点"><a href="#Canvas-与-SVG-的相同点" class="headerlink" title="Canvas 与 SVG 的相同点"></a>Canvas 与 SVG 的相同点</h2><p>都是主要用来画 2D 图形的。</p>
+<h2 id="Canvas-与-SVG-的不同点"><a href="#Canvas-与-SVG-的不同点" class="headerlink" title="Canvas 与 SVG 的不同点"></a>Canvas 与 SVG 的不同点</h2><p>1.Canvas 画的是位图，SVG 画的是矢量图，在放大图形后，由于 Canvas 依赖分辨率，会造成失真，而 SVG 不会失真，它比较适合做地图应用。</p>
+<p>2.SVG 节点过多时渲染慢，Canvas 性能更好一点，但写法更复杂。所以 Canvas 适合开发图像密集型的游戏，频繁的重新绘制图像，而 SVG 不适合开发游戏应用。</p>
+<p>3.SVG 支持分层和事件，Canvas 不支持，但是可以用库实现。</p>
+<p>4.SVG 支持事件处理器，而 Canvas 不支持事件处理器。</p>
+<p>5.SVG 图像中的文字可以灵活的进行编辑，而 Canvas 的文本渲染能力较弱。</p>
 
     </div>
     
@@ -225,17 +216,11 @@ let obj = new Object({  ‘name’:’AmazeseeK’ ..." />
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/JavaScript%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/" class="pre-post btn btn-default" title='JavaScript函数的执行时机'>
-        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-        <span class="hidden-xs">
-            JavaScript函数的执行时机</span>
-    </a>
     
-    
-    <a href="/JavaScript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="next-post btn btn-default" title='JavaScript数据类型'>
+    <a href="/%E5%A4%A7%E5%B1%8F%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8A%80%E6%9C%AF%E5%B0%8F%E8%AE%B0/" class="next-post btn btn-default" title='大屏可视化技术小记'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
-            JavaScript数据类型</span><i class="fa fa-angle-right fa-fw"></i>
+            大屏可视化技术小记</span><i class="fa fa-angle-right fa-fw"></i>
     </a>
     
 </div>
@@ -276,7 +261,7 @@ let obj = new Object({  ‘name’:’AmazeseeK’ ..." />
             文章目录
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A3%B0%E6%98%8E%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%B8%A4%E7%A7%8D%E8%AF%AD%E6%B3%95"><span class="toc-text">声明对象的两种语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%88%A0%E9%99%A4%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="toc-text">如何删除对象的属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="toc-text">如何查看对象的属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E6%88%96%E5%A2%9E%E5%8A%A0%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="toc-text">如何修改或增加对象的属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%80%98name%E2%80%99-in-object-%E5%92%8C-obj-hasOwnProperty-%E2%80%98name%E2%80%99-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">‘name’  in object  和 obj.hasOwnProperty(‘name’)的区别</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-Canvas"><span class="toc-text">什么是 Canvas</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-SVG"><span class="toc-text">什么是 SVG</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Canvas-%E4%B8%8E-SVG-%E7%9A%84%E7%9B%B8%E5%90%8C%E7%82%B9"><span class="toc-text">Canvas 与 SVG 的相同点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Canvas-%E4%B8%8E-SVG-%E7%9A%84%E4%B8%8D%E5%90%8C%E7%82%B9"><span class="toc-text">Canvas 与 SVG 的不同点</span></a></li></ol>
         
     </div>
 </aside>
