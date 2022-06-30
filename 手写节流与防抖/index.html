@@ -22,9 +22,9 @@
 <meta name="keywords" content="" />
 
 
-<meta name="description" content="URL 的构成与作用URL 由 协议 + 域名或者 IP + 端口号+路径+ 查询字符串+锚点 几部分构成
-协议：https 或者 http  作用是规定请求的格式与响应的格式
-域名或者IP：作..." />
+<meta name="description" content="节流 throttle对应的中文概念就是「技能冷却中」，比如我们玩游戏点击加速或者闪现，这个点击不能够一直进行，需要技能冷却的时间。
+代码实现
+1234567891011const thrott..." />
 
 
 <meta name="robots" content="all" />
@@ -35,7 +35,7 @@
 
 <title>
     
-    浅析URL |
+    手写节流与防抖 |
     
     滕春雷
 </title>
@@ -156,9 +156,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="浅析URL">
+        <h1 id="手写节流与防抖">
             
-            浅析URL
+            手写节流与防抖
             
         </h1>
         <div class="post-meta">
@@ -181,39 +181,32 @@
     <span class="fa-wrap">
         <i class="fa fa-clock-o"></i>
         <span class="date-meta">
-            2021/08/26</span>
+            2022/06/27</span>
     </span>
     
     
 </div>
         
         
-        <p class="fa fa-exclamation-triangle warning">
-            本文于<strong>
-                307</strong>
-            天之前发表，文中内容可能已经过时。
-        </p>
-        
     </div>
     
     <div class="post-body post-content">
-        <h3 id="URL-的构成与作用"><a href="#URL-的构成与作用" class="headerlink" title="URL 的构成与作用"></a>URL 的构成与作用</h3><p>URL 由 协议 + 域名或者 IP + 端口号+路径+ 查询字符串+锚点 几部分构成</p>
-<p>协议：https 或者 http  作用是规定请求的格式与响应的格式</p>
-<p>域名或者IP：作用是定位设备 封装数据报文以及同其他设备交流</p>
-<p>端口号：作用是找到相应的服务</p>
-<p>路径：请求不同的页面</p>
-<p>查询字符串：查询同一个页面下 不同的内容</p>
-<p>锚点：查询同一个内容下 不同的位置（注意锚点不支持中文且不会上传到服务器）</p>
-<h3 id="域名的含义与分类"><a href="#域名的含义与分类" class="headerlink" title="域名的含义与分类"></a>域名的含义与分类</h3><p>域名是对 IP 的别称，它分为三类：顶级域名 二级域名 三级域名</p>
-<p>如 cn 是顶级域名</p>
-<p>  <a target="_blank" rel="noopener" href="https://tengchunlei.cn/">tengchunlei.cn</a> 是二级域名</p>
-<p><a target="_blank" rel="noopener" href="http://www.tengchunlei.cn/">www.tengchunlei.cn</a>  是三级域名</p>
-<h3 id="DNS-的作用"><a href="#DNS-的作用" class="headerlink" title="DNS 的作用"></a>DNS 的作用</h3><p>DNS 的作用是将域名和 IP 对应起来，例如当我们在浏览器中输入 <a href="www.tengchunlei.cn">tengchunlei.cn</a> 的时候，浏览器会向服务商提供的 DNS 服务器询问 <a href="www.tengchunlei.cn">tengchunlei.cn</a> 对应的 IP 是多少，服务商会回答一个 IP ，然后浏览器会向对应的 IP 的 80/443 端口发送请求，内容是查看 <a href="www.tengchunlei.cn">tengchunlei.cn</a>的首页。</p>
-<h3 id="nslookup-命令如何使用"><a href="#nslookup-命令如何使用" class="headerlink" title="nslookup 命令如何使用"></a>nslookup 命令如何使用</h3><p>nslookup 用于查询域名对应的 IP </p>
-<p>如：nslookup <a href="GOOGLE.COM">google.com</a> </p>
-<h3 id="IP-的作用-以及-ping-命令的使用"><a href="#IP-的作用-以及-ping-命令的使用" class="headerlink" title="IP 的作用 以及  ping  命令的使用"></a>IP 的作用 以及  ping  命令的使用</h3><p>IP 的作用是定位设备 封装数据报文以及同其他设备交流</p>
-<p>如果我们想知道一个域名的 IP 地址就可以通过 ping 命令</p>
-<p>如： ping  <a href="www.tengchunlei.cn">tengchunlei.cn</a></p>
+        <h3 id="节流-throttle"><a href="#节流-throttle" class="headerlink" title="节流 throttle"></a>节流 throttle</h3><p>对应的中文概念就是「技能冷却中」，比如我们玩游戏点击加速或者闪现，这个点击不能够一直进行，需要技能冷却的时间。</p>
+<p>代码实现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const throttle &#x3D; (fn, time) &#x3D;&gt; &#123; &#x2F;&#x2F;创建节流函数，传入技能函数，冷却时间。</span><br><span class="line">let cooldown &#x3D; false            &#x2F;&#x2F;首先让冷却&#x3D;false，即技能未处于冷却。</span><br><span class="line">return (...args) &#x3D;&gt; &#123;        &#x2F;&#x2F;返回函数，args是fn的其他参数，比如闪现距离。</span><br><span class="line">if(cooldown) return console.log(&#39;技能冷却中&#39;)   &#x2F;&#x2F;先判断技能是否正在冷却，如果是就打印出技能正在冷却</span><br><span class="line">fn.call(undefined, ...args)     &#x2F;&#x2F;如果技能未处于冷却，则执行fn</span><br><span class="line">cooldown &#x3D; true                 &#x2F;&#x2F;执行fn后，让冷却&#x3D;true，即技能正在冷却，</span><br><span class="line">setTimeout(()&#x3D;&gt;&#123;                &#x2F;&#x2F;设置冷却时间，时间到后冷却结束</span><br><span class="line">cooldown&#x3D; false</span><br><span class="line">&#125;, time)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>代码使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const f &#x3D; throttle(()&#x3D;&gt;&#123;console.log(&#39;hello&#39;)&#125;,5000)</span><br><span class="line">f()       &#x2F;&#x2F;执行f()后，打印出hello</span><br><span class="line">f()       &#x2F;&#x2F;立刻再次执行f()，打印出技能冷却中</span><br><span class="line">f()       &#x2F;&#x2F;过一会后(大于5s冷却结束)，再次执行f()打印出hello</span><br></pre></td></tr></table></figure>
+
+<p>应用场景<br>不想让用户频繁点击按钮，把函数节流一下，比如 5 秒内只能点击一次。</p>
+<h3 id="防抖-debounce"><a href="#防抖-debounce" class="headerlink" title="防抖 debounce"></a>防抖 debounce</h3><p>对应的中文概念就是「回城被打断」，在我们点击了回城的操作之后，如果在设置的时间内没有被打断，就执行回城，否则就必须再次点击回城的操作。</p>
+<p>代码实现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">const f &#x3D; ()&#x3D;&gt;&#123;</span><br><span class="line">    console.log(&#39;回城成功&#39;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const debounce &#x3D; (fn, time) &#x3D;&gt; &#123;&#x2F;&#x2F;创建防抖函数，传入一个技能函数，设置技能实现的时间</span><br><span class="line">  let timer &#x3D; null             &#x2F;&#x2F;默认没有开始计时</span><br><span class="line">  return (...args)&#x3D;&gt;&#123;</span><br><span class="line">    if(timer) &#123;                &#x2F;&#x2F;如果开始计时，说明已经进行回城操作</span><br><span class="line">      clearTimeout(timer)      &#x2F;&#x2F;打断回城，此处清除计时(可能由于被攻击)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">      timer &#x3D; setTimeout(()&#x3D;&gt;&#123;           &#x2F;&#x2F;继续回城，重新计时，</span><br><span class="line">      fn.call(undefined, ...args)        &#x2F;&#x2F;时间到后，调用fn，打出回城成功</span><br><span class="line">       timer &#x3D; null</span><br><span class="line">    &#125;, time)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>代码使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const backtown &#x3D; debounce(f,5000)</span><br><span class="line">backtown()   &#x2F;&#x2F;执行 backtown() 5秒后打印出回城成功</span><br><span class="line">backtown()   &#x2F;&#x2F;执行 backtown() 后被打断(可能由于被攻击)，回城失败</span><br><span class="line">backtown()   &#x2F;&#x2F;重新执行回城操作，5秒后打印出回城成功</span><br></pre></td></tr></table></figure>
+
+<p>应用场景<br>用户频繁的做拖动操作，我们希望在用户停止之后，再去实现一个效果。</p>
 
     </div>
     
@@ -232,17 +225,17 @@
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/CSS%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" class="pre-post btn btn-default" title='CSS知识总结'>
+    <a href="/%E6%89%8B%E5%86%99%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85/" class="pre-post btn btn-default" title='手写发布订阅'>
         <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
         <span class="hidden-xs">
-            CSS知识总结</span>
+            手写发布订阅</span>
     </a>
     
     
-    <a href="/HTML%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/" class="next-post btn btn-default" title='HTML常用标签'>
+    <a href="/CSS%E5%AE%9E%E7%8E%B0%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/" class="next-post btn btn-default" title='CSS实现垂直居中'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
-            HTML常用标签</span><i class="fa fa-angle-right fa-fw"></i>
+            CSS实现垂直居中</span><i class="fa fa-angle-right fa-fw"></i>
     </a>
     
 </div>
@@ -283,7 +276,7 @@
             文章目录
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#URL-%E7%9A%84%E6%9E%84%E6%88%90%E4%B8%8E%E4%BD%9C%E7%94%A8"><span class="toc-text">URL 的构成与作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D%E7%9A%84%E5%90%AB%E4%B9%89%E4%B8%8E%E5%88%86%E7%B1%BB"><span class="toc-text">域名的含义与分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DNS-%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-text">DNS 的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nslookup-%E5%91%BD%E4%BB%A4%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8"><span class="toc-text">nslookup 命令如何使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IP-%E7%9A%84%E4%BD%9C%E7%94%A8-%E4%BB%A5%E5%8F%8A-ping-%E5%91%BD%E4%BB%A4%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">IP 的作用 以及  ping  命令的使用</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8A%82%E6%B5%81-throttle"><span class="toc-text">节流 throttle</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%B2%E6%8A%96-debounce"><span class="toc-text">防抖 debounce</span></a></li></ol>
         
     </div>
 </aside>
