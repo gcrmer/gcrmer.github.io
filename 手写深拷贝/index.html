@@ -22,8 +22,11 @@
 <meta name="keywords" content="" />
 
 
-<meta name="description" content="数据类型数字 number字符串 string符号 symbol布尔 bool空 null空 undefined对象 objectbigint
-数字:特殊值 正 0 和负 0 都等于 0无穷大 ..." />
+<meta name="description" content="第一种方式，使用 JSON：
+1const b &#x3D; JSON.parse(JSON.stringify(a))
+
+第二种方式，使用递归：
+12345678910111213141516..." />
 
 
 <meta name="robots" content="all" />
@@ -34,7 +37,7 @@
 
 <title>
     
-    JavaScript数据类型 |
+    手写深拷贝 |
     
     滕春雷
 </title>
@@ -155,9 +158,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="JavaScript数据类型">
+        <h1 id="手写深拷贝">
             
-            JavaScript数据类型
+            手写深拷贝
             
         </h1>
         <div class="post-meta">
@@ -180,38 +183,21 @@
     <span class="fa-wrap">
         <i class="fa fa-clock-o"></i>
         <span class="date-meta">
-            2021/09/03</span>
+            2022/07/03</span>
     </span>
     
     
 </div>
         
         
-        <p class="fa fa-exclamation-triangle warning">
-            本文于<strong>
-                304</strong>
-            天之前发表，文中内容可能已经过时。
-        </p>
-        
     </div>
     
     <div class="post-body post-content">
-        <h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p>数字 number<br>字符串 string<br>符号 symbol<br>布尔 bool<br>空 null<br>空 undefined<br>对象 object<br>bigint</p>
-<p>数字:<br>特殊值 正 0 和负 0 都等于 0<br>无穷大 Infinity 、+Infinity、 -Infinity<br>无法表示的数字 NaN</p>
-<p>字符串:<br>单引号 ‘AmazeseeK’<br>双引号 “AmazeseeK”<br>反引号 ``</p>
-<p>转义:<br>\n 表示 换行<br>\r 表示 回车<br>\t 表示 tab 制表符</p>
-<p>布尔 boolean：<br>只有 true 和 false 两个值<br>通过运算符得到 bool 值<br>否定运算 ！value<br>相等运算 2==3 、2!=3 、6===7 、 6!==7<br>比较运算 5&gt;6、 5&gt;=6 、 5&lt;6 、 5&lt;=6</p>
-<p>if 语句常用来判断真假</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if(value)&#123;...&#125;else&#123;...&#125;</span><br></pre></td></tr></table></figure>
+        <p>第一种方式，使用 JSON：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const b &#x3D; JSON.parse(JSON.stringify(a))</span><br></pre></td></tr></table></figure>
 
-<p>当 value 是 bool 值时很容易判断真假<br>但是当 value 不是 bool 值时就很难判断真假,为了解决这个问题,采用 falsy 值的方法,falsy 就是相当于 false 但又不是 false 的值，它们分别是 undefined、 null 、0 、NaN 、’’</p>
-<h3 id="变量的声明方式"><a href="#变量的声明方式" class="headerlink" title="变量的声明方式"></a>变量的声明方式</h3><p>三种声明方式：<br>var a=3<br>let a=3<br>const a=3</p>
-<p>区别： var 为过时不好用的方式<br>let 为新的更合理的方式<br>const 声明时必须赋值，且赋值后不能再更改</p>
-<p>let 声明规则:<br>遵循块作用域，即使用范围不能超出{}<br>不能重复申明<br>可以赋值也可以不赋值<br>必须先声明在使用<br>全局声明 let 变量 不会变成 window 的属性</p>
-<h3 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h3><p>number =&gt; string :<br>String(n)<br>n + “”</p>
-<p>string =&gt; number :<br>Number(s)<br>parseInt(s)/parseFloat(s)<br>s - 0</p>
-<p>x =&gt; bool :<br>Boolean(x)<br>!!x</p>
-<p>x =&gt; string :<br>String(x)<br>x.toString()</p>
+<p>第二种方式，使用递归：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">const deepClone &#x3D; (a, cache) &#x3D;&gt; &#123;</span><br><span class="line">  if(!cache)&#123;</span><br><span class="line">    cache &#x3D; new Map()</span><br><span class="line">  &#125;</span><br><span class="line">  if(a instanceof Object) &#123;                    &#x2F;&#x2F; 不考虑跨iframe</span><br><span class="line">    if(cache.get(a)) &#123; return cache.get(a) &#125;   &#x2F;&#x2F;如果缓存区已存在a的拷贝，那么直接返回生成的东西</span><br><span class="line">    let result</span><br><span class="line">    if(a instanceof Function) &#123;                &#x2F;&#x2F;判断a是否为函数</span><br><span class="line">      if(a.prototype) &#123;                        &#x2F;&#x2F; 有 prototype 就是普通函数</span><br><span class="line">        result &#x3D; function()&#123; return a.apply(this, arguments) &#125;</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        result &#x3D; (...args) &#x3D;&gt; &#123; return a.call(undefined, ...args) &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; else if(a instanceof Array) &#123;</span><br><span class="line">      result &#x3D; []</span><br><span class="line">    &#125; else if(a instanceof Date) &#123;</span><br><span class="line">      result &#x3D; new Date(a - 0)</span><br><span class="line">    &#125; else if(a instanceof RegExp) &#123;</span><br><span class="line">      result &#x3D; new RegExp(a.source, a.flags)</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      result &#x3D; &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cache.set(a, result)</span><br><span class="line">    for(let key in a) &#123;</span><br><span class="line">      if(a.hasOwnProperty(key))&#123;              &#x2F;&#x2F;如果key是在a上的，才会把它拷贝到result，如果是在a的原型上就不拷贝</span><br><span class="line">        result[key] &#x3D; deepClone(a[key], cache)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return result</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    return a</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">~~~</span><br><span class="line"></span><br><span class="line">测试代码</span><br><span class="line">~~~</span><br><span class="line">const a &#x3D; &#123;</span><br><span class="line">  number:1, bool:false, str: &#39;hi&#39;, empty1: undefined, empty2: null,</span><br><span class="line">  array: [</span><br><span class="line">    &#123;name: &#39;frank&#39;, age: 18&#125;,</span><br><span class="line">    &#123;name: &#39;jacky&#39;, age: 19&#125;</span><br><span class="line">  ],</span><br><span class="line">  date: new Date(2000,0,1,20,30,0),</span><br><span class="line">  regex: &#x2F;\.(j|t)sx&#x2F;i,</span><br><span class="line">  obj: &#123; name:&#39;frank&#39;, age: 18&#125;,</span><br><span class="line">  f1: (a, b) &#x3D;&gt; a + b,</span><br><span class="line">  f2: function(a, b) &#123; return a + b &#125;</span><br><span class="line">&#125;</span><br><span class="line">a.self &#x3D; a</span><br><span class="line"></span><br><span class="line">const b &#x3D; deepClone(a)</span><br><span class="line"></span><br><span class="line">b.self &#x3D;&#x3D;&#x3D; b &#x2F;&#x2F; true</span><br><span class="line">b.self &#x3D; &#39;hi&#39;</span><br><span class="line">a.self !&#x3D;&#x3D; &#39;hi&#39; &#x2F;&#x2F;true</span><br></pre></td></tr></table></figure>
 
     </div>
     
@@ -230,17 +216,11 @@
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/JavaScript%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" class="pre-post btn btn-default" title='JavaScript对象基本用法'>
-        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-        <span class="hidden-xs">
-            JavaScript对象基本用法</span>
-    </a>
     
-    
-    <a href="/JavaScript%E8%AF%AD%E6%B3%95/" class="next-post btn btn-default" title='JavaScript语法'>
+    <a href="/%E6%89%8B%E5%86%99Promise-all/" class="next-post btn btn-default" title='手写Promise.all'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
-            JavaScript语法</span><i class="fa fa-angle-right fa-fw"></i>
+            手写Promise.all</span><i class="fa fa-angle-right fa-fw"></i>
     </a>
     
 </div>
@@ -281,7 +261,7 @@
             文章目录
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E7%9A%84%E5%A3%B0%E6%98%8E%E6%96%B9%E5%BC%8F"><span class="toc-text">变量的声明方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-text">类型转换</span></a></li></ol>
+        <p>暂无目录</p>
         
     </div>
 </aside>
