@@ -22,9 +22,7 @@
 <meta name="keywords" content="" />
 
 
-<meta name="description" content="关于博主一个平淡无奇的小人物，希望成为一个有趣的人、快乐的人、让家人开心的人。
-关于博客写写技术，聊聊生活，记录自己，反思自己。
-" />
+<meta name="description" content="三次握手:建立 TCP 连接时 server 与 client 会经历三次握手浏览器向服务器发送 TCP 数据：SYN(seq=x)服务器向浏览器发送 TCP 数据：ACK(seq=x+1) S..." />
 
 
 <meta name="robots" content="all" />
@@ -35,7 +33,7 @@
 
 <title>
     
-    滕春雷 |
+    三次握手与四次挥手 |
     
     滕春雷
 </title>
@@ -152,115 +150,124 @@
     <section class="content-wrap">
         <div class="container">
             <div class="row">
-                <main class="col-md-8 main-content ">
-                    <div>
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="三次握手与四次挥手">
+            
+            三次握手与四次挥手
+            
+        </h1>
+        <div class="post-meta">
     
-    <article class="post">
-    <h1 class="post-head">
-        滕春雷
-    </h1>
-    <div class="post-body">
-        <h2 id="关于博主"><a href="#关于博主" class="headerlink" title="关于博主"></a>关于博主</h2><p>一个平淡无奇的小人物，希望成为一个有趣的人、快乐的人、让家人开心的人。</p>
-<h2 id="关于博客"><a href="#关于博客" class="headerlink" title="关于博客"></a>关于博客</h2><p>写写技术，聊聊生活，记录自己，反思自己。</p>
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2022/07/10</span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p>三次握手:<br>建立 TCP 连接时 server 与 client 会经历三次握手<br>浏览器向服务器发送 TCP 数据：SYN(seq=x)<br>服务器向浏览器发送 TCP 数据：ACK(seq=x+1) SYN(y)<br>浏览器向服务器发送 TCP 数据：ACK(seq=y+1)</p>
+<p>整个过程就是服务器与浏览器同步信息的一个过程，发送信息请求时用 SYN, 接受信息请求用 ACK</p>
+<p>四次挥手:<br>关闭 TCP 连接时 server 与 client 会经历四次挥手<br>浏览器向服务器发送 TCP 数据：FIN(seq=x)<br>服务器向浏览器发送 TCP 数据：ACK(seq=x+1)<br>服务器向浏览器发送 TCP 数据：FIN(seq=y)<br>浏览器向服务器发送 TCP 数据：ACK(seq=y+1)</p>
+<p>整个过程就是服务器与浏览器互相告知结束信息传递的过程</p>
+<p>小问:2、3 两步能合并吗？</p>
+<p>答:不能合并的，因为 2、3 两步中间服务器很可能还有数据要发送，不能提前发送 FIN。</p>
 
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">tengchunlei</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
     </div>
 </article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/%E5%AF%B9%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5%E4%B8%8E%E8%B7%A8%E5%9F%9F%E7%9A%84%E7%90%86%E8%A7%A3/" class="pre-post btn btn-default" title='对同源策略与跨域的理解'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            对同源策略与跨域的理解</span>
+    </a>
+    
+    
+    <a href="/HTTP%E5%92%8CHTTPS%E7%9A%84%E5%8C%BA%E5%88%AB/" class="next-post btn btn-default" title='HTTP和HTTPS的区别'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            HTTP和HTTPS的区别</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
     
 </div>
+
+<div id="comments">
+    
+    
+<div id="vcomments" class="valine"></div>
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+<script>
+    new Valine({
+        av: AV,
+        el: '#vcomments',
+        appId: 'eR0SDTdoQ1U55NajfdAGQi8N-gzGzoHsz',
+        appKey: 'CGQgfSWBWL0lzuoNVNQ2G8QT',
+        placeholder: '欢迎留下你的足迹呦。',
+        notify: false,
+        verify: true,
+        avatar: 'monsterid',
+        meta: 'nick,mail'.split(','),
+        pageSize: '10',
+        path: window.location.pathname,
+        lang: 'zh-CN'.toLowerCase()
+    })
+    </script>
+
+
+</div>
+
                 </main>
                 
-                    
-<aside class="col-md-4 sidebar">
-    
-    
-<div class="widget">
-    <h3 class="title">
-        搜索
-    </h3>
-    <div id="search-form">
-        <div id="result-mask" class="hide"></div>
-        <div class="search-area">
-            
-            <input id="search-key" type="search" autocomplete="off" placeholder="搜点什么呢？">
-            <button type="button" class="search-form-submit" id="search-local">
-                站内搜索</button>
-            
-            
-        </div>
-        <div id="result-wrap" class="hide">
-            <div id="search-result"></div>
-        </div>
-        <div class="hide">
-            <template id="search-tpl">
-                <div class="item">
-                    <a href="/{path}" title="{title}">
-                        <div class="title">{title}</div>
-                        <div class="content">{content}</div>
-                    </a>
-                </div>
-            </template>
-        </div>
-    </div>
-</div>
-
-    
-    
-    
-    
-<div class="widget">
-    <h3 class="title">
-        社交
-    </h3>
-    <div class="content social">
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            文章目录
+        </h3>
         
-        <a href="//github.com/tengchunlei" rel="external nofollow" title="Github" target="_blank">
-            <i class="github fa fa-github"></i>
-        </a>
-        
-        <a href="mailto:tengchunlei@outlook.com" rel="external nofollow" title="邮箱" target="_blank">
-            <i class="envelope-o fa fa-envelope-o"></i>
-        </a>
+        <p>暂无目录</p>
         
     </div>
-</div>
-
-    
-    
-<div class="widget">
-    <h3 class="title">
-        分类
-    </h3>
-    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/HTML/"><i class="fa" aria-hidden="true">HTML</i></a><span class="category-list-count">2</span></li></ul>
-</div>
-
-    
-    
-<div class="widget">
-    <h3 class="title">
-        归档
-    </h3>
-    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/"><i class="fa" aria-hidden="true">2022年07月</i></a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/"><i class="fa" aria-hidden="true">2022年06月</i></a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/"><i class="fa" aria-hidden="true">2022年04月</i></a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/"><i class="fa" aria-hidden="true">2022年03月</i></a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/"><i class="fa" aria-hidden="true">2021年09月</i></a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/"><i class="fa" aria-hidden="true">2021年08月</i></a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/"><i class="fa" aria-hidden="true">2021年06月</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/"><i class="fa" aria-hidden="true">2021年05月</i></a><span class="archive-list-count">1</span></li></ul>
-</div>
-
-    
-    
-    
-    
-<div class="widget">
-    <h3 class="title">
-        友链
-    </h3>
-    <div class="content friends-link">
-        
-        <a href="https://weibo.com/atthemomenttour?is_all=1" class="fa" target="_blank">
-            许巍音乐之旅</a>
-        
-    </div>
-</div>
-
-    
 </aside>
-
                 
             </div>
         </div>
@@ -297,10 +304,6 @@
         </div>
     </div>
 </div>
-
-
-<script src="/js/search.js?rev=@@hash.js"></script>
-
 
 
 
