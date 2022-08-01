@@ -1,0 +1,389 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="滕春雷">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://example.com">
+    <!--SEO-->
+
+<meta name="keywords" content="" />
+
+
+<meta name="description" content="React Router 的使用1.安装yarn add react-router-dom如果要支持 typescript 则需要 yarn add –dev @types/react-rout..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    荔枝记账项目小记 |
+    
+    滕春雷
+</title>
+
+<link rel="alternate" href="/atom.xml" title="滕春雷" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+<script>
+(function() {
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='滕春雷'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <h2>
+                保持理智 相信未来
+            </h2>
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://example.com">
+                        滕春雷</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                首页</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/HTML/"><i class="fa "></i>
+                                前端</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/about/"><i class="fa "></i>
+                                关于</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a target="_blank" rel="noopener" href="https://amazeseek.com/bbs/"><i class="fa "></i>
+                                留言板</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="荔枝记账项目小记">
+            
+            荔枝记账项目小记
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2022/05/20</span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h3 id="React-Router-的使用"><a href="#React-Router-的使用" class="headerlink" title="React Router 的使用"></a>React Router 的使用</h3><p>1.安装<br>yarn add react-router-dom<br>如果要支持 typescript 则需要 yarn add –dev @types/react-router-dom</p>
+<p>2.将以下代码替换到 function App(),同时根据自身需求将路径进行修改</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">import React from &quot;react&quot;;</span><br><span class="line">import &#123;</span><br><span class="line">  BrowserRouter as Router,</span><br><span class="line">  Switch,</span><br><span class="line">  Route,</span><br><span class="line">  Link</span><br><span class="line">&#125; from &quot;react-router-dom&quot;;</span><br><span class="line"></span><br><span class="line">export default function App() &#123;</span><br><span class="line">  return (</span><br><span class="line">    &lt;Router&gt;</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;nav&gt;</span><br><span class="line">          &lt;ul&gt;</span><br><span class="line">            &lt;li&gt;</span><br><span class="line">              &lt;Link to&#x3D;&quot;&#x2F;&quot;&gt;Home&lt;&#x2F;Link&gt;  &#x2F;&#x2F;点击Home就跳转到 &#x2F;</span><br><span class="line">            &lt;&#x2F;li&gt;</span><br><span class="line">            &lt;li&gt;</span><br><span class="line">              &lt;Link to&#x3D;&quot;&#x2F;about&quot;&gt;About&lt;&#x2F;Link&gt;&#x2F;&#x2F;点击About 就跳转到&#x2F;about</span><br><span class="line">            &lt;&#x2F;li&gt;</span><br><span class="line">            &lt;li&gt;</span><br><span class="line">              &lt;Link to&#x3D;&quot;&#x2F;users&quot;&gt;Users&lt;&#x2F;Link&gt;点击Users 就跳转到&#x2F;users</span><br><span class="line">            &lt;&#x2F;li&gt;</span><br><span class="line">          &lt;&#x2F;ul&gt;</span><br><span class="line">        &lt;&#x2F;nav&gt;</span><br><span class="line"></span><br><span class="line">        &lt;Switch&gt;</span><br><span class="line">          &lt;Route path&#x3D;&quot;&#x2F;about&quot;&gt;</span><br><span class="line">            &lt;About &#x2F;&gt;</span><br><span class="line">          &lt;&#x2F;Route&gt;</span><br><span class="line">          &lt;Route path&#x3D;&quot;&#x2F;users&quot;&gt;</span><br><span class="line">            &lt;Users &#x2F;&gt;</span><br><span class="line">          &lt;&#x2F;Route&gt;</span><br><span class="line">          &lt;Route path&#x3D;&quot;&#x2F;&quot;&gt;</span><br><span class="line">            &lt;Home &#x2F;&gt;</span><br><span class="line">          &lt;&#x2F;Route&gt;</span><br><span class="line">        &lt;&#x2F;Switch&gt;</span><br><span class="line">      &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;&#x2F;Router&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function Home() &#123;</span><br><span class="line">  return &lt;h2&gt;Home&lt;&#x2F;h2&gt;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function About() &#123;</span><br><span class="line">  return &lt;h2&gt;About&lt;&#x2F;h2&gt;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function Users() &#123;</span><br><span class="line">  return &lt;h2&gt;Users&lt;&#x2F;h2&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3.默认路由<br>Q:假如说路径为 / 我们想默认显示页面为 Users 该怎么做呢？<br>A:采用重定向，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Redirect exact from &#x3D;&quot;&#x2F;&quot; to &#x3D;&quot;&#x2F;users&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>即可，想显示其他页面也同理。</p>
+<p>4.404 页面<br>Q:假如说输入的路径写错了，和所有的路径都不匹配怎么办？<br>A:这里其实就涉及到 404 页面的显示了，我们是这样做的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;Route path &#x3D;&#39;*&#39;&gt;</span><br><span class="line">&lt;NoMatch&#x2F;&gt;</span><br><span class="line">&lt;&#x2F;Route&gt;</span><br><span class="line"></span><br><span class="line">function NoMatch()&#123;</span><br><span class="line">    return(</span><br><span class="line">        &lt;div&gt;页面不存在&lt;&#x2F;div&gt;</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>路径输入后，会从上到下进行匹配，如果都没有匹配上那么就进入*这个路径，然后再显示不匹配的页面，也就是我们所说的 404 页面</p>
+<h3 id="LocalStorage-用法小总结"><a href="#LocalStorage-用法小总结" class="headerlink" title="LocalStorage 用法小总结"></a>LocalStorage 用法小总结</h3><p>1.什么是 LocalStorage<br>localStorage, 是一个用来做本地持久化存储的 Web Api，它以键值对的形式存储数据。</p>
+<p>2.LocalStorage 常用的 API 以及作用<br>clear: 清空 localStorage 上存储的数据<br>getItem:读取数据<br>hasOwnProperty:检查 localStorage 上是否保存了变量 x，需要传入 x<br>key:读取第 i 个数据的名字或称为键值(从 0 开始计数)<br>length: localStorage 存储变量的个数<br>propertyIsEnumerable: 用来检测属性是否属于某个对象的<br>setItem: 存储数据<br>removeItem: 删除某个具体变量<br>valueOf: 获取所有存储的数据<br>toLocaleString: 将数组转为本地字符串</p>
+<p>3.语法示例<br>存储数据:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">localStorage.setItem(&quot;name&quot;,&quot;lei&quot;) &#x2F;&#x2F;存储名字为name 值为lei的变量</span><br><span class="line">localStorage.name &#x3D; &quot;lei&quot;; &#x2F;&#x2F; 等同于以上命令</span><br><span class="line">localStorage &#x2F;&#x2F; Storage &#123;name: &quot;lei&quot;, length: 1&#125;</span><br></pre></td></tr></table></figure>
+
+<p>读取数据:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">localStorage.getItem(&quot;name&quot;) &#x2F;&#x2F;lei,读取保存在localStorage对象里 名为name的变量的值</span><br><span class="line">localStorage.name &#x2F;&#x2F; &quot;lei&quot;</span><br><span class="line">localStorage.valueOf() &#x2F;&#x2F;读取保存在localStorage上的所有数据</span><br><span class="line">localStorage.key(0) &#x2F;&#x2F; 读取第一条数据的变量名(即键值)</span><br><span class="line">&#x2F;&#x2F;遍历并输出localStorage里存储的名字和值</span><br><span class="line">for(var i&#x3D;0; i&lt;localStorage.length;i++)&#123;</span><br><span class="line">    console.log(&#39;localStorage里存储的第&#39;+i+&#39;条数据的名字为：&#39;+localStorage.key(i)+&#39;,值为：&#39;+localStorage.getItem(localStorage.key(i)));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>检查 localstorage 里是否保存某个变量:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">localStorage.hasOwnProperty(&#39;name&#39;) &#x2F;&#x2F; true</span><br><span class="line">localStorage.hasOwnProperty(&#39;name1&#39;)  &#x2F;&#x2F; false</span><br></pre></td></tr></table></figure>
+
+<p>删除某个变量:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">localStorage.removeItem(&quot;name&quot;); &#x2F;&#x2F;undefined</span><br><span class="line">localStorage &#x2F;&#x2F; Storage &#123;length: 0&#125; name变量已经从localStorage里删除了</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>将数组转为本地字符串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var arr &#x3D; [&#39;aa&#39;,&#39;bb&#39;,&#39;cc&#39;]; &#x2F;&#x2F; [&quot;aa&quot;,&quot;bb&quot;,&quot;cc&quot;]</span><br><span class="line">localStorage.arr &#x3D; arr &#x2F;&#x2F;[&quot;aa&quot;,&quot;bb&quot;,&quot;cc&quot;]</span><br><span class="line">localStorage.arr.toLocaleString(); &#x2F;&#x2F; &quot;aa,bb,cc&quot;</span><br></pre></td></tr></table></figure>
+
+<p>将 JSON 存储到 localStorage 里</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">var students &#x3D; &#123;</span><br><span class="line">chunlei: &#123;</span><br><span class="line">name: &quot;chunlei&quot;,</span><br><span class="line">grade: 6</span><br><span class="line">&#125;,</span><br><span class="line">xu: &#123;</span><br><span class="line">name: &quot;xu&quot;,</span><br><span class="line">grade: 3</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">students &#x3D; JSON.stringify(students); &#x2F;&#x2F;将 JSON 转为字符串存到变量里</span><br><span class="line">console.log(students);</span><br><span class="line">localStorage.setItem(&quot;students&quot;,students);&#x2F;&#x2F;将变量存到 localStorage 里</span><br><span class="line"></span><br><span class="line">var newStudents &#x3D; localStorage.getItem(&quot;students&quot;);</span><br><span class="line">newStudents &#x3D; JSON.parse(students); &#x2F;&#x2F;转为 JSON</span><br><span class="line">console.log(newStudents); &#x2F;&#x2F; 打印出原先对象</span><br></pre></td></tr></table></figure>
+
+<h3 id="自定义-Hooks"><a href="#自定义-Hooks" class="headerlink" title="自定义 Hooks"></a>自定义 Hooks</h3><p>当我们想在两个函数之间共享逻辑时，我们会把它提取到第三个函数中。这个第三个函数就是我们自己定义的 Hooks，它以 use 开头(例如 useState、useEffect)，并返回读写接口。<br>项目中 useTags 的抽离就是一个自定义的 Hooks</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import &#123;useState&#125; from &#39;react&#39;</span><br><span class="line">const useTags&#x3D;()&#x3D;&gt;&#123;</span><br><span class="line">  const [tags,setTags]&#x3D;useState&lt;string[]&gt;(initialState:[&#39;衣&#39;,&#39;食&#39;,&#39;住&#39;,&#39;行&#39;]);</span><br><span class="line">  return &#123;tags,setTags&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export &#123;useTags&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在需要读写 tags 的地方直接使用<br>const[tags,setTags]=useTags();即可</p>
+<h3 id="SVG-Icon-的使用"><a href="#SVG-Icon-的使用" class="headerlink" title="SVG Icon 的使用"></a>SVG Icon 的使用</h3><p>1.什么是 SVG Icon?<br>SVG Icon 是一个可以在项目任意地方使用的「图标组件」，组件使用者只需指定图标名称、颜色等属性，HTML 页面即可渲染出对应的 SVG 图标</p>
+<p>2.如何在项目中使用?<br>首先需要安装 svg-sprite-loader</p>
+<p>由于本项目的 webpack.config.js 没有关于 svg-sprite-loader 的配置文件，所以就不得不在 React 的配置文件中加入。</p>
+<p>我们需要使用命令 yarn eject 将 React 配置文件拿出来</p>
+<p>然后使用命令 yarn add –dev svg-sprite-loader 安装 svg-sprite-loader</p>
+<p>然后将 svg-sprite-loader 官方网站里的 webpack 配置文件中的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  test: &#x2F;\.svg$&#x2F;,</span><br><span class="line">  use: [</span><br><span class="line">    &#123; loader: &#39;svg-sprite-loader&#39;, options: &#123;&#125; &#125;,</span><br><span class="line">    &#39;svgo-loader&#39;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>复制到 webpack.config.js 中的 module 下的 rules 下的 oneOf 中，并去掉 options 里的…，那这段代码的意思就是当有 svg 出现的时候就会依次进行 svgo-loader、svg-sprite-loader。<br>svgo-loader 是用来优化 svg ，比如说让 svg 没有 fill 属性<br>然后我们开始就开始使用，首先先做一个引入 比如说 import x from icons/a.svg<br>然后使用 svg 标签</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg&gt;</span><br><span class="line">&lt;use xlinkHref&#x3D;&quot;#a&quot;&#x2F;&gt;</span><br><span class="line">&lt;&#x2F;svg&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这段代码的意思就是要用到刚刚上面引入的 svg<br>但是如果我们引入 svg 过多的话就会导致代码重复的问题，这里我们采用组件的方式解决。</p>
+<p>Icon 组件:<br>示例: 1.定义一个 Icon 组件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import React from &#39;react&#39;;</span><br><span class="line">type Props&#x3D;&#123;</span><br><span class="line">  name:string</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const Icon &#x3D;(props:Props)&#x3D;&gt;&#123;</span><br><span class="line">    return(</span><br><span class="line">      &lt;svg className&#x3D;&quot;icon&quot;&gt;</span><br><span class="line">        &lt;use xlinkHref&#x3D;&#123;&#39;#&#39;+props.name&#125;&gt;</span><br><span class="line">      &lt;&#x2F;svg&gt;</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default Icon;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>2.使用 Icon 组件<br>由于已经封装好了 Icon 组件，这里我们直接写 svg 的名字即可<br><Icon name ="svg的id"/></p>
+<h3 id="CSS-in-JS-方案-styled-components-的使用"><a href="#CSS-in-JS-方案-styled-components-的使用" class="headerlink" title="CSS in JS 方案 styled-components 的使用"></a>CSS in JS 方案 styled-components 的使用</h3><p>1.安装<br>yarn add styled-components<br>如果需要支持 typescript 就要使用 yarn add –dev @types/styled-components</p>
+<p>2.示例:<br>import React from ‘react’;<br>import styled from ‘styled-components’;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;例如创建一个标题组件 位置居中 颜色为淡紫色 大小为 1.5em</span><br><span class="line">const Title &#x3D; styled.h1&#96; font-size: 1.5em; text-align: center; color: palevioletred;&#96;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="让-React-应用支持-sass，遇到的问题以及解决的方法"><a href="#让-React-应用支持-sass，遇到的问题以及解决的方法" class="headerlink" title="让 React 应用支持 sass，遇到的问题以及解决的方法"></a>让 React 应用支持 sass，遇到的问题以及解决的方法</h3><p>1.需要 node-sass 但是下载它非常慢，而且本地编译也非常的慢 2.我想用 dart-sass 代替 node-sass，但是 React 不支持 dart-sass 3.在使用 google 搜索发现了一个解决办法 4.就是 npm6.9 支持一个新的功能，它叫做 package alias<br>5.yarn add node-sass@npm:dart-sass 即可实现，其实就表面上安装的是 node-sass，但实际上安装的是 dart-sass 6.完美解决了 dart-sass 代替 node-sass 的问题</p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">tengchunlei</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/Canvas%E4%B8%8ESVG%E7%9A%84%E5%8C%BA%E5%88%AB/" class="pre-post btn btn-default" title='Canvas与SVG的区别'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            Canvas与SVG的区别</span>
+    </a>
+    
+    
+    <a href="/%E5%8C%97%E4%BA%AC%E5%85%AC%E5%AE%89%E5%90%88%E6%88%90%E4%BD%9C%E6%88%98%E5%B9%B3%E5%8F%B0%E9%A1%B9%E7%9B%AE%E5%B0%8F%E8%AE%B0/" class="next-post btn btn-default" title='北京公安合成作战平台项目小记'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            北京公安合成作战平台项目小记</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+    
+<div id="vcomments" class="valine"></div>
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+<script>
+    new Valine({
+        av: AV,
+        el: '#vcomments',
+        appId: 'eR0SDTdoQ1U55NajfdAGQi8N-gzGzoHsz',
+        appKey: 'CGQgfSWBWL0lzuoNVNQ2G8QT',
+        placeholder: '欢迎留下你的足迹呦。',
+        notify: false,
+        verify: true,
+        avatar: 'monsterid',
+        meta: 'nick,mail'.split(','),
+        pageSize: '10',
+        path: window.location.pathname,
+        lang: 'zh-CN'.toLowerCase()
+    })
+    </script>
+
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            文章目录
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#React-Router-%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">React Router 的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LocalStorage-%E7%94%A8%E6%B3%95%E5%B0%8F%E6%80%BB%E7%BB%93"><span class="toc-text">LocalStorage 用法小总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89-Hooks"><span class="toc-text">自定义 Hooks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SVG-Icon-%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">SVG Icon 的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS-in-JS-%E6%96%B9%E6%A1%88-styled-components-%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">CSS in JS 方案 styled-components 的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A9-React-%E5%BA%94%E7%94%A8%E6%94%AF%E6%8C%81-sass%EF%BC%8C%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E8%A7%A3%E5%86%B3%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-text">让 React 应用支持 sass，遇到的问题以及解决的方法</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2022 滕春雷
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/assets/tagcanvas.min.js?rev=2.9.js"></script>
+
+<script>
+var tagOption = {
+    textColour: '#444', // 字体颜色
+    outlineMethod: 'block', // 选中模式
+    outlineColour: '#FFDAB9', // 选中模式的颜色
+    interval: 30 || 30, // 动画帧之间的时间间隔，值越大，转动幅度越大
+    textHeight: 13,
+    outlineRadius: 3,
+    freezeActive: true || '', // 选中的标签是否继续滚动
+    frontSelect: true || '', // 不选标签云后部的标签
+    initial: [0.1, -0.1],
+    depth: 0.5,
+    decel: 0.95,
+    maxSpeed: 0.03,
+    reverse: true || '', // 是否反向触发
+    fadeIn: 500, // 进入动画时间
+    wheelZoom: false || '' // 是否启用鼠标滚轮
+}
+TagCanvas.Start('tag-cloud-3d', '', tagOption);
+</script>
+
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+</body>
+</html>
