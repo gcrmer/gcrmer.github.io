@@ -22,7 +22,9 @@
 <meta name="keywords" content="" />
 
 
-<meta name="description" content="" />
+<meta name="description" content="jQuery 相关知识jQuery 相关知识总结
+SVG Symbols 的使用1.首先进入 iconfont 网站，选中一个图标后加入购物车后添加至新的项目
+2.点击 Symbol，再点击查看..." />
 
 
 <meta name="robots" content="all" />
@@ -189,7 +191,42 @@
     </div>
     
     <div class="post-body post-content">
-        
+        <h3 id="jQuery-相关知识"><a href="#jQuery-相关知识" class="headerlink" title="jQuery 相关知识"></a>jQuery 相关知识</h3><p><a target="_blank" rel="noopener" href="https://tengchunlei.github.io/jQuery%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/">jQuery 相关知识总结</a></p>
+<h3 id="SVG-Symbols-的使用"><a href="#SVG-Symbols-的使用" class="headerlink" title="SVG Symbols 的使用"></a>SVG Symbols 的使用</h3><p>1.首先进入 iconfont 网站，选中一个图标后加入购物车后添加至新的项目</p>
+<p>2.点击 Symbol，再点击查看在线链接，点击生成代码，将代码放在 main.js 之前即可</p>
+<p>3.此时我们的项目中就已经有图标了</p>
+<p>4.点击 iconfont 网站的帮助，选择代码应用，找到 symbol 引用</p>
+<p>5.首先将第二步生成的 symbol 代码拷贝到项目中</p>
+<p>6.加入通用 css 代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;style type&#x3D;&quot;text&#x2F;css&quot;&gt;</span><br><span class="line">    .icon&#123;</span><br><span class="line">        width:1em;height:1em;</span><br><span class="line">        vertical-align:-0.15em;</span><br><span class="line">        fill:currentColor;</span><br><span class="line">        overflow:hidden;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
+
+<p>7.选择相应图标并获取类名，应用于页面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg class&#x3D;&quot;icon&quot; aria-hidden&#x3D;&quot;true&quot;&gt;</span><br><span class="line">    &lt;use xlink:href&#x3D;&quot;#icon&#x3D;xxx&quot;&gt;&lt;&#x2F;use&gt;</span><br><span class="line">&lt;&#x2F;svg&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="媒体查询的用法总结"><a href="#媒体查询的用法总结" class="headerlink" title="媒体查询的用法总结"></a>媒体查询的用法总结</h3><p>Media Queries 是响应式设计的核心。</p>
+<p>Media Queries 能在不同的条件下使用不同的样式，使页面在不同的终端设备下达到不同的渲染效果。</p>
+<p>具体来说,Media Queries 的使用方法如下。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@media（媒体特性）&#123;你的样式&#125;</span><br></pre></td></tr></table></figure>
+
+<p>媒体特性是通过 min/max 来表示大于等于或小于做为逻辑判断。</p>
+<p>Media Queries 在实际项目中常用的方式:</p>
+<ol>
+<li>最大宽度 max-width</li>
+</ol>
+<p>max-width 是媒体特性中最常用的一个特性，其意思是指媒体类型小于或等于指定的宽度时，样式生效。如:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@media (max-width:500px)&#123;</span><br><span class="line">     .searchForm&#123;</span><br><span class="line">        background:red;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面表示的是：当页面宽度小于或等于 500px 时,searchForm 的颜色变成红色。</p>
+<p>2.最小宽度 min-width<br>min-width 指的是媒体类型大于或等于指定宽度时，样式生效。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@media (min-width:500px)&#123;</span><br><span class="line">     .globalHeader&#123;</span><br><span class="line">        margin:60px 0;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>当页面宽度大于或等于 500px 时，globalHeader 上下间距设置为 60px;</p>
+<p>3.多个特性使用</p>
+<p>Media Queries 可以使用关键词”and”将多个特性结合在一起。也就是说，一个 Media Query 中可以包含 0 到多个表达式，表达式又可以包含 0 到多个关键字，以及一种媒体类型。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@media (min-width:500px) and (max-width:900px)&#123;</span><br><span class="line">     body &#123;</span><br><span class="line">        background-color:#f5f5f5;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>当页面宽度在 500px~900px 之间时，body 的背景色渲染为“#f5f5f5”。</p>
+
     </div>
     
     <div class="post-footer">
@@ -258,7 +295,7 @@
             文章目录
         </h3>
         
-        <p>暂无目录</p>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#jQuery-%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86"><span class="toc-text">jQuery 相关知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SVG-Symbols-%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">SVG Symbols 的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2%E7%9A%84%E7%94%A8%E6%B3%95%E6%80%BB%E7%BB%93"><span class="toc-text">媒体查询的用法总结</span></a></li></ol>
         
     </div>
 </aside>
