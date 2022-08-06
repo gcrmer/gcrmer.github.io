@@ -211,9 +211,8 @@ SVG Symbols 的使用1.首先进入 iconfont 网站，选中一个图标后加�
 <p>媒体特性是通过 min/max 来表示大于等于或小于做为逻辑判断。</p>
 <p>Media Queries 在实际项目中常用的方式:</p>
 <ol>
-<li>最大宽度 max-width</li>
+<li>最大宽度 max-width<br>max-width 是媒体特性中最常用的一个特性，其意思是指媒体类型小于或等于指定的宽度时，样式生效。</li>
 </ol>
-<p>max-width 是媒体特性中最常用的一个特性，其意思是指媒体类型小于或等于指定的宽度时，样式生效。如:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@media (max-width:500px)&#123;</span><br><span class="line">     .searchForm&#123;</span><br><span class="line">        background:red;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 <p>上面表示的是：当页面宽度小于或等于 500px 时,searchForm 的颜色变成红色。</p>
