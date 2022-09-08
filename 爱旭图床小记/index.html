@@ -191,7 +191,7 @@
     
     <div class="post-body post-content">
         <p>一、项目整体结构:<br>pages-放页面上的组件:首页 历史上传 关于爱旭<br>stores- 放状态数据<br>models-向服务器发请求获取数据<br>components-放公用组件 header footer</p>
-<p>二、前端功能实现<br>注册功能: 1.使用 Ant Design<br>-首先使用命令安装 antd: yarn add antd -然后引入相关组件:按钮、验证、表单、输入。</p>
+<p>二、前端功能实现<br>注册功能:<br>1.使用 Ant Design<br>-首先使用命令安装 antd: yarn add antd -然后引入相关组件:按钮、验证、表单、输入。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import &#123; Button, Checkbox, Form, Input &#125; from &#39;antd&#39;;</span><br></pre></td></tr></table></figure>
 
 <p>-引入样式</p>
@@ -204,19 +204,18 @@
 <p>3.点击提交调用后端注册接口</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const onFinish &#x3D; values &#x3D;&gt; &#123;</span><br><span class="line">console.log(&#39;Success:&#39;, values);</span><br><span class="line">AuthStore.setUsername(values.username);</span><br><span class="line"> AuthStore.setPassword(values.password);</span><br><span class="line">AuthStore.register()</span><br><span class="line">.then(()&#x3D;&gt;&#123;</span><br><span class="line">console.log(&#39;注册成功，即将跳转到首页&#39;)</span><br><span class="line">history.push (&#39;&#x2F;&#39;)</span><br><span class="line">&#125;).catch(()&#x3D;&gt;&#123;</span><br><span class="line">console.log(&#39;登录失败，什么都不做&#39;)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
-<p>-登录功能: 1.引入 Ant Design -引入需要使用的组件:</p>
+<p>-登录功能:<br>1.引入 Ant Design -引入需要使用的组件:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import &#123; Button, Checkbox, Form, Input &#125; from &#39;antd&#39;;</span><br></pre></td></tr></table></figure>
 
-<p>-对相关组件样式进行配置 2.登录验证<br>此处与注册的逻辑是一样的，都是检测输入是否合规 3.点击提交调用后端登录接口</p>
+<p>-对相关组件样式进行配置<br>2.登录验证<br>此处与注册的逻辑是一样的，都是检测输入是否合规<br>3.点击提交调用后端登录接口</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const onFinish &#x3D; (values) &#x3D;&gt; &#123;</span><br><span class="line">AuthStore.setUsername(values.username);</span><br><span class="line">AuthStore.setPassword(values.password);</span><br><span class="line">console.log(&#39;Success:&#39;, values);</span><br><span class="line">AuthStore.login().then(()&#x3D;&gt;&#123;</span><br><span class="line">console.log(&#39;登录成功，即将跳转到首页&#39;)</span><br><span class="line">history.push(&#39;&#x2F;&#39;)</span><br><span class="line">&#125;).catch(()&#x3D;&gt;&#123;</span><br><span class="line">console.log(&#39;登录失败，请重新检查用户名与密码&#39;)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <p>-注销功能:<br>点击注销后直接调用注销接口，重置用户所有信息</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AuthStore.logout();</span><br></pre></td></tr></table></figure>
 
-<p>-首页上传功能: 1.引入 Ant Design -引入相关组件:提示信息、上传、加载中</p>
+<p>-首页上传功能:<br>1.引入 Ant Design<br>-引入相关组件:提示信息、上传、加载中  </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import &#123;message, Upload,Spin&#125; from &#39;antd&#39;;</span><br></pre></td></tr></table></figure>
-
-<p>2.验证登录状态、图片类型、大小 3.如果已经登录且图片类型大小都满足要求则调用</p>
+<p>2.验证登录状态、图片类型、大小<br>3.如果已经登录且图片类型大小都满足要求则调用</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ImageStore.upload()</span><br></pre></td></tr></table></figure>
 
 <p>4.上传结果展示使用<br>当完成上传后会在首页下面显示上传结果，<br>上传结果中关于图片尺寸的定制，这里采用了 uesRef 获取输入框的 width 与 height<br>同时调用以下代码设置最新的图片尺寸</p>
@@ -225,15 +224,15 @@
 <p>调用以下代码显示最新尺寸的图片</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">store.fullStr()</span><br></pre></td></tr></table></figure>
 
-<p>-历史上传查询功能: 1.使用了 react-infinite-scroller 实现滚动自动加载列表<br>2 这里主要使用 List 组件，List 组件的 dataSource 是 HistoryStore.list<br>通过 renderItem 的方式每张图片以图片、文件名，图片链接的方式展示出来。</p>
-<p>-懒加载实现: 1.背景:<br>当我们打开网站时无需加载所有的页面，点击谁加载谁即可<br>点到 home 加载 home ，点到 about 就加载 about。</p>
+<p>-历史上传查询功能:<br>1.使用了 react-infinite-scroller 实现滚动自动加载列表<br>2 这里主要使用 List 组件，List 组件的 dataSource 是 HistoryStore.list<br>通过 renderItem 的方式每张图片以图片、文件名，图片链接的方式展示出来。</p>
+<p>-懒加载实现:<br>1.背景:<br>当我们打开网站时无需加载所有的页面，点击谁加载谁即可<br>点到 home 加载 home ，点到 about 就加载 about。</p>
 <p>2.实现<br>lazy 函数用于懒加载</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const Home&#x3D;lazy(() &#x3D;&gt;import(&#39;.&#x2F;pages&#x2F;Home&#39;));</span><br><span class="line">const History&#x3D;lazy(() &#x3D;&gt;import(&#39;.&#x2F;pages&#x2F;History&#39;));</span><br><span class="line">const About&#x3D;lazy(() &#x3D;&gt;import(&#39;.&#x2F;pages&#x2F;About&#39;));</span><br></pre></td></tr></table></figure>
 
 <p>Suspense，表示很着急，我们就可以一开始将比较重要的页面比如 Header 和 Footer 就让他们先加载出来，其他的的靠后， 使用 Suspense 把路由包裹起来，点击历史上传时出现 loading ，点击关于时出现 loading。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;Suspense fallback&#x3D;&#123;&lt;div&gt;Loading&lt;&#x2F;div&gt;&#125;&gt;</span><br><span class="line">      &lt;Switch&gt;</span><br><span class="line">        &lt;Route path&#x3D;&quot;&#x2F;&quot; exact component&#x3D;&#123;Home&#125; &#x2F;&gt;</span><br><span class="line">        &lt;Route path&#x3D;&quot;&#x2F;history&quot;  component&#x3D;&#123;History&#125; &#x2F;&gt;</span><br><span class="line">        &lt;Route path&#x3D;&quot;&#x2F;about&quot; component&#x3D;&#123;About&#125; &#x2F;&gt;</span><br><span class="line">      &lt;&#x2F;Switch&gt;</span><br><span class="line">&lt;&#x2F;Suspense&gt;</span><br></pre></td></tr></table></figure>
 
-<p>-数据状态管理 Mobx<br>使用方法，使用以下例子进行说明: 1.设置 Store</p>
+<p>-数据状态管理 Mobx<br>使用方法，使用以下例子进行说明:<br>1.设置 Store</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import &#123;observable ,action ,computed&#125; from &#39;mobx&#39;;</span><br><span class="line">export class HomeStore&#123;</span><br><span class="line">@observable counter &#x3D; 1; &#x2F;&#x2F;状态</span><br><span class="line">@computed get doubleCounter()&#123;</span><br><span class="line">return this.counter \* 2</span><br><span class="line">&#125;</span><br><span class="line">@action add()&#123; &#x2F;&#x2F;行为</span><br><span class="line">this.counter++</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>2.创建 Context 对象</p>
