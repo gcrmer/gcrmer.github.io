@@ -22,10 +22,8 @@
 <meta name="keywords" content="" />
 
 
-<meta name="description" content="HTML 的发明者HTML 是由 Tim Berners-Lee (李爵士) 发明的。
-HTML 起手应该写些什么如下图所示
-
-常用的表章节的标签有哪些，分别是什么意思**章节标签是用来表示文章..." />
+<meta name="description" content="两栏布局:①采用 Flex 布局:父容器dispaly:flex; 侧边栏设置固定宽度width,自适应元素设置flex-grow:1
+12345678910111213141516171819..." />
 
 
 <meta name="robots" content="all" />
@@ -36,7 +34,7 @@ HTML 起手应该写些什么如下图所示
 
 <title>
     
-    HTML入门笔记1 |
+    布局方案总结 |
     
     滕春雷
 </title>
@@ -157,16 +155,16 @@ HTML 起手应该写些什么如下图所示
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="HTML入门笔记1">
+        <h1 id="布局方案总结">
             
-            HTML入门笔记1
+            布局方案总结
             
         </h1>
         <div class="post-meta">
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <a class="category-link" href="/categories/HTML/">HTML</a>
+        
     </span>
     
     
@@ -182,101 +180,23 @@ HTML 起手应该写些什么如下图所示
     <span class="fa-wrap">
         <i class="fa fa-clock-o"></i>
         <span class="date-meta">
-            2021/05/22</span>
+            2022/03/15</span>
     </span>
     
     
 </div>
         
         
-        <p class="fa fa-exclamation-triangle warning">
-            本文于<strong>
-                481</strong>
-            天之前发表，文中内容可能已经过时。
-        </p>
-        
     </div>
     
     <div class="post-body post-content">
-        <h3 id="HTML-的发明者"><a href="#HTML-的发明者" class="headerlink" title="HTML 的发明者"></a><strong>HTML 的发明者</strong></h3><p>HTML 是由 Tim Berners-Lee (李爵士) 发明的。</p>
-<h3 id="HTML-起手应该写些什么"><a href="#HTML-起手应该写些什么" class="headerlink" title="HTML 起手应该写些什么"></a><strong>HTML 起手应该写些什么</strong></h3><p>如下图所示</p>
-<p><img src="https://z3.ax1x.com/2021/05/30/2ZE2tJ.md.png" alt="2ZE2tJ.md.png"></p>
-<h3 id="常用的表章节的标签有哪些，分别是什么意思"><a href="#常用的表章节的标签有哪些，分别是什么意思" class="headerlink" title="常用的表章节的标签有哪些，分别是什么意思**"></a>常用的表章节的标签有哪些，分别是什么意思**</h3><p>章节标签是用来表示文章或书籍的层级，以下是标签的具体分类</p>
-<ul>
-<li><p>标题 h1 ~ h6</p>
-<p><code>&lt;h1&gt; 文章标题 &lt;/h1&gt; </code></p>
-</li>
-<li><p>章节 section</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">section</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h2</span>&gt;</span>第一章<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>段落 p</p>
-<p><code>&lt;p&gt;我真的超级棒&lt;/p&gt;</code></p>
-</li>
-<li><p>文章 article</p>
-</li>
-<li><p>头部 header</p>
-<p>一般是用 header 标签来加网页的置顶广告 <code>&lt;header&gt;这是一个好的广告位&lt;/header&gt;</code></p>
-</li>
-<li><p>脚部 footer</p>
-<p>一般用 footer 标签来加自己网站的版权声明 <code>&lt;footer&gt;Amazeseek版权所有&lt;/footer&gt;</code></p>
-</li>
-<li><p>主要内容 main</p>
-<p>表示内容里主要的部分，通过使用 main 能够让文章的结构更加具有层次感。</p>
-</li>
-<li><p>旁支内容 aside</p>
-<p>表示内容里次要的部分，一般在 aside 标签里添加网站的导航。</p>
-</li>
-<li><p>划分 div</p>
-<p>通过 div 标签将 main 中的内容和 aside 中的内容包含起来，作为一个整体，这样层次感更加突出。</p>
-</li>
-</ul>
-<h3 id="全局属性有哪些"><a href="#全局属性有哪些" class="headerlink" title="全局属性有哪些"></a><strong>全局属性有哪些</strong></h3><p>全局属性是指所有标签都具备的属性，主要有以下几类</p>
-<ul>
-<li><p>class</p>
-<p>给标签分个类，其实就是给标签做个标记。</p>
-</li>
-</ul>
-<ul>
-<li><p>contenteditable</p>
-<p>用户可以直接编辑页面上的文字，可以用来做一个编辑器。</p>
-</li>
-<li><p>hidden</p>
-<p>作用是快速的的让一个东西看不见。</p>
-</li>
-<li><p>id</p>
-<ol>
-<li>一个作用是 在 CSS 中加样式</li>
-<li>另一个作用是在 JS 中 是可以直接通过 id 获取元素的，但是这些元素中有些是禁忌的，需要注意。</li>
-</ol>
-<p>id 与 class 到底用谁？</p>
-<p>如果元素是全页面唯一的就用 id ，反之用 class ，还有就是不到万不得已千万不要用 id， 因为 id 的全局唯一性是不能保证的，同时也不会报错。</p>
-</li>
-<li><p>style</p>
-<p>每个元素都可以写一个 style 属性，注意 style属性的优先级要比 CSS 高。如果 CSS HTML 与 JS 的属性同时存在，则最终呈现效果以 JS 为准。</p>
-</li>
-<li><p>tabindex</p>
-<p>页面所有的可交互的属性都可用 tab 完成，tabindex 为正数时，以顺序的方式分别访问，不必是连续的正数。tabindex = 0 时，表示最后访问，若为 - 1 则表示不访问，tab找不到。</p>
-</li>
-<li><p>title</p>
-<p>当文字超长，想省略只显示一行时，就用 title 解决。以下三行代码分别代表 不换行   文本溢出有省略号  溢出省略。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">white-space: norap;</span><br><span class="line">text-overflow: ellipsis;</span><br><span class="line">over-flow:hidden;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        <p>两栏布局:<br>①采用 Flex 布局:<br>父容器dispaly:flex; 侧边栏设置固定宽度width,自适应元素设置flex-grow:1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;section&gt;</span><br><span class="line">&lt;main&gt;main&lt;&#x2F;main&gt;</span><br><span class="line">&lt;aside&gt;aside&lt;&#x2F;aside&gt;</span><br><span class="line">&lt;&#x2F;section&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">section &#123;</span><br><span class="line">display:flex;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">aside &#123;</span><br><span class="line">width:200px;</span><br><span class="line">background:black;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">main &#123;</span><br><span class="line">flex-grow:1;</span><br><span class="line">order:1;</span><br><span class="line">background:red;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
+<p>②采用Grid布局:<br>先用grid-template-columns/grid-template-columns 给容器画虚拟格子，再把元素通过grid-column/grid-row塞到格子里。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;section&gt;</span><br><span class="line">&lt;main&gt;main&lt;&#x2F;main&gt;</span><br><span class="line">&lt;aside&gt;aside&lt;&#x2F;aside&gt;</span><br><span class="line">&lt;&#x2F;section&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">section &#123;</span><br><span class="line">display:grid;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">aside &#123;</span><br><span class="line">grid-column:1&#x2F;2; &#x2F;&#x2F;放在第1根和第2根列线内</span><br><span class="line">grid-row:1&#x2F;2;    &#x2F;&#x2F;放在第1根和第2根行线内</span><br><span class="line">background:black;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">main &#123;</span><br><span class="line">grid-column:2&#x2F;3;</span><br><span class="line">grid-row:1&#x2F;2;</span><br><span class="line">background:red;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
+<p>③传统浮动布局:<br>适用于老的浏览器，要注意的是浮动的侧边栏aside的DOM位置需要放在自适应宽度的正常元素的上方。如果没有这样做，就会导致aside跑到下边去。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;section&gt;</span><br><span class="line">&lt;aside&gt;aside&lt;&#x2F;aside&gt;   &#x2F;&#x2F;对于浮动布局边栏的DOM结构要放上边</span><br><span class="line">&lt;main&gt;main&lt;&#x2F;main&gt;</span><br><span class="line">&lt;&#x2F;section&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">section::after&#123;        &#x2F;&#x2F;清除浮动</span><br><span class="line">   content:&#39;&#39;;</span><br><span class="line">   display:block;</span><br><span class="line">   clear:both;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">aside&#123;</span><br><span class="line">float:left;</span><br><span class="line">width:200px;</span><br><span class="line">background:black;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">main&#123;</span><br><span class="line">    margin-left:200px;</span><br><span class="line">    background:red;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
 
-</li>
-</ul>
-<h3 id="常用的内容标签有哪些，分别是什么意思"><a href="#常用的内容标签有哪些，分别是什么意思" class="headerlink" title="常用的内容标签有哪些，分别是什么意思"></a><strong>常用的内容标签有哪些，分别是什么意思</strong></h3><ul>
-<li>ol + li   有序列表</li>
-<li>ul + li   无序列表</li>
-<li>dl + dt +dd   对象描述列表</li>
-<li>pre  如果想要保留空格 就用 pre</li>
-<li>hr  分割线</li>
-<li>br  换行</li>
-<li>a   超链接</li>
-<li>em 强调 表示语气很重要 强调句子成分</li>
-<li>strong 重要  表示本身很重要</li>
-<li>code 代码标签</li>
-<li>quote 引用</li>
-<li>blockquote 换行引用</li>
-</ul>
 
     </div>
     
@@ -295,12 +215,18 @@ HTML 起手应该写些什么如下图所示
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/HTML%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/" class="pre-post btn btn-default" title='HTML常用标签'>
+    <a href="/MVC%E5%B0%8F%E7%9F%A5%E8%AF%86/" class="pre-post btn btn-default" title='MVC小知识'>
         <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
         <span class="hidden-xs">
-            HTML常用标签</span>
+            MVC小知识</span>
     </a>
     
+    
+    <a href="/%E5%89%8D%E7%AB%AF%E5%8D%9A%E5%AE%A2%E5%AF%BC%E8%88%AA%E7%BD%91%E7%AB%99%E9%A1%B9%E7%9B%AE%E5%B0%8F%E8%AE%B0/" class="next-post btn btn-default" title='前端博客导航网站项目小记'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            前端博客导航网站项目小记</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
     
 </div>
 
@@ -340,7 +266,7 @@ HTML 起手应该写些什么如下图所示
             文章目录
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML-%E7%9A%84%E5%8F%91%E6%98%8E%E8%80%85"><span class="toc-text">HTML 的发明者</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML-%E8%B5%B7%E6%89%8B%E5%BA%94%E8%AF%A5%E5%86%99%E4%BA%9B%E4%BB%80%E4%B9%88"><span class="toc-text">HTML 起手应该写些什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E8%A1%A8%E7%AB%A0%E8%8A%82%E7%9A%84%E6%A0%87%E7%AD%BE%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%8C%E5%88%86%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%8F%E6%80%9D"><span class="toc-text">常用的表章节的标签有哪些，分别是什么意思**</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E5%B1%9E%E6%80%A7%E6%9C%89%E5%93%AA%E4%BA%9B"><span class="toc-text">全局属性有哪些</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E5%86%85%E5%AE%B9%E6%A0%87%E7%AD%BE%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%8C%E5%88%86%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%8F%E6%80%9D"><span class="toc-text">常用的内容标签有哪些，分别是什么意思</span></a></li></ol>
+        <p>暂无目录</p>
         
     </div>
 </aside>
