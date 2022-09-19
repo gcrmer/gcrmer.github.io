@@ -22,8 +22,7 @@
 <meta name="keywords" content="" />
 
 
-<meta name="description" content="对 CSS 实现垂直居中的方案做了一个小的总结，主要有以下几种方式。
-1.在父元素(.parent)的 height 没有固定写死的情况下，子元素(.child)的垂直居中很容易做到，我们给父元..." />
+<meta name="description" content="" />
 
 
 <meta name="robots" content="all" />
@@ -34,7 +33,7 @@
 
 <title>
     
-    CSS实现垂直居中 |
+    关于原型链的理解 |
     
     滕春雷
 </title>
@@ -155,9 +154,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="CSS实现垂直居中">
+        <h1 id="关于原型链的理解">
             
-            CSS实现垂直居中
+            关于原型链的理解
             
         </h1>
         <div class="post-meta">
@@ -180,7 +179,7 @@
     <span class="fa-wrap">
         <i class="fa fa-clock-o"></i>
         <span class="date-meta">
-            2022/06/24</span>
+            2022/09/19</span>
     </span>
     
     
@@ -190,50 +189,7 @@
     </div>
     
     <div class="post-body post-content">
-        <p>对 CSS 实现垂直居中的方案做了一个小的总结，主要有以下几种方式。</p>
-<p><strong>1</strong>.在父元素(.parent)的 height 没有固定写死的情况下，子元素(.child)的垂直居中很容易做到，我们给父元素(.parent)加上下 padding 就可以啦。</p>
-<p>关键代码:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.parent &#123;</span><br><span class="line">  padding: 30px 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://jsbin.com/teyuher/edit?html,css,js,console,output">查看 Demo</a><br>注:尽可能不写父元素的 width 和 height，靠子元素去撑是最好的。</p>
-<p><strong>2</strong>. 在父元素(.parent)的 height 固定写死的情况下，子元素(.child)的垂直居中有以下几种方式<ul></p>
-<li>flex
-
-<p>关键代码:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">.parent&#123;</span><br><span class="line">  height: 500px;</span><br><span class="line">  border: 5px solid red;</span><br><span class="line">  display: flex;</span><br><span class="line">  justify-content: center;</span><br><span class="line">  align-items: center;</span><br><span class="line">&#125;</span><br><span class="line">.child&#123;</span><br><span class="line">  border: 5px solid green;</span><br><span class="line">  width: 400px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://jsbin.com/xepexuc/edit?html,css,output">查看 Demo</a></p>
-</li>
-
-<li>absolute + translate -50%
-
-<p>关键代码:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">.parent&#123;</span><br><span class="line">  height: 500px;</span><br><span class="line">  border: 5px solid red;</span><br><span class="line">  position: relative;</span><br><span class="line">&#125;</span><br><span class="line">.child&#123;</span><br><span class="line">  border: 5px solid green;</span><br><span class="line">  position: absolute;</span><br><span class="line">  top: 50%;</span><br><span class="line">  left: 50%;</span><br><span class="line">  transform: translate(-50%,-50%);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://jsbin.com/kihiyaf/edit?html,css,output">查看 Demo</a></p>
-</li>
-
-<li>absolute + 负 margin
-
-<p>关键代码:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">.parent&#123;</span><br><span class="line">  height: 500px;</span><br><span class="line">  border: 5px solid red;</span><br><span class="line">  position: relative;</span><br><span class="line">&#125;</span><br><span class="line">.child&#123;</span><br><span class="line">  border: 5px solid green;</span><br><span class="line">  width: 300px;</span><br><span class="line">  position: absolute;</span><br><span class="line">  top: 50%;</span><br><span class="line">  left: 50%;</span><br><span class="line">  margin-left: -150px;&#x2F;*为子元素width的一半*&#x2F;</span><br><span class="line">  height: 100px;</span><br><span class="line">  margin-top: -50px;  &#x2F;*为子元素height的一半*&#x2F;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://jsbin.com/dixesob/edit?html,css,output">查看 Demo</a></p>
-</li>
-
-<li>absolute + margin: auto
-
-<p>关键代码:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">.parent&#123;</span><br><span class="line">  height: 400px;</span><br><span class="line">  border: 5px solid red;</span><br><span class="line">  position: relative;</span><br><span class="line">&#125;</span><br><span class="line">.child&#123;</span><br><span class="line">  border: 5px solid green;</span><br><span class="line">  position: absolute;</span><br><span class="line">  width: 200px;</span><br><span class="line">  height: 200px;</span><br><span class="line">  margin: auto;</span><br><span class="line">  top: 0;</span><br><span class="line">  bottom: 0;</span><br><span class="line">  left: 0;</span><br><span class="line">  right: 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://jsbin.com/wubumos/edit?html,css,output">查看 Demo</a></p>
-</li>
-
-<li>table本身自带功能
-
-<p>关键代码:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;table class&#x3D;&quot;parent&quot;&gt;</span><br><span class="line">   &lt;tr&gt;</span><br><span class="line">     &lt;td class&#x3D;&quot;child&quot;&gt;</span><br><span class="line">  人生短暂开心一点人生短暂开心一点人生短暂开心一点人生短暂开心一点 &lt;&#x2F;td&gt;</span><br><span class="line">   &lt;&#x2F;tr&gt;</span><br><span class="line"> &lt;&#x2F;table&gt;</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://jsbin.com/dekuger/edit?html,css,output">查看 Demo</a></p>
-
+        
     </div>
     
     <div class="post-footer">
@@ -251,17 +207,11 @@
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/%E6%89%8B%E5%86%99%E8%8A%82%E6%B5%81%E4%B8%8E%E9%98%B2%E6%8A%96/" class="pre-post btn btn-default" title='手写节流与防抖'>
-        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-        <span class="hidden-xs">
-            手写节流与防抖</span>
-    </a>
     
-    
-    <a href="/Canvas%E4%B8%8ESVG%E7%9A%84%E5%8C%BA%E5%88%AB/" class="next-post btn btn-default" title='Canvas与SVG的区别'>
+    <a href="/%E7%88%B1%E6%97%AD%E5%9B%BE%E5%BA%8A%E5%B0%8F%E8%AE%B0/" class="next-post btn btn-default" title='爱旭图床小记'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
-            Canvas与SVG的区别</span><i class="fa fa-angle-right fa-fw"></i>
+            爱旭图床小记</span><i class="fa fa-angle-right fa-fw"></i>
     </a>
     
 </div>

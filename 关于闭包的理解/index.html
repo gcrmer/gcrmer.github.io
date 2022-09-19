@@ -22,7 +22,8 @@
 <meta name="keywords" content="" />
 
 
-<meta name="description" content="" />
+<meta name="description" content="什么是闭包?闭包其实是JS的一种语法特性，闭包 = 函数 + 自由变量，那什么是自由变量呢?自由变量其实就是指在函数中使用，但是既不是参数也不是函数局部变量的变量。
+闭包是怎样实现的呢?我们将以..." />
 
 
 <meta name="robots" content="all" />
@@ -189,7 +190,18 @@
     </div>
     
     <div class="post-body post-content">
-        
+        <h3 id="什么是闭包"><a href="#什么是闭包" class="headerlink" title="什么是闭包?"></a>什么是闭包?</h3><p>闭包其实是JS的一种语法特性，闭包 = 函数 + 自由变量，那什么是自由变量呢?<br>自由变量其实就是指在函数中使用，但是既不是参数也不是函数局部变量的变量。</p>
+<h3 id="闭包是怎样实现的呢"><a href="#闭包是怎样实现的呢" class="headerlink" title="闭包是怎样实现的呢?"></a>闭包是怎样实现的呢?</h3><p>我们将以下的代码放到非全局环境里，就是闭包。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let count&#x3D;1 </span><br><span class="line">  function add ()&#123; &#x2F;&#x2F; 访问了外部变量的函数</span><br><span class="line">    count +&#x3D; 1</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>我们采用立即执行函数来创造一个非全局的环境</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const x &#x3D; function()&#123;</span><br><span class="line">let count&#x3D;1</span><br><span class="line">function add ()&#123; &#x2F;&#x2F; 访问了外部变量的函数</span><br><span class="line">count +&#x3D; 1</span><br><span class="line">&#125;</span><br><span class="line">&#125;()</span><br></pre></td></tr></table></figure>
+<p>为了得到函数的执行结果，我们需要return add，即</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const x &#x3D; function()&#123;</span><br><span class="line">let count&#x3D;1</span><br><span class="line">return function add ()&#123; &#x2F;&#x2F; 访问了外部变量的函数</span><br><span class="line">count +&#x3D; 1</span><br><span class="line">console.log(count)</span><br><span class="line">&#125;</span><br><span class="line">&#125;()</span><br></pre></td></tr></table></figure>
+<p>x()//结果打印出2<br>x()//结果打印出3<br>每次运行x()，count都会加1</p>
+<p>那么此时我们说由count和add组成的整体就叫做闭包。<br>这样我们就完整的实现了闭包的应用。</p>
+<h3 id="闭包解决了什么问题呢？"><a href="#闭包解决了什么问题呢？" class="headerlink" title="闭包解决了什么问题呢？"></a>闭包解决了什么问题呢？</h3><p>1.避免污染全局环境<br>2.提供了对局部变量的间接访问<br>3.维持变量，使其不被垃圾回收</p>
+<h3 id="闭包有什么优点和缺点呢？"><a href="#闭包有什么优点和缺点呢？" class="headerlink" title="闭包有什么优点和缺点呢？"></a>闭包有什么优点和缺点呢？</h3><p>优点就是:简单好用<br>缺点就是:有些浏览器对闭包支持不够好，比如IE.</p>
+
     </div>
     
     <div class="post-footer">
@@ -258,7 +270,7 @@
             文章目录
         </h3>
         
-        <p>暂无目录</p>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E9%97%AD%E5%8C%85"><span class="toc-text">什么是闭包?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AD%E5%8C%85%E6%98%AF%E6%80%8E%E6%A0%B7%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%91%A2"><span class="toc-text">闭包是怎样实现的呢?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AD%E5%8C%85%E8%A7%A3%E5%86%B3%E4%BA%86%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98%E5%91%A2%EF%BC%9F"><span class="toc-text">闭包解决了什么问题呢？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AD%E5%8C%85%E6%9C%89%E4%BB%80%E4%B9%88%E4%BC%98%E7%82%B9%E5%92%8C%E7%BC%BA%E7%82%B9%E5%91%A2%EF%BC%9F"><span class="toc-text">闭包有什么优点和缺点呢？</span></a></li></ol>
         
     </div>
 </aside>
