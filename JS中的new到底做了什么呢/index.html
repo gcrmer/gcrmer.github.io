@@ -22,8 +22,8 @@
 <meta name="keywords" content="" />
 
 
-<meta name="description" content="什么是闭包?闭包其实是JS的一种语法特性，闭包 = 函数 + 自由变量，那什么是自由变量呢?自由变量其实就是指在函数中使用，但是既不是参数也不是函数局部变量的变量。
-闭包是怎样实现的呢?我们将以..." />
+<meta name="description" content="1.首先我想说明new主要做了以下四件事①创建临时对象/新对象②绑定原型③指定 this = 临时对象④执行构造函数⑤返回临时对象
+我的理解呢就是new为我们节省了很多的内存，比如说我们想要制作..." />
 
 
 <meta name="robots" content="all" />
@@ -34,7 +34,7 @@
 
 <title>
     
-    关于闭包的理解 |
+    JS中的new到底做了什么呢 |
     
     滕春雷
 </title>
@@ -155,9 +155,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="关于闭包的理解">
+        <h1 id="JS中的new到底做了什么呢">
             
-            关于闭包的理解
+            JS中的new到底做了什么呢
             
         </h1>
         <div class="post-meta">
@@ -180,7 +180,7 @@
     <span class="fa-wrap">
         <i class="fa fa-clock-o"></i>
         <span class="date-meta">
-            2022/04/10</span>
+            2022/04/11</span>
     </span>
     
     
@@ -190,17 +190,14 @@
     </div>
     
     <div class="post-body post-content">
-        <h3 id="什么是闭包"><a href="#什么是闭包" class="headerlink" title="什么是闭包?"></a>什么是闭包?</h3><p>闭包其实是JS的一种语法特性，闭包 = 函数 + 自由变量，那什么是自由变量呢?<br>自由变量其实就是指在函数中使用，但是既不是参数也不是函数局部变量的变量。</p>
-<h3 id="闭包是怎样实现的呢"><a href="#闭包是怎样实现的呢" class="headerlink" title="闭包是怎样实现的呢?"></a>闭包是怎样实现的呢?</h3><p>我们将以下的代码放到非全局环境里，就是闭包。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let count&#x3D;1 </span><br><span class="line">  function add ()&#123; &#x2F;&#x2F; 访问了外部变量的函数</span><br><span class="line">    count +&#x3D; 1</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p>我们采用立即执行函数来创造一个非全局的环境</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const x &#x3D; function()&#123;</span><br><span class="line">let count&#x3D;1</span><br><span class="line">function add ()&#123; &#x2F;&#x2F; 访问了外部变量的函数</span><br><span class="line">count +&#x3D; 1</span><br><span class="line">&#125;</span><br><span class="line">&#125;()</span><br></pre></td></tr></table></figure>
-<p>为了得到函数的执行结果，我们需要return add，即</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const x &#x3D; function()&#123;</span><br><span class="line">let count&#x3D;1</span><br><span class="line">return function add ()&#123; &#x2F;&#x2F; 访问了外部变量的函数</span><br><span class="line">count +&#x3D; 1</span><br><span class="line">console.log(count)</span><br><span class="line">&#125;</span><br><span class="line">&#125;()</span><br></pre></td></tr></table></figure>
-<p>x()//结果打印出2<br>x()//结果打印出3<br>每次运行x()，count都会加1</p>
-<p>那么此时我们说由count和add组成的整体就叫做闭包。<br>这样我们就完整的实现了闭包的应用。</p>
-<h3 id="闭包解决了什么问题呢？"><a href="#闭包解决了什么问题呢？" class="headerlink" title="闭包解决了什么问题呢？"></a>闭包解决了什么问题呢？</h3><p>1.避免污染全局环境<br>2.提供了对局部变量的间接访问<br>3.维持变量，使其不被垃圾回收</p>
-<h3 id="闭包有什么优点和缺点呢？"><a href="#闭包有什么优点和缺点呢？" class="headerlink" title="闭包有什么优点和缺点呢？"></a>闭包有什么优点和缺点呢？</h3><p>优点就是:简单好用<br>缺点就是:有些浏览器对闭包支持不够好，比如IE.</p>
+        <p>1.首先我想说明new主要做了以下四件事<br>①创建临时对象/新对象<br>②绑定原型<br>③指定 this = 临时对象<br>④执行构造函数<br>⑤返回临时对象</p>
+<p>我的理解呢就是new为我们节省了很多的内存，比如说我们想要制作一款战争游戏，需要创造小兵的角色，小兵的属性分为身份属性和基本操作属性，假如我们创建一个小兵，那么我们只需要定义一个小兵对象即可，但是如果我们要创造100个或者1000个小兵呢？难道要重复写100个或1000个这样的对象吗？或者说用循环来执行100次或者1000次？这些方法显然是不好的，因为小兵这个对象只有ID是不同的，其他属性都是相同的,如果我们这样做，势必会浪费大量的内存，其实我们每次只要生成一个不同的ID即可,其他固定的属性我们可以写在原型里，这样就不用重复创建这些属性。<br>看一下示例代码:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">function 士兵(ID)&#123;</span><br><span class="line">  var 临时对象 &#x3D; &#123;&#125;</span><br><span class="line">  临时对象.__proto__ &#x3D; 士兵.原型</span><br><span class="line">  临时对象.ID &#x3D; ID</span><br><span class="line">  return 临时对象</span><br><span class="line">&#125;</span><br><span class="line">士兵.原型 &#x3D; &#123;</span><br><span class="line">  兵种:&quot;美国大兵&quot;,</span><br><span class="line">  生命值:100,</span><br><span class="line">  攻击力:5,</span><br><span class="line">  行走:function()&#123; &#x2F;*走俩步的代码*&#x2F;&#125;，</span><br><span class="line">  奔跑:function()&#123; &#x2F;*狂奔的代码*&#x2F;  &#125;,</span><br><span class="line">  死亡:function()&#123; &#x2F;*Go die*&#x2F;    &#125;,</span><br><span class="line">  攻击:function()&#123; &#x2F;*糊他熊脸*&#x2F;   &#125;,</span><br><span class="line">  防御:function()&#123; &#x2F;*护脸*&#x2F;       &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 保存为文件：士兵.js</span><br><span class="line">然后就可以引用「士兵」来创建士兵了：</span><br><span class="line">var 士兵们 &#x3D; []</span><br><span class="line">for(var i&#x3D;0; i&lt;100; i++)&#123;</span><br><span class="line">  士兵们.push(士兵(i))</span><br><span class="line">&#125;</span><br><span class="line">兵营.批量制造(士兵们)</span><br></pre></td></tr></table></figure>
+
+<p>然后我们可以用new来优化一下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">function 士兵(ID)&#123;</span><br><span class="line">  this.ID &#x3D; ID</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">士兵.prototype &#x3D; &#123;</span><br><span class="line">  constructor: 士兵, &#x2F;&#x2F;主要声明临时对象是由士兵这个构造函数创建的。</span><br><span class="line">  兵种:&quot;美国大兵&quot;,</span><br><span class="line">  生命值:100,</span><br><span class="line">  攻击力:5,</span><br><span class="line">  行走:function()&#123; &#x2F;*走俩步的代码*&#x2F;&#125;,</span><br><span class="line">  奔跑:function()&#123; &#x2F;*狂奔的代码*&#x2F;  &#125;,</span><br><span class="line">  死亡:function()&#123; &#x2F;*Go die*&#x2F;    &#125;,</span><br><span class="line">  攻击:function()&#123; &#x2F;*糊他熊脸*&#x2F;   &#125;,</span><br><span class="line">  防御:function()&#123; &#x2F;*护脸*&#x2F;       &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 保存为文件：士兵.js</span><br><span class="line">然后是创建士兵（加了一个 new 关键字）：</span><br><span class="line"></span><br><span class="line">var 士兵们 &#x3D; []</span><br><span class="line">for(var i&#x3D;0; i&lt;100; i++)&#123;</span><br><span class="line">  士兵们.push(new 士兵(i))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">兵营.批量制造(士兵们)</span><br></pre></td></tr></table></figure>
+<p>只要你在士兵前面使用 new 关键字，就可以<br>1.无需创建临时对象，因为 new 会帮你做（你使用「this」就可以访问到临时对象）<br>2.无需绑定原型，因为 new 会帮你做（new 为了知道原型在哪，所以指定原型的名字为 prototype）<br>3.无需 return 临时对象，因为 new 会帮你做<br>4.不需要给原型想名字，因为 new 指定名字为 prototype。</p>
+<p>注:本文的例子是参考知乎上的一篇文章，文章很好值得学习。<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/23987456">JS 的 new 到底是干什么的？</a></p>
 
     </div>
     
@@ -219,17 +216,17 @@
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/JS%E4%B8%AD%E7%9A%84new%E5%88%B0%E5%BA%95%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88%E5%91%A2/" class="pre-post btn btn-default" title='JS中的new到底做了什么呢'>
+    <a href="/%E5%8C%97%E4%BA%AC%E5%85%AC%E5%AE%89%E5%90%88%E6%88%90%E4%BD%9C%E6%88%98%E5%B9%B3%E5%8F%B0%E9%A1%B9%E7%9B%AE%E5%B0%8F%E8%AE%B0/" class="pre-post btn btn-default" title='北京公安合成作战平台项目小记'>
         <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
         <span class="hidden-xs">
-            JS中的new到底做了什么呢</span>
+            北京公安合成作战平台项目小记</span>
     </a>
     
     
-    <a href="/The-repository-name-has-been-retired-and-cannot-be-reused%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" class="next-post btn btn-default" title='The repository [name] has been retired and cannot be reused问题的解决办法'>
+    <a href="/%E5%85%B3%E4%BA%8E%E9%97%AD%E5%8C%85%E7%9A%84%E7%90%86%E8%A7%A3/" class="next-post btn btn-default" title='关于闭包的理解'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
-            The repository [name] has been retired and cannot be reused问题的解决办法</span><i class="fa fa-angle-right fa-fw"></i>
+            关于闭包的理解</span><i class="fa fa-angle-right fa-fw"></i>
     </a>
     
 </div>
@@ -270,7 +267,7 @@
             文章目录
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E9%97%AD%E5%8C%85"><span class="toc-text">什么是闭包?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AD%E5%8C%85%E6%98%AF%E6%80%8E%E6%A0%B7%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%91%A2"><span class="toc-text">闭包是怎样实现的呢?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AD%E5%8C%85%E8%A7%A3%E5%86%B3%E4%BA%86%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98%E5%91%A2%EF%BC%9F"><span class="toc-text">闭包解决了什么问题呢？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AD%E5%8C%85%E6%9C%89%E4%BB%80%E4%B9%88%E4%BC%98%E7%82%B9%E5%92%8C%E7%BC%BA%E7%82%B9%E5%91%A2%EF%BC%9F"><span class="toc-text">闭包有什么优点和缺点呢？</span></a></li></ol>
+        <p>暂无目录</p>
         
     </div>
 </aside>
