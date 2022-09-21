@@ -190,7 +190,7 @@
         
         <p class="fa fa-exclamation-triangle warning">
             本文于<strong>
-                368</strong>
+                369</strong>
             天之前发表，文中内容可能已经过时。
         </p>
         
@@ -200,6 +200,8 @@
         <h3 id="Dom-事件模型"><a href="#Dom-事件模型" class="headerlink" title="Dom 事件模型"></a>Dom 事件模型</h3><p>事件捕获：从外向内找监听函数，叫事件捕获。</p>
 <p>事件冒泡：从内向外找监听函数，叫事件冒泡。</p>
 <p>捕获与冒泡的执行顺序：采取 W3C 事件模型，规定浏览器应同时支持两种调用顺序，首先按照捕获顺序看有没有事件监听，然后在按照冒泡顺序看有没有事件监听，有监听函数就调用，并提供事件信息，没有就跳过。</p>
+<p>addEventListener（’click’,fn ,true/false）<br>第三个参数决定是捕获还是冒泡阶段，true捕获，false/不传参数就是冒泡阶段</p>
+<p>可以使用event.stopPropragation（）来阻止捕获或冒泡</p>
 <h3 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h3><p>什么是事件委托？</p>
 <p>由于事件会在冒泡阶段向上传播到父节点，因此可以把子节点的监听函数定义在父节点上，由父节点的监听函数统一处理多个子元素的事件。这种方法叫做事件的代理或委托。</p>
 <p>例如：</p>

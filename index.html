@@ -528,7 +528,8 @@ HTTP1.1
         </div>
         <p class="brief">
             
-            使用计数排序12345678910111213141516var uniq &amp;#x3D;function(a)&amp;#123;    var map&amp;#x3D;&amp;#123;&amp;#125;    for(let i&amp;#x3D;0;i&amp;lt;a...
+            使用计数排序思想：遍历数组，结果存放到map，再遍历map ，结果存放到数组缺点：1.只支持字符串2.当数组里有字符串’1’和数字1，是区分不出来的
+12345678910111213141516var uniq &amp;#x3D;func...
             
         </p>
     </div>
@@ -578,11 +579,9 @@ HTTP1.1
         </div>
         <p class="brief">
             
-            第一种方式，使用 JSON：
-1const b &amp;#x3D; JSON.parse(JSON.stringify(a))
-
-第二种方式，使用递归：
-1234567891011121314151617181920212223242526...
+            第一种方式，使用 JSON：1const b &amp;#x3D; JSON.parse(JSON.stringify(a))
+这种方法存在一些缺点：1.不支持 Date 正则 undefined 函数等数据2.不支持引用即环状结构
+第二种方...
             
         </p>
     </div>
