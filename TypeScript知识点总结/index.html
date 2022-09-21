@@ -1,0 +1,352 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="滕春雷">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://example.com">
+    <!--SEO-->
+
+<meta name="keywords" content="" />
+
+
+<meta name="description" content="TS和JS的区别语法层面：TypeScript = JavaScript + Type（TS 是 JS 的超集）执行环境层面：浏览器、Node.js 可以直接执行 JS，但不能执行 TS（Den..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    关于TypeScript的一些知识 |
+    
+    滕春雷
+</title>
+
+<link rel="alternate" href="/atom.xml" title="滕春雷" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+<script>
+(function() {
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='滕春雷'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <h2>
+                保持理智 相信未来
+            </h2>
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://example.com">
+                        滕春雷</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                首页</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/HTML/"><i class="fa "></i>
+                                前端</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/about/"><i class="fa "></i>
+                                关于</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a target="_blank" rel="noopener" href="https://amazeseek.com/bbs/"><i class="fa "></i>
+                                留言板</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="关于TypeScript的一些知识">
+            
+            关于TypeScript的一些知识
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2022/05/21</span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h3 id="TS和JS的区别"><a href="#TS和JS的区别" class="headerlink" title="TS和JS的区别"></a>TS和JS的区别</h3><p>语法层面：TypeScript = JavaScript + Type（TS 是 JS 的超集）<br>执行环境层面：浏览器、Node.js 可以直接执行 JS，但不能执行 TS（Deno 可以执行 TS）<br>编译层面：TS 有编译阶段，JS 没有编译阶段（只有转译阶段和 lint 阶段）<br>编写层面：TS 更难写一点，但是类型更安全<br>文档层面：TS 的代码写出来就是文档，IDE 可以完美提示。JS 的提示主要靠 TS</p>
+<h3 id="any、unknown、never-的区别"><a href="#any、unknown、never-的区别" class="headerlink" title="any、unknown、never 的区别"></a>any、unknown、never 的区别</h3><p>any V.S. unknown<br>二者都是顶级类型（top type），任何类型的值都可以赋值给顶级类型变量：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let foo: any &#x3D; 1; &#x2F;&#x2F; 不报错</span><br><span class="line">let bar: unknown &#x3D; 2; &#x2F;&#x2F; 不报错</span><br><span class="line">但是 unknown 比 any 的类型检查更严格，any 什么检查都不做，unknown 要求先收窄类型：其实就是断言，预先判断一下类型。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const value: unknown &#x3D; &quot;你好&quot;;</span><br><span class="line">const someString: string &#x3D; value;</span><br><span class="line">&#x2F;&#x2F; 报错：Type &#39;unknown&#39; is not assignable to type &#39;string&#39;.(2322)</span><br><span class="line">const value: unknown &#x3D; &quot;Hello World&quot;;</span><br><span class="line">const someString: string &#x3D; value as string; &#x2F;&#x2F; 不报错</span><br></pre></td></tr></table></figure>
+<p>如果改成 any，在哪都不报错。所以能用unknown 就尽量用unknown 类型更安全一点。<br>never 是底类型，表示不应该出现的类型,一个例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">interface A &#123;</span><br><span class="line">  type: &#39;a&#39;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">interface B &#123;</span><br><span class="line">  type: &#39;b&#39;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">type All &#x3D; A | B</span><br><span class="line"></span><br><span class="line">function handleValue(val: All) &#123;</span><br><span class="line">  switch (val.type) &#123;</span><br><span class="line">    case &#39;a&#39;:</span><br><span class="line">      &#x2F;&#x2F; 这里 val 被收窄为 A</span><br><span class="line">      break</span><br><span class="line">    case &#39;b&#39;:</span><br><span class="line">      &#x2F;&#x2F; val 在这里是被收窄为 B</span><br><span class="line">      break</span><br><span class="line">    default:</span><br><span class="line">      &#x2F;&#x2F; val 在这里是 never 表示根本不存在</span><br><span class="line">      const exhaustiveCheck: never &#x3D; val</span><br><span class="line">      break</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="type-和-interface-的区别"><a href="#type-和-interface-的区别" class="headerlink" title="type 和 interface 的区别"></a>type 和 interface 的区别</h3><p>1.组合方式：interface 使用 extends 来实现继承，type 使用 | 来实现联合类型。<br>2.扩展方式：interface 可以重复声明用来扩展，type 一个类型只能声明一次<br>3.范围不同：type 适用于基本类型，interface 一般不行。<br>4.命名方式：interface 会创建新的类型名，type 只是创建类型别名，并没有新创建类型。<br>一般和对象相关的用interface，无关的用type。</p>
+<h3 id="TS-工具类型-Partial、Required、Readonly、Exclude、Extract、Omit、ReturnType-的作用与实现"><a href="#TS-工具类型-Partial、Required、Readonly、Exclude、Extract、Omit、ReturnType-的作用与实现" class="headerlink" title="TS 工具类型 Partial、Required、Readonly、Exclude、Extract、Omit、ReturnType 的作用与实现"></a>TS 工具类型 Partial、Required、Readonly、Exclude、Extract、Omit、ReturnType 的作用与实现</h3><p>1.含义:<br>Partial 部分类型<br>Required 必填类型<br>Readonly 只读类型<br>Exclude 排除类型<br>Extract 提取类型<br>Pick/Omit 排除 key 类型<br>ReturnType 返回值类型<br>2.作用与实现<br>①Partial 部分类型<br>比如说我们创建一个用户，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">interface User｛</span><br><span class="line">id：string</span><br><span class="line">name：string</span><br><span class="line">｝</span><br><span class="line">&#x2F;&#x2F;正常来说我们创建的User如果不是完整的就上传不到服务器，但是Partial意思就是我们创建的User不必是完整的</span><br><span class="line">Partial &lt;User&gt; &#x3D;&#123;</span><br><span class="line">id？:   string| undefined</span><br><span class="line">name？:  string |undefined</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const user：Partial&lt;User&gt; &#x3D;&#123; &#x2F;&#x2F;此处就没有写id</span><br><span class="line">name: &#39;aaaaa&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>②Required 必填类型<br>基本上就是Partial的反操作<br>③Readonly 只读类型<br>加完之后，里面的ID或者其他key是不能改的</p>
+<p>④Exclude 排除类型</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">type Dir &#x3D;&#39;东&#39; |&#39;南&#39; |&#39;西&#39; |&#39;北&#39;</span><br><span class="line">type Dir2 &#x3D;Exclude&lt;Dir,&#39;北&#39;&gt;</span><br><span class="line">此时Dir2的类型是&#39;东&#39; |&#39;南&#39; |&#39;西&#39;</span><br></pre></td></tr></table></figure>
+
+<p>⑤Extract 提取类型</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">type Dir &#x3D;&#39;东&#39; |&#39;南&#39; |&#39;西&#39; |&#39;北&#39;</span><br><span class="line">type Dir3 &#x3D;Exclude&lt;Dir,&#39;北&#39;&gt;</span><br><span class="line">此时Dir3 类型为&#39;北&#39;</span><br></pre></td></tr></table></figure>
+
+<p>⑥Pick/Omit 排除 key 类型<br>pick是只要某个key，omit不要某个key</p>
+<p>⑦ReturnType 返回值类型</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function f（a:number，b:number）｛</span><br><span class="line">return a+b</span><br><span class="line">｝</span><br></pre></td></tr></table></figure>
+<p>type A = ReturnType<typeof f ><br>通过这种方式就可以获得一个函数的返回值的类型</p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">tengchunlei</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/Canvas%E4%B8%8ESVG%E7%9A%84%E5%8C%BA%E5%88%AB/" class="pre-post btn btn-default" title='Canvas与SVG的区别'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            Canvas与SVG的区别</span>
+    </a>
+    
+    
+    <a href="/%E8%8D%94%E6%9E%9D%E8%AE%B0%E8%B4%A6%E9%A1%B9%E7%9B%AE%E5%B0%8F%E8%AE%B0/" class="next-post btn btn-default" title='荔枝记账项目小记'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            荔枝记账项目小记</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+    
+<div id="vcomments" class="valine"></div>
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+<script>
+    new Valine({
+        av: AV,
+        el: '#vcomments',
+        appId: 'eR0SDTdoQ1U55NajfdAGQi8N-gzGzoHsz',
+        appKey: 'CGQgfSWBWL0lzuoNVNQ2G8QT',
+        placeholder: '欢迎留下你的足迹呦。',
+        notify: false,
+        verify: true,
+        avatar: 'monsterid',
+        meta: 'nick,mail'.split(','),
+        pageSize: '10',
+        path: window.location.pathname,
+        lang: 'zh-CN'.toLowerCase()
+    })
+    </script>
+
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            文章目录
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#TS%E5%92%8CJS%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">TS和JS的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#any%E3%80%81unknown%E3%80%81never-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">any、unknown、never 的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#type-%E5%92%8C-interface-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">type 和 interface 的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TS-%E5%B7%A5%E5%85%B7%E7%B1%BB%E5%9E%8B-Partial%E3%80%81Required%E3%80%81Readonly%E3%80%81Exclude%E3%80%81Extract%E3%80%81Omit%E3%80%81ReturnType-%E7%9A%84%E4%BD%9C%E7%94%A8%E4%B8%8E%E5%AE%9E%E7%8E%B0"><span class="toc-text">TS 工具类型 Partial、Required、Readonly、Exclude、Extract、Omit、ReturnType 的作用与实现</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2022 滕春雷
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/assets/tagcanvas.min.js?rev=2.9.js"></script>
+
+<script>
+var tagOption = {
+    textColour: '#444', // 字体颜色
+    outlineMethod: 'block', // 选中模式
+    outlineColour: '#FFDAB9', // 选中模式的颜色
+    interval: 30 || 30, // 动画帧之间的时间间隔，值越大，转动幅度越大
+    textHeight: 13,
+    outlineRadius: 3,
+    freezeActive: true || '', // 选中的标签是否继续滚动
+    frontSelect: true || '', // 不选标签云后部的标签
+    initial: [0.1, -0.1],
+    depth: 0.5,
+    decel: 0.95,
+    maxSpeed: 0.03,
+    reverse: true || '', // 是否反向触发
+    fadeIn: 500, // 进入动画时间
+    wheelZoom: false || '' // 是否启用鼠标滚轮
+}
+TagCanvas.Start('tag-cloud-3d', '', tagOption);
+</script>
+
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+</body>
+</html>
